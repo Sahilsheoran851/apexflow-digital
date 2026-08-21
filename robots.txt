@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sahilsheoran851.github.io/apexflow-digital/sitemap.xml
+Sitemap: https://apexflow-digital.vercel.app/sitemap.xml

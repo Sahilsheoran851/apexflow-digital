@@ -3,8 +3,8 @@
 ApexFlow Digital — Sitemap Domain Configurator
 Updates sitemap.xml and robots.txt with your active deployment domain.
 Usage:
-  python3 scripts/update_sitemap_domain.py https://sahilsheoran851.github.io/apexflow-digital
-  python3 scripts/update_sitemap_domain.py https://apexflowdigital.ae
+  python3 scripts/update_sitemap_domain.py https://apexflow-digital.vercel.app
+  python3 scripts/update_sitemap_domain.py https://apexflow-digital.vercel.app
   python3 scripts/update_sitemap_domain.py https://apexflow-digital.vercel.app
 """
 
@@ -60,5 +60,5 @@ def generate_sitemap(base_url):
     print(f"✅ Updated sitemap.xml and robots.txt for domain: {base_url}")
 
 if __name__ == "__main__":
-    domain = sys.argv[1] if len(sys.argv) > 1 else "https://sahilsheoran851.github.io/apexflow-digital"
+    domain = sys.argv[1] if len(sys.argv) > 1 else "https://apexflow-digital.vercel.app"
     generate_sitemap(domain)

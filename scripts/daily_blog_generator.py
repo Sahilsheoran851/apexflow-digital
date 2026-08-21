@@ -87,7 +87,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <meta name="google-site-verification" content="googlee07284f6493ce888">
   <title>{title} | ApexFlow Digital UAE</title>
   <meta name="description" content="{excerpt}">
-  <link rel="canonical" href="https://apexflowdigital.ae/blog/{slug}.html">
+  <link rel="canonical" href="https://apexflow-digital.vercel.app/blog/{slug}.html">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
