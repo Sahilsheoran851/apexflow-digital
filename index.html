@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ApexFlow Digital | UAE Digital Marketing, Websites & AI Automation</title>
-  <meta name="description" content="Helping UAE startups, SMEs, and businesses build high-converting websites, dominate Google search, and automate manual business operations with AI.">
+  <title>ApexFlow Digital | Futuristic UAE Digital Marketing, Web Engineering & AI Automation</title>
+  <meta name="description" content="Helping UAE startups, SMEs, and business owners turn their web presence into an automated customer acquisition engine. Fast websites, proven local search visibility, and frictionless AI workflows.">
   <meta name="keywords" content="Digital Marketing UAE, SEO Dubai, Web Development UAE, Business Automation Dubai, AI Automation UAE, Website Design Dubai">
   <link rel="canonical" href="https://apexflowdigital.ae/">
 
   <!-- Open Graph / Social Meta -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ApexFlow Digital | UAE Digital Marketing, Websites & AI Automation">
+  <meta property="og:title" content="ApexFlow Digital | UAE Digital Marketing, Web Engineering & AI Automation">
   <meta property="og:description" content="High-converting websites, ROI-focused SEO, and intelligent workflow automation built for UAE businesses.">
   <meta property="og:url" content="https://apexflowdigital.ae/">
   <meta property="og:image" content="https://apexflowdigital.ae/assets/images/og-card.png">
@@ -34,14 +34,18 @@
         "@id": "https://apexflowdigital.ae/#organization",
         "name": "ApexFlow Digital",
         "url": "https://apexflowdigital.ae/",
-        "description": "UAE-focused digital growth consultancy providing web development, SEO, and AI business automation.",
+        "founder": {
+          "@type": "Person",
+          "name": "Sahil Sheoran"
+        },
+        "description": "UAE-focused digital growth consultancy providing web engineering, SEO, and AI business automation.",
         "areaServed": [
           { "@type": "Country", "name": "United Arab Emirates" },
           { "@type": "City", "name": "Dubai" },
           { "@type": "City", "name": "Abu Dhabi" },
           { "@type": "City", "name": "Sharjah" }
         ],
-        "knowsAbout": ["Digital Marketing", "Search Engine Optimization", "Web Development", "AI Automation", "Workflow Integration"]
+        "knowsAbout": ["Digital Marketing", "Search Engine Optimization", "Web Engineering", "AI Automation", "Workflow Integration"]
       },
       {
         "@type": "ProfessionalService",
@@ -68,12 +72,15 @@
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Cyber Grid Ambient Background -->
+  <div class="cyber-grid-bg"></div>
+
+  <!-- Navigation Bar (HUD Glassmorphic) -->
   <header class="header">
     <div class="container nav-container">
       <a href="index.html" class="logo">
         <div class="logo-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
           </svg>
         </div>
@@ -82,8 +89,8 @@
 
       <nav class="nav-menu">
         <a href="#services" class="nav-link">Services</a>
-        <a href="#audit-tool" class="nav-link">Free Audit</a>
-        <a href="#calculator" class="nav-link">ROI Calculator</a>
+        <a href="#audit-tool" class="nav-link">Cyber Audit</a>
+        <a href="#calculator" class="nav-link">ROI Simulator</a>
         <a href="#packages" class="nav-link">Packages</a>
         <a href="#process" class="nav-link">Process</a>
         <a href="#case-studies" class="nav-link">Case Studies</a>
@@ -96,7 +103,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.058-2.125-.536-1.528-.636-2.533-2.167-2.613-2.272-.078-.105-.632-.843-.632-1.61 0-.767.394-1.152.538-1.306.144-.153.385-.224.514-.224.129 0 .257.002.371.008.12.006.279-.046.438.334.16.381.547 1.332.596 1.43.048.099.08.216.016.342-.064.128-.096.208-.192.32-.096.112-.204.25-.292.336-.098.096-.201.201-.086.398.115.197.511.844 1.1 1.368.758.674 1.396.883 1.594.981.198.098.314.086.43-.048.115-.134.496-.577.629-.775.133-.198.266-.166.447-.099.182.067 1.155.545 1.353.644.198.099.33.148.378.232.048.083.048.483-.096.888z"/>
           </svg>
-          <span>WhatsApp</span>
+          <span>WhatsApp Direct</span>
         </a>
         <a href="#contact" class="btn btn-primary btn-sm">Consultation</a>
         <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
@@ -108,93 +115,120 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Canvas Particle Mesh & Live Terminal -->
   <section class="hero">
+    <canvas id="hero-canvas"></canvas>
+
     <div class="container hero-content">
       <div class="badge-tag badge-tag-uae">
-        <span>🇦🇪</span> UAE Digital Growth & Business Automation Partner
+        <div class="pulse-dot"></div>
+        <span>🇦🇪 UAE DIGITAL GROWTH & AI AUTOMATION ENGINE</span>
       </div>
       
       <h1 class="hero-title">
-        High-Converting Websites, UAE SEO & <span class="text-gradient">Intelligent AI Automations</span>
+        High-Converting Web Platforms, UAE SEO & <span class="text-gradient">Intelligent AI Automations</span>
       </h1>
       
       <p class="hero-subtitle">
-        We help UAE startups, SMEs, and business owners turn their web presence into an automated customer acquisition system. Fast websites, proven local search visibility, and frictionless operational workflows.
+        We help UAE startups, SMEs, and business owners engineer their digital presence into a high-speed, automated revenue system. Sub-second web performance, dominant Google rankings, and zero-touch operations.
       </p>
 
       <div class="hero-cta-group">
         <a href="#contact" class="btn btn-primary btn-lg">
-          Book a Free Strategy Consultation
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Book Free Strategy Consultation
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="#audit-tool" class="btn btn-secondary btn-lg">
-          Run Instant Growth Audit
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          Run Live Cyber Audit
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </a>
+      </div>
+
+      <!-- Live Cyber Terminal Simulator -->
+      <div class="terminal-container">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <div class="terminal-dot dot-red"></div>
+            <div class="terminal-dot dot-yellow"></div>
+            <div class="terminal-dot dot-green"></div>
+          </div>
+          <div class="terminal-title">APEXFLOW_LIVE_ENGINE // REAL-TIME DISPATCH</div>
+          <div class="text-mono" style="font-size: 0.75rem; color: var(--neon-emerald);">🟢 STREAMING</div>
+        </div>
+        <div id="terminal-logs" class="terminal-body">
+          <!-- Dynamically populated by cyber-effects.js -->
+        </div>
       </div>
 
       <div class="hero-trust-chips">
         <div class="trust-chip">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           <span>Dubai & UAE Focused</span>
         </div>
         <div class="trust-chip">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           <span>Unified Growth Stack (No Agency Bloat)</span>
         </div>
         <div class="trust-chip">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <span>100/100 Speed & Core Web Vitals</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>100/100 Core Web Vitals</span>
         </div>
         <div class="trust-chip">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <span>Direct WhatsApp Lead Pipelines</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>Instant WhatsApp Lead Pipelines</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Trust / Value Proposition Matrix -->
+  <!-- Value Proposition Bento Grid (3D Interactive) -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <span class="badge-tag">Why Work With Us</span>
-        <h2 class="section-title">Built for Modern Businesses That Value Results Over Agency Buzzwords</h2>
-        <p class="section-subtitle">Traditional agencies pass you between account managers, charge bloated retainers, and deliver pretty websites that don't generate revenue. We combine technical engineering, search science, and automation under one roof.</p>
+        <span class="badge-tag">The Architecture of Growth</span>
+        <h2 class="section-title">Built for Modern Businesses That Demand Real Revenue, Not Vanity Metrics</h2>
+        <p class="section-subtitle">Traditional agencies pass you between account managers and charge bloated retainers for slow websites. We combine full-stack engineering, search algorithms, and autonomous AI pipelines under one roof.</p>
       </div>
 
-      <div class="value-grid">
-        <div class="card">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <div class="bento-grid">
+        <div class="bento-card bento-col-6">
+          <div class="card-icon-glow">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           </div>
-          <h3 class="card-title">All-in-One Growth Stack</h3>
-          <p class="card-text">Website design, search engine optimization, and backend AI automations built by one dedicated technical partner. Zero miscommunication between designers and developers.</p>
+          <h3 class="bento-title">Unified Growth & Engineering Stack</h3>
+          <p class="bento-text">Website design, search engine optimization, and backend AI automations built by one dedicated technical partner. Zero miscommunication between designers, developers, and marketers.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon card-icon-emerald">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="bento-card bento-col-6">
+          <div class="card-icon-glow card-icon-emerald">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
-          <h3 class="card-title">Conversion-First Architecture</h3>
-          <p class="card-text">We don't build digital brochures. Every layout, headline, CTA button, and page transition is engineered to turn casual UAE visitors into qualified inbound inquiries.</p>
+          <h3 class="bento-title">Autonomous AI & Workflow Pipelines</h3>
+          <p class="bento-text">Eliminate manual data entry. We connect your web forms, WhatsApp, CRM, and Google Sheets using automated webhook pipelines that save your team 20+ hours weekly.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon card-icon-blue">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <div class="bento-card bento-col-4">
+          <div class="card-icon-glow card-icon-purple">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <h3 class="card-title">Practical AI & Automation</h3>
-          <p class="card-text">Eliminate manual data entry. We connect your web forms, WhatsApp, CRM, and Google Sheets using automated webhook pipelines that save 15+ team hours every week.</p>
+          <h3 class="bento-title">Sub-Second Load Times</h3>
+          <p class="bento-text">Engineered for 100/100 Core Web Vitals. Sub-800ms response times across 5G connections in Dubai and Abu Dhabi.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon card-icon-purple">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        <div class="bento-card bento-col-4">
+          <div class="card-icon-glow">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <h3 class="card-title">Transparent ROI & Reporting</h3>
-          <p class="card-text">No vanity metrics or confusing 50-page reports. We set up precise GA4 event tracking so you know exactly which campaigns, pages, and keywords generate revenue.</p>
+          <h3 class="bento-title">UAE Local Search Dominance</h3>
+          <p class="bento-text">Capture ready-to-buy decision makers searching for your commercial keywords on Google Maps and high-intent organic search.</p>
+        </div>
+
+        <div class="bento-card bento-col-4">
+          <div class="card-icon-glow card-icon-emerald">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="bento-title">Precision GA4 Attribution</h3>
+          <p class="bento-text">Complete GTM and GA4 event tracking mapping every phone click, WhatsApp inquiry, and converted sale back to the exact source.</p>
         </div>
       </div>
     </div>
@@ -204,7 +238,7 @@
   <section id="services" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="badge-tag">Core Services</span>
+        <span class="badge-tag">Core Capabilities</span>
         <h2 class="section-title">Engineered For Measurable Business Outcomes</h2>
         <p class="section-subtitle">We solve the three biggest bottlenecks preventing UAE businesses from scaling: lack of targeted visibility, low web conversions, and slow manual operations.</p>
       </div>
@@ -214,95 +248,95 @@
         <!-- Service 1: Digital Marketing & SEO -->
         <div class="service-pillar">
           <div class="service-content">
-            <span class="service-badge">01 // Search & Acquisition</span>
+            <span class="service-badge">01 // Search & Lead Acquisition</span>
             <h3 class="service-title">Get Found by High-Intent Customers on Google Across the UAE</h3>
             <p class="service-desc">
               Ranking on Google is not about getting random traffic—it's about capturing ready-to-buy decision makers searching for your exact services in Dubai, Abu Dhabi, and the Emirates.
             </p>
             <div class="feature-list">
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>UAE Local SEO & Google Maps</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>UAE Local SEO & Google Maps 3-Pack</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Technical & On-Page SEO Audits</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>High-Intent Commercial Keywords</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Google Business Profile Optimization</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>GA4 & GTM Event Architecture</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Competitor & Search Console Audits</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Entity Schema & Structured Data</span>
               </div>
             </div>
-            <a href="#contact" class="btn btn-secondary btn-sm">Request SEO Audit</a>
+            <a href="services/digital-marketing-uae.html" class="btn btn-secondary btn-sm">Explore SEO Strategy →</a>
           </div>
           <div class="service-preview-card">
             <span class="preview-tag">TARGETING // UAE INTENT</span>
-            <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">SEO Strategy Highlight</div>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+            <div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">SEO Strategy Engine</div>
+            <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.5rem;">
               We optimize your entity authority for UAE localized queries (e.g. <em>"corporate tax consultant Dubai"</em>, <em>"luxury fit-out Abu Dhabi"</em>) while fixing indexation and page speed bottlenecks.
             </p>
-            <div style="background: rgba(56, 189, 248, 0.08); border-left: 3px solid var(--accent-cyan); padding: 0.85rem; border-radius: 4px; font-size: 0.85rem; color: var(--accent-cyan);">
+            <div style="background: rgba(0, 242, 254, 0.08); border-left: 3px solid var(--neon-cyan); padding: 1rem; border-radius: 6px; font-size: 0.875rem; color: var(--neon-cyan);">
               ✓ Outcome: Predictable organic customer acquisition without relying 100% on escalating paid ad costs.
             </div>
           </div>
         </div>
 
-        <!-- Service 2: Website Development -->
+        <!-- Service 2: Website Engineering -->
         <div class="service-pillar">
           <div class="service-content">
-            <span class="service-badge">02 // Conversion Web Platforms</span>
-            <h3 class="service-title">High-Speed Websites Built to Turn Visitors Into Paying Clients</h3>
+            <span class="service-badge">02 // Conversion Web Engineering</span>
+            <h3 class="service-title">High-Speed Websites Engineered to Turn Visitors Into Paying Clients</h3>
             <p class="service-desc">
               Your website is your best 24/7 salesperson. We build blazing-fast, mobile-first websites on Shopify, WordPress, or modern custom stacks designed around one objective: maximizing conversion rates.
             </p>
             <div class="feature-list">
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>SME & Startup Business Websites</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Shopify E-commerce Storefronts</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>High-Converting Landing Pages</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Mobile-First UX & WhatsApp CTAs</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Sub-1s Load Times & 100/100 CWV</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Schema Markup & Full Accessibility</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Zero-Cost Global Cloud Hosting</span>
               </div>
             </div>
-            <a href="#contact" class="btn btn-secondary btn-sm">Discuss Your Website</a>
+            <a href="services/web-development-uae.html" class="btn btn-secondary btn-sm">Explore Web Engineering →</a>
           </div>
           <div class="service-preview-card">
             <span class="preview-tag">PERFORMANCE // BENCHMARK</span>
-            <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Engineering Standard</div>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+            <div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Engineering Standard</div>
+            <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.5rem;">
               Over 78% of UAE web traffic originates on mobile devices over 5G/Wi-Fi. We eliminate heavy JS frameworks, optimize media assets, and build frictionless mobile tap-to-WhatsApp conversion flows.
             </p>
-            <div style="background: rgba(16, 185, 129, 0.08); border-left: 3px solid var(--accent-emerald); padding: 0.85rem; border-radius: 4px; font-size: 0.85rem; color: var(--accent-emerald);">
-              ✓ Outcome: Lower bounce rates, higher ad conversion return, and a world-class brand impression.
+            <div style="background: rgba(5, 255, 161, 0.08); border-left: 3px solid var(--neon-emerald); padding: 1rem; border-radius: 6px; font-size: 0.875rem; color: var(--neon-emerald);">
+              ✓ Outcome: Lower bounce rates, higher ad conversion return, and an elite brand impression.
             </div>
           </div>
         </div>
@@ -310,46 +344,46 @@
         <!-- Service 3: AI & Business Automation -->
         <div class="service-pillar">
           <div class="service-content">
-            <span class="service-badge">03 // AI & Operations</span>
+            <span class="service-badge">03 // Autonomous AI & Operations</span>
             <h3 class="service-title">Automate Repetitive Workflows & Give Your Team Back Hours Every Week</h3>
             <p class="service-desc">
               Still copying leads from contact forms into spreadsheets? Still manually emailing proposal reminders? We build automated webhook pipelines, CRM syncs, and AI chatbots that run your business on autopilot.
             </p>
             <div class="feature-list">
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>WhatsApp Lead Qualification Bots</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Form-to-CRM Automated Pipelines</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Form-to-CRM Automated Webhooks</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Make, Zapier & n8n Integrations</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Google Sheets & Airtable Auto-Sync</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Automated Performance Reporting</span>
               </div>
               <div class="feature-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>AI Document & Proposal Generation</span>
               </div>
             </div>
-            <a href="#calculator" class="btn btn-secondary btn-sm">Calculate Your ROI</a>
+            <a href="services/ai-automation-uae.html" class="btn btn-secondary btn-sm">Explore AI Automation →</a>
           </div>
           <div class="service-preview-card">
             <span class="preview-tag">INTEGRATION // PIPELINE</span>
-            <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Automated Workflow Architecture</div>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+            <div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Automated Workflow Architecture</div>
+            <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.5rem;">
               <em>Web Form / Portal Lead</em> → <em>Instant WhatsApp Notification</em> → <em>Auto-CRM Record Created</em> → <em>AI Qualification Score</em> → <em>Sales Rep Prompted in Seconds</em>.
             </p>
-            <div style="background: rgba(168, 85, 247, 0.08); border-left: 3px solid var(--accent-purple); padding: 0.85rem; border-radius: 4px; font-size: 0.85rem; color: var(--accent-purple);">
+            <div style="background: rgba(157, 78, 221, 0.08); border-left: 3px solid var(--neon-purple); padding: 1rem; border-radius: 6px; font-size: 0.875rem; color: var(--neon-purple);">
               ✓ Outcome: Cut lead response time from 4 hours to under 30 seconds, doubling closed deals.
             </div>
           </div>
@@ -359,11 +393,11 @@
     </div>
   </section>
 
-  <!-- Interactive Growth & SEO Audit Tool Section -->
+  <!-- Interactive Growth & SEO Audit Tool (Cyber HUD) -->
   <section id="audit-tool" class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <span class="badge-tag">Interactive Diagnostic</span>
+        <span class="badge-tag">Cyber Diagnostic HUD</span>
         <h2 class="section-title">Free UAE Website & Growth Audit</h2>
         <p class="section-subtitle">Enter your website to instantly evaluate your technical SEO, mobile conversion experience, and operational automation potential.</p>
       </div>
@@ -372,7 +406,7 @@
         <form id="audit-tool-form">
           <div class="audit-form-grid">
             <div>
-              <input type="text" id="audit-url" class="input-field" placeholder="yourcompany.ae / yoursite.com" required>
+              <input type="text" id="audit-url" class="input-field text-mono" placeholder="yourcompany.ae / yoursite.com" required>
             </div>
             <div>
               <select id="audit-industry" class="select-field">
@@ -391,7 +425,7 @@
               </select>
             </div>
             <div>
-              <button type="submit" class="btn btn-primary btn-full">Analyze</button>
+              <button type="submit" class="btn btn-primary btn-full">Scan Now</button>
             </div>
           </div>
         </form>
@@ -407,13 +441,13 @@
   <section id="calculator" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="badge-tag">Automation Impact</span>
+        <span class="badge-tag">Operational Impact Simulator</span>
         <h2 class="section-title">How Much Time & Money Can You Save?</h2>
-        <p class="section-subtitle">Use our interactive calculator to see the direct financial impact of automating lead qualification, data entry, and manual reporting in your business.</p>
+        <p class="section-subtitle">Use our interactive simulator to see the direct financial impact of automating lead qualification, data entry, and manual reporting in your business.</p>
       </div>
 
       <div class="calculator-grid">
-        <div class="calculator-controls card">
+        <div class="calculator-controls bento-card">
           <div class="slider-group">
             <div class="slider-header">
               <span class="slider-label">Team Members Handling Operations:</span>
@@ -440,13 +474,13 @@
         </div>
 
         <div class="roi-display-card">
-          <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem;">Estimated Monthly Operational Savings</div>
+          <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem;">Estimated Monthly Operational Savings</div>
           <div id="roi-money-saved" class="roi-highlight-number">AED 8,505</div>
-          <div class="roi-subtext">Reclaiming <strong id="roi-hours-saved" style="color: var(--accent-cyan);">95 hrs/mo</strong> of manual team time</div>
-          <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
-            Annual Impact: <strong id="roi-annual-savings" style="color: var(--accent-emerald);">AED 102,060 / year</strong>
+          <div class="roi-subtext">Reclaiming <strong id="roi-hours-saved" style="color: var(--neon-cyan);">95 hrs/mo</strong> of manual team time</div>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.75rem;">
+            Annual Impact: <strong id="roi-annual-savings" style="color: var(--neon-emerald);">AED 102,060 / year</strong>
           </div>
-          <a href="#contact" class="btn btn-primary btn-sm">Automate Your Operations</a>
+          <a href="#contact" class="btn btn-primary btn-sm">Automate Your Operations Now</a>
         </div>
       </div>
     </div>
@@ -513,7 +547,7 @@
   <section id="packages" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="badge-tag">Packages & Pricing</span>
+        <span class="badge-tag">Structured Solutions</span>
         <h2 class="section-title">Transparent Growth Packages for Every Stage</h2>
         <p class="section-subtitle">Whether you are launching a new UAE business or optimizing an established company, we have structured packages tailored to your growth stage.</p>
       </div>
@@ -530,23 +564,23 @@
             <div class="package-pricing">Custom Quote</div>
             <div class="package-features">
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>High-Converting Business Website (5 Pages)</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Google Business Profile Setup & Verification</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Core On-Page SEO & Schema Markup</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>GA4 & Search Console Setup</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Direct WhatsApp Lead Click-to-Chat</span>
               </div>
             </div>
@@ -565,23 +599,23 @@
             <div class="package-pricing">Custom Retainer</div>
             <div class="package-features">
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Full-Funnel UAE SEO & Local Pack Strategy</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Continuous Conversion Rate Optimization (CRO)</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Technical Website Speed & Core Web Vitals Care</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Targeted B2B Content & Commercial Landing Pages</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Monthly Executive Reporting & Competitor Tracking</span>
               </div>
             </div>
@@ -599,23 +633,23 @@
             <div class="package-pricing">Custom Project</div>
             <div class="package-features">
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Complete Operational Workflow Audit</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>WhatsApp AI Lead Qualification System</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Form-to-CRM Webhook Pipelines (Make/n8n/Zapier)</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Google Sheets & Auto-Reporting Dashboards</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Team Training & 30-Day Support Guarantee</span>
               </div>
             </div>
@@ -633,23 +667,23 @@
             <div class="package-pricing">Scope-Based</div>
             <div class="package-features">
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Bespoke Web Application & API Development</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Custom AI Agents & Document Extraction</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Multi-Regional SEO & Headless Infrastructure</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Dedicated Technical Architecture Support</span>
               </div>
               <div class="package-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Custom SLA & Priority Incident Response</span>
               </div>
             </div>
@@ -713,92 +747,44 @@
         <p class="section-subtitle">Explore demo projects and architectural blueprints illustrating how we solve real operational and marketing challenges for UAE businesses.</p>
       </div>
 
-      <div class="case-studies-grid">
+      <div class="bento-grid">
         
         <!-- Case 1 -->
-        <div class="case-card">
-          <div class="case-header">
-            <span class="case-type">Dubai Real Estate</span>
-            <h3 class="case-title">Automated WhatsApp Lead Capture & Portal CRM Pipeline</h3>
+        <div class="bento-card bento-col-4">
+          <span class="preview-tag">DUBAI REAL ESTATE</span>
+          <h3 class="bento-title">Automated WhatsApp Lead Capture & Portal CRM Pipeline</h3>
+          <div style="margin: 1rem 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+            <strong>Challenge:</strong> 4–6 hour manual lag on PropertyFinder leads causing high drop-off.<br><br>
+            <strong>Solution:</strong> Instant webhook connecting forms to an AI WhatsApp qualification bot scheduling broker calls in < 45s.
           </div>
-          <div class="case-body">
-            <div class="case-challenge-solution">
-              <div class="case-section-title">The Challenge:</div>
-              <p class="case-text">High volume of property inquiries from PropertyFinder and landing pages with 4-6 hour manual response lag causing lost buyer interest.</p>
-              
-              <div class="case-section-title">The Solution:</div>
-              <p class="case-text">Built instant webhook bridge connecting web forms to a WhatsApp automated qualification bot that categorizes budget and schedules agent calls in under 45 seconds.</p>
-            </div>
-
-            <div class="case-tags">
-              <span class="case-tag">WhatsApp Cloud API</span>
-              <span class="case-tag">Make.com</span>
-              <span class="case-tag">HubSpot CRM</span>
-              <span class="case-tag">High-Speed Landing Page</span>
-            </div>
-
-            <div class="case-result-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-              <span>Lead response time slashed from 4 hrs to < 45 seconds</span>
-            </div>
+          <div style="background: rgba(5, 255, 161, 0.08); border: 1px solid rgba(5, 255, 161, 0.25); color: var(--neon-emerald); padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700;">
+            ✓ Response time slashed from 4 hrs to < 45 seconds
           </div>
         </div>
 
         <!-- Case 2 -->
-        <div class="case-card">
-          <div class="case-header">
-            <span class="case-type">Abu Dhabi Corporate Services</span>
-            <h3 class="case-title">Local SEO Domination & High-Converting B2B Web Platform</h3>
+        <div class="bento-card bento-col-4">
+          <span class="preview-tag">ABU DHABI CORPORATE SERVICES</span>
+          <h3 class="bento-title">Local SEO Domination & High-Converting B2B Web Platform</h3>
+          <div style="margin: 1rem 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+            <strong>Challenge:</strong> Spending AED 25,000/mo on ads with 4.5s load times and zero organic Google rank.<br><br>
+            <strong>Solution:</strong> Sub-800ms semantic web platform with UAE entity schema and targeted local map pack rankings.
           </div>
-          <div class="case-body">
-            <div class="case-challenge-solution">
-              <div class="case-section-title">The Challenge:</div>
-              <p class="case-text">Business setup consultancy was spending AED 25,000/mo on Google Ads with 4.5s load times and zero organic Google search visibility.</p>
-              
-              <div class="case-section-title">The Solution:</div>
-              <p class="case-text">Engineered a sub-800ms semantic web platform with targeted UAE entity schema, Local Google Business Map optimization, and high-intent corporate tax keyword pages.</p>
-            </div>
-
-            <div class="case-tags">
-              <span class="case-tag">Technical SEO</span>
-              <span class="case-tag">Local Pack Optimization</span>
-              <span class="case-tag">Modern Web</span>
-              <span class="case-tag">GA4 Tracking</span>
-            </div>
-
-            <div class="case-result-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-              <span>Top 3 Google Map ranking for 18 commercial keywords in 90 days</span>
-            </div>
+          <div style="background: rgba(5, 255, 161, 0.08); border: 1px solid rgba(5, 255, 161, 0.25); color: var(--neon-emerald); padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700;">
+            ✓ Top 3 Google Map ranking for 18 commercial keywords
           </div>
         </div>
 
         <!-- Case 3 -->
-        <div class="case-card">
-          <div class="case-header">
-            <span class="case-type">UAE E-Commerce & Retail</span>
-            <h3 class="case-title">Shopify Mobile Speed Optimization & Automated Inventory Sync</h3>
+        <div class="bento-card bento-col-4">
+          <span class="preview-tag">UAE E-COMMERCE & RETAIL</span>
+          <h3 class="bento-title">Shopify Mobile Speed Optimization & Automated Inventory Sync</h3>
+          <div style="margin: 1rem 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+            <strong>Challenge:</strong> High mobile cart abandonment and manual nightly inventory reconciliations.<br><br>
+            <strong>Solution:</strong> Refactored Shopify theme for sub-1.2s mobile loading and automated Google Sheets/courier API sync.
           </div>
-          <div class="case-body">
-            <div class="case-challenge-solution">
-              <div class="case-section-title">The Challenge:</div>
-              <p class="case-text">Slow mobile storefront with high cart abandonment and manual nightly inventory reconciliations causing fulfillment delays.</p>
-              
-              <div class="case-section-title">The Solution:</div>
-              <p class="case-text">Refactored Shopify Liquid theme for sub-1.2s mobile loading and deployed an automated inventory webhook syncing store sales directly to Google Sheets and courier APIs.</p>
-            </div>
-
-            <div class="case-tags">
-              <span class="case-tag">Shopify Liquid</span>
-              <span class="case-tag">Core Web Vitals</span>
-              <span class="case-tag">Inventory Webhooks</span>
-              <span class="case-tag">Google Sheets API</span>
-            </div>
-
-            <div class="case-result-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-              <span>34% boost in mobile checkout conversion rate</span>
-            </div>
+          <div style="background: rgba(5, 255, 161, 0.08); border: 1px solid rgba(5, 255, 161, 0.25); color: var(--neon-emerald); padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700;">
+            ✓ 34% boost in mobile checkout conversion rate
           </div>
         </div>
 
@@ -829,29 +815,29 @@
 
         <div class="about-content">
           <span class="badge-tag">Founder Positioning</span>
-          <h3>Bridging the Gap Between Marketing Strategy & Technical Automation</h3>
-          <p>
+          <h3 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1.25rem;">Bridging the Gap Between Marketing Strategy & Technical Automation</h3>
+          <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
             Most businesses hire a digital marketer who cannot code, or a web developer who doesn't understand SEO and conversion psychology. When it comes to automating operations, neither has a clue.
           </p>
-          <p>
-            We operate at the rare intersection of <strong>Search Marketing</strong>, <strong>Modern Web Development</strong>, and <strong>AI Business Automation</strong>. We don't just build websites; we build the digital revenue engines behind growing UAE companies.
+          <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            We operate at the rare intersection of <strong>Search Marketing</strong>, <strong>Modern Web Engineering</strong>, and <strong>Autonomous AI Pipelines</strong>. We don't just build websites; we build the digital revenue engines behind growing UAE companies.
           </p>
 
-          <div class="pillars-checklist">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
             <div class="feature-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               <span>100% Outcome Focused</span>
             </div>
             <div class="feature-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Direct Founder Communication</span>
             </div>
             <div class="feature-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Zero Vendor Lock-In</span>
             </div>
             <div class="feature-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Transparent UAE Compliance</span>
             </div>
           </div>
@@ -860,85 +846,13 @@
     </div>
   </section>
 
-  <!-- Technology / Tools Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-tag">Modern Tool Stack</span>
-        <h2 class="section-title">Built With Industry-Standard Technologies</h2>
-        <p class="section-subtitle">We build on dependable, enterprise-grade tools that keep your business fast, scalable, and easy to maintain.</p>
-      </div>
-
-      <div class="tech-stack-container">
-        <div class="tech-group-card">
-          <div class="tech-group-title">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-            <span>Marketing & SEO</span>
-          </div>
-          <div class="tech-tag-list">
-            <span class="tech-pill">Google Analytics 4</span>
-            <span class="tech-pill">Google Search Console</span>
-            <span class="tech-pill">Google Tag Manager</span>
-            <span class="tech-pill">SEMrush</span>
-            <span class="tech-pill">Google Business Profile</span>
-            <span class="tech-pill">Meta Pixel & CAPI</span>
-          </div>
-        </div>
-
-        <div class="tech-group-card">
-          <div class="tech-group-title">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            <span>Web Development</span>
-          </div>
-          <div class="tech-tag-list">
-            <span class="tech-pill">Shopify Liquid</span>
-            <span class="tech-pill">WordPress</span>
-            <span class="tech-pill">Modern HTML5 / CSS3</span>
-            <span class="tech-pill">JavaScript ES6+</span>
-            <span class="tech-pill">Cloudflare Pages</span>
-            <span class="tech-pill">Vercel & Netlify</span>
-          </div>
-        </div>
-
-        <div class="tech-group-card">
-          <div class="tech-group-title">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            <span>Automation & APIs</span>
-          </div>
-          <div class="tech-tag-list">
-            <span class="tech-pill">Make.com</span>
-            <span class="tech-pill">Zapier</span>
-            <span class="tech-pill">n8n</span>
-            <span class="tech-pill">REST Webhooks</span>
-            <span class="tech-pill">Google Sheets API</span>
-            <span class="tech-pill">HubSpot / Zoho CRM</span>
-          </div>
-        </div>
-
-        <div class="tech-group-card">
-          <div class="tech-group-title">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-            <span>AI & Intelligence</span>
-          </div>
-          <div class="tech-tag-list">
-            <span class="tech-pill">OpenAI GPT-4o</span>
-            <span class="tech-pill">Anthropic Claude</span>
-            <span class="tech-pill">WhatsApp AI Agents</span>
-            <span class="tech-pill">Document OCR</span>
-            <span class="tech-pill">Automated Data Parsing</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Lead Capture / Consultation Section -->
-  <section id="contact" class="section section-alt lead-form-section">
+  <section id="contact" class="section lead-form-section">
     <div class="container">
       <div class="lead-card">
         <div class="section-header" style="margin-bottom: 2.5rem;">
           <span class="badge-tag">Free Strategy Session</span>
-          <h2 class="section-title" style="font-size: 2.2rem;">Let's Discuss Your Business Growth</h2>
+          <h2 class="section-title" style="font-size: 2.3rem;">Let's Discuss Your Business Growth</h2>
           <p class="section-subtitle">Book a free 30-minute consultation. We will analyze your current website, discuss SEO opportunities in the UAE, and identify workflow automations to save your team time.</p>
         </div>
 
@@ -974,10 +888,10 @@
               <label for="service-required" class="form-label">Primary Service Required *</label>
               <select id="service-required" class="select-field" required>
                 <option value="All-in-One Growth Stack">All-in-One Growth Stack (Website + SEO + Automation)</option>
-                <option value="Website Development">Website Development / Redesign</option>
-                <option value="SEO & Digital Marketing">UAE SEO & Digital Marketing</option>
+                <option value="Website Development">Website Engineering / Redesign</option>
+                <option value="SEO & Digital Marketing">UAE SEO & Search Dominance</option>
                 <option value="AI & Business Automation">AI & Workflow Automation</option>
-                <option value="Audit & Consultation">Free Digital Growth Audit Review</option>
+                <option value="Audit & Consultation">Free Cyber Growth Audit Review</option>
               </select>
             </div>
           </div>
@@ -1010,7 +924,7 @@
 
           <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: 1rem;">
             Submit Free Consultation Request
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </form>
 
@@ -1024,7 +938,7 @@
   </section>
 
   <!-- FAQ Section -->
-  <section id="faq" class="section">
+  <section id="faq" class="section section-alt">
     <div class="container">
       <div class="section-header">
         <span class="badge-tag">Got Questions?</span>
@@ -1093,23 +1007,23 @@
         <div class="footer-brand">
           <a href="index.html" class="logo">
             <div class="logo-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
               </svg>
             </div>
             <span>Apex<span class="text-gradient">Flow</span></span>
           </a>
-          <p>Helping UAE startups, SMEs, and businesses build high-converting websites, dominate Google search, and automate repetitive workflows with AI.</p>
+          <p>Helping UAE startups, SMEs, and businesses build high-converting websites, dominate Google search, and automate repetitive workflows with autonomous AI pipelines.</p>
         </div>
 
         <div>
           <div class="footer-heading">Services</div>
           <div class="footer-links">
             <a href="services/digital-marketing-uae.html" class="footer-link">Digital Marketing UAE</a>
-            <a href="services/web-development-uae.html" class="footer-link">Web Development UAE</a>
+            <a href="services/web-development-uae.html" class="footer-link">Web Engineering UAE</a>
             <a href="services/ai-automation-uae.html" class="footer-link">AI & Workflow Automation</a>
-            <a href="#audit-tool" class="footer-link">Free Growth Audit</a>
-            <a href="#calculator" class="footer-link">Automation ROI Calculator</a>
+            <a href="#audit-tool" class="footer-link">Cyber Growth Audit</a>
+            <a href="#calculator" class="footer-link">Automation ROI Simulator</a>
           </div>
         </div>
 
@@ -1144,12 +1058,13 @@
 
   <!-- Floating WhatsApp CTA Button -->
   <a href="https://wa.me/971507507963?text=Hi%20Sahil!%20I'd%20like%20to%20discuss%20a%20project%20for%20my%20UAE%20business." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp" data-location="floating_badge">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
       <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.058-2.125-.536-1.528-.636-2.533-2.167-2.613-2.272-.078-.105-.632-.843-.632-1.61 0-.767.394-1.152.538-1.306.144-.153.385-.224.514-.224.129 0 .257.002.371.008.12.006.279-.046.438.334.16.381.547 1.332.596 1.43.048.099.08.216.016.342-.064.128-.096.208-.192.32-.096.112-.204.25-.292.336-.098.096-.201.201-.086.398.115.197.511.844 1.1 1.368.758.674 1.396.883 1.594.981.198.098.314.086.43-.048.115-.134.496-.577.629-.775.133-.198.266-.166.447-.099.182.067 1.155.545 1.353.644.198.099.33.148.378.232.048.083.048.483-.096.888z"/>
     </svg>
   </a>
 
   <!-- JavaScript Modules -->
+  <script src="assets/js/cyber-effects.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/audit-tool.js"></script>
   <script src="assets/js/roi-calculator.js"></script>
