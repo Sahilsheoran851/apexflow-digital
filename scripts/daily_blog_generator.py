@@ -80,6 +80,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   </script>
 
   <meta charset="UTF-8">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="alternate icon" href="../favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="googlee07284f6493ce888">
   <title>{title} | ApexFlow Digital UAE</title>
