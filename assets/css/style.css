@@ -351,74 +351,98 @@ button {
 }
 
 /* ==========================================================================
-   Navigation Bar (Glassmorphic HUD)
+   Navigation Bar (Futuristic Floating Island HUD)
    ========================================================================== */
 .header {
   position: fixed;
-  top: 0;
+  top: 1rem;
   left: 0;
   right: 0;
-  height: var(--header-height);
-  background: var(--bg-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-cyber);
-  z-index: 100;
+  height: auto;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+  z-index: 1000;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  pointer-events: none;
   transition: all var(--transition-normal);
 }
 
-.header.scrolled {
-  background: rgba(3, 7, 18, 0.92);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  border-bottom-color: rgba(0, 242, 254, 0.3);
-}
-
 .nav-container {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 1180px;
+  height: 62px;
+  background: rgba(5, 11, 26, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 242, 254, 0.22);
+  border-radius: var(--radius-full);
+  padding: 0 1.25rem 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.25rem;
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.85), 0 0 25px rgba(0, 242, 254, 0.12);
+  transition: all var(--transition-normal);
+}
+
+.header.scrolled .nav-container {
+  background: rgba(3, 7, 18, 0.94);
+  border-color: rgba(0, 242, 254, 0.4);
+  box-shadow: 0 14px 45px -5px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 242, 254, 0.2);
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   font-weight: 800;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   letter-spacing: -0.02em;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .logo-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   background: var(--gradient-cyber);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #030712;
-  box-shadow: var(--glow-cyan);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+  flex-shrink: 0;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-link {
-  font-size: 0.925rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-secondary);
   position: relative;
-  padding: 0.4rem 0;
+  padding: 0.35rem 0;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
   transition: color var(--transition-fast);
 }
 
 .nav-link:hover, .nav-link.active {
   color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
 }
 
 .nav-link::after {
@@ -442,12 +466,66 @@ button {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+/* Futuristic Nav Action Pills */
+.nav-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-full);
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #25d366;
+  font-size: 0.825rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.nav-btn-whatsapp:hover {
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+  transform: translateY(-1px);
+}
+
+.nav-btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-full);
+  background: var(--gradient-cyber);
+  color: #030712;
+  font-size: 0.825rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.nav-btn-cta:hover {
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.6);
+  transform: translateY(-1px);
+  color: #000000;
 }
 
 .mobile-toggle {
   display: none;
   background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 0.4rem;
+  border-radius: var(--radius-sm);
+}
+
+.mobile-toggle:hover {
+  color: var(--neon-cyan);
+}
   border: none;
   color: var(--text-primary);
   padding: 0.5rem;
