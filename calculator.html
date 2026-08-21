@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7VCJHWBCB8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-7VCJHWBCB8');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="googlee07284f6493ce888">
+  <title>Automation ROI & Operational Savings Simulator | ApexFlow Digital UAE</title>
+  <meta name="description" content="Calculate how many hours and how much money your UAE business can save each month by automating lead routing, CRM syncs, and manual admin tasks.">
+  <link rel="canonical" href="https://apexflowdigital.ae/calculator.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Cyber Grid Background -->
+  <div class="cyber-grid-bg"></div>
+
+  <!-- Navigation Bar -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <span>Apex<span class="text-gradient">Flow</span></span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="audit.html" class="nav-link">Cyber Audit</a>
+        <a href="calculator.html" class="nav-link active">ROI Calculator</a>
+        <a href="packages.html" class="nav-link">Packages</a>
+        <a href="case-studies.html" class="nav-link">Case Studies</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://wa.me/971507507963?text=Hi%20Sahil!%20Let's%20discuss%20automating%20my%20business%20operations." target="_blank" rel="noopener" class="nav-btn-whatsapp" data-location="nav_bar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.058-2.125-.536-1.528-.636-2.533-2.167-2.613-2.272-.078-.105-.632-.843-.632-1.61 0-.767.394-1.152.538-1.306.144-.153.385-.224.514-.224.129 0 .257.002.371.008.12.006.279-.046.438.334.16.381.547 1.332.596 1.43.048.099.08.216.016.342-.064.128-.096.208-.192.32-.096.112-.204.25-.292.336-.098.096-.201.201-.086.398.115.197.511.844 1.1 1.368.758.674 1.396.883 1.594.981.198.098.314.086.43-.048.115-.134.496-.577.629-.775.133-.198.266-.166.447-.099.182.067 1.155.545 1.353.644.198.099.33.148.378.232.048.083.048.483-.096.888z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+        <a href="contact.html" class="nav-btn-cta">
+          <span>Book Call</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="badge-tag badge-tag-uae">
+        <div class="pulse-dot"></div>
+        <span>💰 OPERATIONAL EFFICIENCY CALCULATOR</span>
+      </div>
+      <h1 class="hero-title">
+        Calculate Your Business <span class="text-gradient">Automation ROI & Time Saved</span>
+      </h1>
+      <p class="hero-subtitle">
+        Discover the immediate financial and operational impact of replacing manual admin, data entry, and slow lead follow-ups with intelligent automated workflows.
+      </p>
+    </div>
+  </section>
+
+  <!-- Interactive ROI Simulator -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="calculator-grid">
+        <div class="calculator-controls bento-card">
+          <h3 class="bento-title" style="margin-bottom: 1.5rem;">Input Your Team Metrics</h3>
+          
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Team Members Handling Operations:</span>
+              <span id="val-team-size" class="slider-value">3 People</span>
+            </div>
+            <input type="range" id="calc-team-size" class="range-input" min="1" max="25" value="3">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Manual Admin / Data Entry Hours Per Person:</span>
+              <span id="val-hours-manual" class="slider-value">10 Hours/Week</span>
+            </div>
+            <input type="range" id="calc-hours-manual" class="range-input" min="2" max="30" value="10">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Average Hourly Employee Cost (AED):</span>
+              <span id="val-hourly-rate" class="slider-value">90 AED/Hr</span>
+            </div>
+            <input type="range" id="calc-hourly-rate" class="range-input" min="40" max="300" step="5" value="90">
+          </div>
+        </div>
+
+        <div class="roi-display-card">
+          <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem;">Estimated Monthly Operational Savings</div>
+          <div id="roi-money-saved" class="roi-highlight-number">AED 8,505</div>
+          <div class="roi-subtext">Reclaiming <strong id="roi-hours-saved" style="color: var(--neon-cyan);">95 hrs/mo</strong> of manual team time</div>
+          <div style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.75rem;">
+            Annual Financial Return: <strong id="roi-annual-savings" style="color: var(--neon-emerald); font-size: 1.15rem;">AED 102,060 / year</strong>
+          </div>
+          <a href="contact.html" class="btn btn-primary btn-full">Deploy Automations for Your Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflows You Can Automate -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">Plug & Play Automations</span>
+        <h2 class="section-title">Common UAE Workflows We Automate</h2>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card bento-col-4">
+          <div class="card-icon-glow">⚡</div>
+          <h3 class="bento-title">Instant WhatsApp Follow-Ups</h3>
+          <p class="bento-text">Automatically send personalized WhatsApp welcome messages, brochures, and calendar booking links the moment a lead fills a form.</p>
+        </div>
+
+        <div class="bento-card bento-col-4">
+          <div class="card-icon-glow card-icon-emerald">🔄</div>
+          <h3 class="bento-title">Two-Way CRM & Spreadsheet Sync</h3>
+          <p class="bento-text">Seamlessly sync data between HubSpot, Zoho, Google Sheets, Airtable, and billing systems without copying and pasting.</p>
+        </div>
+
+        <div class="bento-card bento-col-4">
+          <div class="card-icon-glow card-icon-purple">📊</div>
+          <h3 class="bento-title">Automated Executive KPI Reports</h3>
+          <p class="bento-text">Every Monday morning, your management receives an automated summary of sales, leads, and ad ROAS delivered to WhatsApp and Slack.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 ApexFlow Digital. Built for the UAE Market.</div>
+        <div><a href="index.html" class="footer-link">← Return to Homepage</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/cyber-effects.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/roi-calculator.js"></script>
+</body>
+</html>
