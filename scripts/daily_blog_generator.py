@@ -193,7 +193,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <div class="container">
       <div class="footer-bottom">
         <div>© 2026 ApexFlow Digital. Built for the UAE Market.</div>
-        <div><a href="../blog.html" class="footer-link">← Return to Blog</a></div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="../sitemap.html" class="footer-link">HTML Sitemap</a>
+          <a href="../sitemap.xml" class="footer-link">XML Sitemap</a>
+          <a href="../blog.html" class="footer-link">← Return to Blog</a>
+        </div>
       </div>
     </div>
   </footer>

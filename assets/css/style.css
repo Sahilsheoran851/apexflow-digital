@@ -535,7 +535,7 @@ button {
    Hero Section & Holographic Stage
    ========================================================================== */
 .hero {
-  padding-top: calc(var(--header-height) + 5rem);
+  padding-top: 8.5rem;
   padding-bottom: 6rem;
   text-align: center;
   position: relative;
