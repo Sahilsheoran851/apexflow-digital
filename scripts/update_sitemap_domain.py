@@ -13,10 +13,16 @@ import os
 
 PAGES = [
     ("", "daily", "1.0"),
-    ("services.html", "weekly", "0.9"),
+    ("services.html", "weekly", "0.95"),
     ("services/digital-marketing-uae.html", "weekly", "0.9"),
+    ("services/google-ads-uae.html", "weekly", "0.9"),
+    ("services/b2b-lead-generation-uae.html", "weekly", "0.9"),
     ("services/web-development-uae.html", "weekly", "0.9"),
+    ("services/shopify-ecommerce-uae.html", "weekly", "0.9"),
+    ("services/conversion-rate-optimization-uae.html", "weekly", "0.9"),
     ("services/ai-automation-uae.html", "weekly", "0.9"),
+    ("services/whatsapp-ai-bots-uae.html", "weekly", "0.9"),
+    ("services/crm-webhook-integrations-uae.html", "weekly", "0.9"),
     ("audit.html", "weekly", "0.85"),
     ("calculator.html", "weekly", "0.85"),
     ("packages.html", "weekly", "0.85"),
