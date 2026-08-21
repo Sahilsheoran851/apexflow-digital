@@ -55,6 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
           overall_score: auditData.scores.overall
         });
       }
+      if (typeof gtag === 'function') {
+        gtag('event', 'audit_completed', {
+          analyzed_url: urlInput,
+          industry: industryInput,
+          overall_score: auditData.scores.overall
+        });
+      }
     }, 1200);
   });
 });

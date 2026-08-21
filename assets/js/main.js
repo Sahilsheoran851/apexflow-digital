@@ -95,10 +95,17 @@ function initLeadForm() {
     `;
 
     try {
-      // 1. Push to GA4 / GTM DataLayer
+      // 1. Push to GA4 / GTM DataLayer & direct gtag event
       if (window.dataLayer) {
         window.dataLayer.push({
           event: 'lead_form_submitted',
+          service_category: formData.serviceRequired,
+          budget_range: formData.budget,
+          preferred_channel: formData.contactPref
+        });
+      }
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
           service_category: formData.serviceRequired,
           budget_range: formData.budget,
           preferred_channel: formData.contactPref
@@ -174,12 +181,18 @@ function initFAQ() {
  * WhatsApp Engagement Tracker & Prefill
  */
 function initWhatsAppTracker() {
-  const whatsappButtons = document.querySelectorAll('.btn-whatsapp, .whatsapp-float');
+  const whatsappButtons = document.querySelectorAll('.nav-btn-whatsapp, .btn-whatsapp, .whatsapp-float');
   whatsappButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       if (window.dataLayer) {
         window.dataLayer.push({
           event: 'whatsapp_click',
+          click_location: btn.getAttribute('data-location') || 'floating_button'
+        });
+      }
+      if (typeof gtag === 'function') {
+        gtag('event', 'contact', {
+          method: 'WhatsApp',
           click_location: btn.getAttribute('data-location') || 'floating_button'
         });
       }
