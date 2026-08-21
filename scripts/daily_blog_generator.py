@@ -168,7 +168,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(5, 11, 26, 0.6); border: 1px solid var(--border-cyber); border-radius: var(--radius-md);">
           <div class="founder-avatar" style="width: 44px; height: 44px; font-size: 1rem;">SS</div>
           <div>
-            <div style="font-weight: 700; color: var(--text-primary);">By Sahil Sheoran</div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="font-weight: 700; color: var(--text-primary);">By Sahil Sheoran</span>
+              <a href="https://www.linkedin.com/in/sahilsheoran1/" target="_blank" rel="noopener" style="color: var(--neon-cyan); font-size: 0.8rem; text-decoration: none;">LinkedIn ↗</a>
+            </div>
             <div style="font-size: 0.8rem; color: var(--text-muted);">Founder & Principal Growth Technologist, ApexFlow Digital</div>
           </div>
         </div>
