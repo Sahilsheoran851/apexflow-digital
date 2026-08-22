@@ -68,6 +68,28 @@ function initHeroGlobeCanvas() {
 
   window.addEventListener('mouseup', () => (isDragging = false));
 
+  // Touch support for mobile devices
+  canvas.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      isDragging = true;
+      lastMouseX = e.touches[0].clientX;
+      lastMouseY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (isDragging && e.touches.length === 1) {
+      const deltaX = e.touches[0].clientX - lastMouseX;
+      const deltaY = e.touches[0].clientY - lastMouseY;
+      rotation += deltaX * 0.007;
+      pitch = Math.max(-0.6, Math.min(0.6, pitch + deltaY * 0.003));
+      lastMouseX = e.touches[0].clientX;
+      lastMouseY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchend', () => (isDragging = false));
+
   // Generate sphere 3D dots using Fibonacci spiral
   const dotCount = 550;
   const dots = [];

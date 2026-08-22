@@ -36,17 +36,28 @@ function initNavigation() {
     navMenu?.classList.toggle('open');
     const isOpen = navMenu?.classList.contains('open');
     mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    
+    // Change icon between hamburger and close
+    mobileToggle.innerHTML = isOpen 
+      ? `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+      : `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>`;
   });
 
   // Smooth Scroll & Close Menu on Click
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
+      navMenu?.classList.remove('open');
+      document.body.style.overflow = '';
+      if (mobileToggle) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>`;
+      }
       const href = link.getAttribute('href');
       if (href && href.startsWith('#')) {
         e.preventDefault();
         const targetSection = document.querySelector(href);
         if (targetSection) {
-          navMenu?.classList.remove('open');
           targetSection.scrollIntoView({ behavior: 'smooth' });
         }
       }
