@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
   initWhatsAppTracker();
   initAnalyticsDataLayer();
+  initServiceTabs();
+  initWhatsAppConcierge();
 });
 
 /**
@@ -234,7 +236,68 @@ function showToast(message, type = 'info') {
   }, 5000);
 }
 
+/**
+ * Interactive Service Stack Multi-Tab Switcher (Magic UI & Linear style)
+ */
+function initServiceTabs() {
+  const tabs = document.querySelectorAll('.service-tab-btn');
+  const panels = document.querySelectorAll('.service-tab-panel');
+
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('data-tab');
+
+      // Update Tab Buttons
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Update Panels
+      panels.forEach(panel => {
+        if (panel.getAttribute('id') === `tab-panel-${targetId}`) {
+          panel.classList.add('active');
+        } else {
+          panel.classList.remove('active');
+        }
+      });
+    });
+  });
+}
+
+/**
+ * WhatsApp Floating Concierge Popup Controller (Humanizer)
+ */
+function initWhatsAppConcierge() {
+  const floatBtn = document.querySelector('.whatsapp-float');
+  const conciergePopup = document.querySelector('.whatsapp-concierge-card');
+  const closeBtn = document.querySelector('.concierge-close-btn');
+
+  if (!floatBtn || !conciergePopup) return;
+
+  // Toggle on floating button click if not targeting direct link
+  floatBtn.addEventListener('click', (e) => {
+    if (window.innerWidth > 768) {
+      e.preventDefault();
+      conciergePopup.classList.toggle('open');
+    }
+  });
+
+  closeBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    conciergePopup.classList.remove('open');
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!conciergePopup.contains(e.target) && !floatBtn.contains(e.target)) {
+      conciergePopup.classList.remove('open');
+    }
+  });
+}
+
 // Global Export for helper access
 window.ApexFlow = {
   showToast
 };
+

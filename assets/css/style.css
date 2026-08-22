@@ -1693,6 +1693,292 @@ button {
 }
 
 /* ==========================================================================
+   Interactive Service Stack Tabs (Magic UI & Linear Style)
+   ========================================================================== */
+.service-tabs-wrapper {
+  margin: 3rem 0;
+}
+
+.service-tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.service-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-full);
+  background: rgba(10, 18, 38, 0.6);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.925rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.service-tab-btn:hover {
+  border-color: var(--neon-cyan);
+  color: var(--text-primary);
+  background: rgba(15, 25, 50, 0.8);
+}
+
+.service-tab-btn.active {
+  background: rgba(0, 242, 254, 0.12);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+}
+
+.service-tab-panel {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.service-tab-panel.active {
+  display: block;
+}
+
+.tab-content-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  background: rgba(10, 18, 38, 0.7);
+  border: 1px solid var(--border-cyber);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+/* ==========================================================================
+   Comparison Matrix ("Traditional Agency vs ApexFlow Digital")
+   ========================================================================== */
+.matrix-container {
+  overflow-x: auto;
+  margin: 3rem 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: rgba(5, 11, 26, 0.6);
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 650px;
+}
+
+.matrix-table th, .matrix-table td {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.matrix-table th {
+  background: rgba(10, 18, 38, 0.9);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.matrix-table td {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+}
+
+.matrix-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.matrix-highlight {
+  color: var(--neon-emerald) !important;
+  font-weight: 600;
+  background: rgba(5, 255, 161, 0.04);
+}
+
+.matrix-negative {
+  color: #f87171 !important;
+}
+
+/* ==========================================================================
+   Verified UAE Client Testimonials Grid
+   ========================================================================== */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin: 3rem 0;
+}
+
+.testimonial-card {
+  background: rgba(10, 18, 38, 0.65);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-normal);
+}
+
+.testimonial-card:hover {
+  border-color: var(--neon-cyan);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 242, 254, 0.12);
+}
+
+.testimonial-stars {
+  color: #fbbf24;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.testimonial-quote {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+}
+
+.testimonial-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gradient-cyber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #030712;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.testimonial-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.testimonial-role {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   WhatsApp Floating Concierge Card (Humanizer Popover)
+   ========================================================================== */
+.whatsapp-concierge-card {
+  position: fixed;
+  bottom: 95px;
+  right: 24px;
+  width: 340px;
+  background: rgba(5, 11, 26, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 242, 254, 0.2);
+  z-index: 999;
+  display: none;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.whatsapp-concierge-card.open {
+  display: block;
+}
+
+.concierge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.concierge-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.concierge-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--gradient-cyber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #030712;
+  font-size: 0.85rem;
+}
+
+.concierge-close-btn {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.concierge-close-btn:hover {
+  color: #ffffff;
+}
+
+.concierge-body {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.concierge-prompt-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.concierge-chip {
+  display: block;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.concierge-chip:hover {
+  background: rgba(37, 211, 102, 0.12);
+  border-color: #25d366;
+  color: #25d366;
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
    Animations & Responsive Breakpoints
    ========================================================================== */
 @keyframes fadeIn {
@@ -1713,6 +1999,8 @@ button {
   .animated-beam-pipeline { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
   .beam-track { display: none; }
   .metrics-ticker-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .tab-content-grid { grid-template-columns: 1fr; padding: 1.75rem; }
 }
 
 @media (max-width: 768px) {
@@ -1743,4 +2031,5 @@ button {
   .animated-beam-pipeline { grid-template-columns: 1fr; }
   .metrics-ticker-grid { grid-template-columns: 1fr; }
   .globe-canvas-wrapper { height: 300px; }
+  .whatsapp-concierge-card { right: 15px; left: 15px; width: auto; }
 }
