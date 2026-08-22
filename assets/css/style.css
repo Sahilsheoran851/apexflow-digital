@@ -1487,7 +1487,209 @@ button {
   color: var(--text-muted);
   font-size: 0.85rem;
   flex-wrap: wrap;
-  gap: 1rem;
+/* ==========================================================================
+   Futuristic 3D Globe & Magic UI Beam Pipeline Components
+   ========================================================================== */
+.human-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(5, 255, 161, 0.08);
+  border: 1px solid rgba(5, 255, 161, 0.25);
+  font-size: 0.8rem;
+  color: #05ffa1;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 15px rgba(5, 255, 161, 0.15);
+}
+
+.human-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #05ffa1;
+  box-shadow: 0 0 8px #05ffa1;
+  animation: pulseGreen 1.8s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 3D UAE Globe Container */
+.globe-section-card {
+  position: relative;
+  background: rgba(5, 11, 26, 0.7);
+  border: 1px solid var(--border-cyber);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 242, 254, 0.04);
+}
+
+.globe-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+.globe-canvas-wrapper:active {
+  cursor: grabbing;
+}
+
+#uae-globe-canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
+}
+
+.globe-drag-hint {
+  position: absolute;
+  bottom: 10px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  background: rgba(3, 7, 18, 0.8);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Animated Beam Pipeline (Magic UI Style) */
+.animated-beam-pipeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 3rem 0 1.5rem 0;
+  align-items: center;
+}
+
+.beam-node {
+  background: rgba(10, 18, 38, 0.85);
+  border: 1px solid var(--border-cyber);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: all var(--transition-normal);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.beam-node:hover {
+  border-color: var(--neon-cyan);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(0, 242, 254, 0.2);
+}
+
+.beam-node-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.beam-node-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.beam-node-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.beam-node-step {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-void);
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
+.beam-track {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 1;
+}
+
+.beam-laser-dot {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 40px;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, transparent, #00f2fe, #05ffa1);
+  box-shadow: 0 0 15px #00f2fe, 0 0 25px #05ffa1;
+  pointer-events: none;
+}
+
+/* Number Ticker Metric Cards */
+.metrics-ticker-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 3.5rem 0;
+}
+
+.metric-ticker-card {
+  background: rgba(10, 18, 38, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.metric-ticker-card:hover {
+  border-color: var(--neon-cyan);
+  background: rgba(10, 18, 38, 0.85);
+  box-shadow: 0 8px 25px rgba(0, 242, 254, 0.15);
+}
+
+.metric-ticker-number {
+  font-size: 2.75rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  background: var(--gradient-cyber);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
+}
+
+.metric-ticker-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 /* ==========================================================================
@@ -1507,6 +1709,10 @@ button {
   .calculator-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .bento-col-4, .bento-col-6, .bento-col-8 { grid-column: span 12; }
+  .globe-section-card { grid-template-columns: 1fr; }
+  .animated-beam-pipeline { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .beam-track { display: none; }
+  .metrics-ticker-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -1534,4 +1740,7 @@ button {
   .footer-grid { grid-template-columns: 1fr; }
   .lead-card { padding: 2.25rem 1.5rem; }
   .audit-tool-wrapper { padding: 2rem 1.5rem; }
+  .animated-beam-pipeline { grid-template-columns: 1fr; }
+  .metrics-ticker-grid { grid-template-columns: 1fr; }
+  .globe-canvas-wrapper { height: 300px; }
 }
