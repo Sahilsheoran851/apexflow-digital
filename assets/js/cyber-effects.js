@@ -1,108 +1,281 @@
 /**
  * ApexFlow Digital — Futuristic Cyber Effects & Humanizer Engine
- * 3D UAE Cyber Globe, Animated Beam Pipeline, Number Tickers, Live Terminal & Human Availability HUD
+ * 3D UAE Hero Background Globe, Magic UI Animated Beam Pipeline, Number Tickers, Live Terminal & Human Availability HUD
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initHeroCanvas();
+  initHeroGlobeCanvas();
   init3DCardTilt();
   initLiveCyberTerminal();
   initScrollReveals();
-  init3DUAEGlobe();
   initAnimatedBeamPipeline();
   initNumberTicker();
   initHumanStatusHUD();
 });
 
 /**
- * 1. Futuristic Hero Canvas Particle & Constellation Grid
+ * 1. Futuristic Hero Canvas — 3D Holographic UAE Globe + Ambient Particle Space
  */
-function initHeroCanvas() {
+function initHeroGlobeCanvas() {
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
   let width, height;
-  let particles = [];
-  const particleCount = 45;
-  const maxDistance = 140;
+  let radius;
+  let rotation = 0;
+  let pitch = 0.25; // Subtle downward tilt to look majestic
+  let targetRotationSpeed = 0.0035;
+  let currentRotationSpeed = 0.0035;
+  let isDragging = false;
+  let lastMouseX = 0;
+  let lastMouseY = 0;
 
   function resize() {
     width = canvas.width = canvas.offsetWidth;
     height = canvas.height = canvas.offsetHeight;
+    // Scale globe size nicely according to screen width
+    radius = Math.min(width * 0.35, height * 0.48, 320);
   }
 
   window.addEventListener('resize', resize);
   resize();
 
-  class Particle {
-    constructor() {
-      this.x = Math.random() * width;
-      this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.6;
-      this.vy = (Math.random() - 0.5) * 0.6;
-      this.radius = Math.random() * 2 + 1;
-      this.color = Math.random() > 0.4 ? 'rgba(0, 242, 254, ' : 'rgba(157, 78, 221, ';
-      this.alpha = Math.random() * 0.5 + 0.2;
+  // Mouse interaction
+  window.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
+      if (isDragging) {
+        const deltaX = e.clientX - lastMouseX;
+        const deltaY = e.clientY - lastMouseY;
+        rotation += deltaX * 0.006;
+        pitch = Math.max(-0.6, Math.min(0.6, pitch + deltaY * 0.003));
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+      } else {
+        // Subtle tilt based on cursor position
+        const normX = (e.clientX - rect.left) / width - 0.5;
+        targetRotationSpeed = 0.0035 + normX * 0.005;
+      }
     }
+  });
 
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
+  canvas.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+  });
 
-      if (this.x < 0 || this.x > width) this.vx *= -1;
-      if (this.y < 0 || this.y > height) this.vy *= -1;
-    }
+  window.addEventListener('mouseup', () => (isDragging = false));
 
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = this.color + this.alpha + ')';
-      ctx.fill();
-    }
+  // Generate sphere 3D dots using Fibonacci spiral
+  const dotCount = 550;
+  const dots = [];
+  for (let i = 0; i < dotCount; i++) {
+    const phi = Math.acos(-1 + (2 * i) / dotCount);
+    const theta = Math.sqrt(dotCount * Math.PI) * phi;
+    dots.push({
+      x: Math.cos(theta) * Math.sin(phi),
+      y: Math.sin(theta) * Math.sin(phi),
+      z: Math.cos(phi),
+    });
   }
 
-  for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
+  // UAE Coordinates (Dubai ~ 25.2° N, 55.3° E)
+  const uaeLat = (25.2 * Math.PI) / 180;
+  const uaeLon = (55.3 * Math.PI) / 180;
+  const uaePoint = {
+    x: Math.cos(uaeLat) * Math.sin(uaeLon),
+    y: -Math.sin(uaeLat),
+    z: Math.cos(uaeLat) * Math.cos(uaeLon),
+  };
+
+  // Ambient background floating particles
+  const ambientParticles = [];
+  const ambientCount = 35;
+  for (let i = 0; i < ambientCount; i++) {
+    ambientParticles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 1.5 + 0.8,
+      color: Math.random() > 0.4 ? 'rgba(0, 242, 254,' : 'rgba(157, 78, 221,',
+      alpha: Math.random() * 0.4 + 0.1
+    });
   }
 
-  function animate() {
+  let pingRadius = 0;
+
+  function render() {
     ctx.clearRect(0, 0, width, height);
 
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
+    const cx = width / 2;
+    // Position globe slightly above center for optimal hero typography backing
+    const cy = height * 0.46;
 
-        if (dist < maxDistance) {
-          const alpha = (1 - dist / maxDistance) * 0.18;
-          ctx.strokeStyle = `rgba(0, 242, 254, ${alpha})`;
+    // 1. Draw Ambient Connecting Particles
+    for (let i = 0; i < ambientParticles.length; i++) {
+      const p = ambientParticles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `${p.color} ${p.alpha})`;
+      ctx.fill();
+
+      // Lines between close particles
+      for (let j = i + 1; j < ambientParticles.length; j++) {
+        const p2 = ambientParticles[j];
+        const dx = p.x - p2.x;
+        const dy = p.y - p2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.strokeStyle = `rgba(0, 242, 254, ${(1 - dist / 120) * 0.12})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
           ctx.stroke();
         }
       }
     }
 
-    particles.forEach(p => {
-      p.update();
-      p.draw();
+    // 2. Draw Globe Ambient Radiant Aura
+    const grad = ctx.createRadialGradient(cx, cy, radius * 0.3, cx, cy, radius * 1.4);
+    grad.addColorStop(0, 'rgba(0, 242, 254, 0.12)');
+    grad.addColorStop(0.5, 'rgba(157, 78, 221, 0.05)');
+    grad.addColorStop(0.85, 'rgba(5, 255, 161, 0.02)');
+    grad.addColorStop(1, 'transparent');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius * 1.35, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 3. Update Rotation with Smooth Inertia
+    if (!isDragging) {
+      currentRotationSpeed += (targetRotationSpeed - currentRotationSpeed) * 0.05;
+      rotation += currentRotationSpeed;
+    }
+
+    const cosR = Math.cos(rotation);
+    const sinR = Math.sin(rotation);
+    const cosP = Math.cos(pitch);
+    const sinP = Math.sin(pitch);
+
+    // 4. Draw 3D Globe Latitude & Longitude Rings
+    const ringSteps = 60;
+    // Equator Ring
+    ctx.beginPath();
+    for (let i = 0; i <= ringSteps; i++) {
+      const angle = (i / ringSteps) * Math.PI * 2;
+      const rx = Math.cos(angle);
+      const rz = Math.sin(angle);
+      
+      const rotX = rx * cosR - rz * sinR;
+      const rotZ = rx * sinR + rz * cosR;
+      const rotY = rotZ * sinP;
+      const finalZ = rotZ * cosP;
+
+      if (finalZ > -0.25) {
+        const sx = cx + rotX * radius;
+        const sy = cy + rotY * radius;
+        if (i === 0) ctx.moveTo(sx, sy);
+        else ctx.lineTo(sx, sy);
+      }
+    }
+    ctx.strokeStyle = 'rgba(0, 242, 254, 0.12)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // 5. Draw 3D Sphere Points
+    dots.forEach((dot) => {
+      // Rotate around Y (longitude)
+      const rotX = dot.x * cosR - dot.z * sinR;
+      const rotZ = dot.x * sinR + dot.z * cosR;
+
+      // Rotate around X (pitch)
+      const rotY = dot.y * cosP - rotZ * sinP;
+      const finalZ = dot.y * sinP + rotZ * cosP;
+
+      if (finalZ > -0.15) { // Visible front hemisphere
+        const screenX = cx + rotX * radius;
+        const screenY = cy + rotY * radius;
+        const alpha = Math.max(0.12, (finalZ + 0.6) * 0.85);
+
+        ctx.beginPath();
+        ctx.arc(screenX, screenY, 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 242, 254, ${alpha})`;
+        ctx.fill();
+      }
     });
 
-    requestAnimationFrame(animate);
+    // 6. Draw Dubai / UAE Active Node Beacon
+    const uaeRotX = uaePoint.x * cosR - uaePoint.z * sinR;
+    const uaeRotZ = uaePoint.x * sinR + uaePoint.z * cosR;
+    const uaeRotY = uaePoint.y * cosP - uaeRotZ * sinP;
+    const uaeFinalZ = uaePoint.y * sinP + uaeRotZ * cosP;
+
+    if (uaeFinalZ > 0.05) { // UAE is currently facing front
+      const uaeScreenX = cx + uaeRotX * radius;
+      const uaeScreenY = cy + uaeRotY * radius;
+
+      // Pulsing radar ripple
+      pingRadius = (pingRadius + 0.45) % 28;
+      ctx.beginPath();
+      ctx.arc(uaeScreenX, uaeScreenY, pingRadius, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(5, 255, 161, ${1 - pingRadius / 28})`;
+      ctx.lineWidth = 1.8;
+      ctx.stroke();
+
+      // Second ripple
+      const pingRadius2 = (pingRadius + 14) % 28;
+      ctx.beginPath();
+      ctx.arc(uaeScreenX, uaeScreenY, pingRadius2, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(0, 242, 254, ${1 - pingRadius2 / 28})`;
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+
+      // Glowing Node Pin
+      ctx.beginPath();
+      ctx.arc(uaeScreenX, uaeScreenY, 5, 0, Math.PI * 2);
+      ctx.fillStyle = '#05ffa1';
+      ctx.shadowColor = '#05ffa1';
+      ctx.shadowBlur = 18;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      // Node Label with Cyber Background Badge
+      const labelText = '📍 DUBAI_NODE // 25.2°N, 55.3°E';
+      ctx.font = '700 11px "JetBrains Mono", monospace';
+      const textWidth = ctx.measureText(labelText).width;
+
+      ctx.fillStyle = 'rgba(3, 7, 18, 0.85)';
+      ctx.strokeStyle = 'rgba(5, 255, 161, 0.5)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(uaeScreenX + 12, uaeScreenY - 14, textWidth + 14, 22, 4);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#05ffa1';
+      ctx.fillText(labelText, uaeScreenX + 19, uaeScreenY + 1);
+    }
+
+    requestAnimationFrame(render);
   }
 
-  animate();
+  render();
 }
 
 /**
  * 2. 3D Perspective Card Tilt & Radial Cursor Spotlight
  */
 function init3DCardTilt() {
-  const cards = document.querySelectorAll('.bento-card, .service-pillar, .package-card, .problem-card');
+  const cards = document.querySelectorAll('.bento-card, .service-pillar, .package-card, .problem-card, .testimonial-card, .metric-ticker-card');
 
   cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -113,11 +286,11 @@ function init3DCardTilt() {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      const rotateX = ((y - centerY) / centerY) * -6;
-      const rotateY = ((x - centerX) / centerX) * 6;
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0, 242, 254, 0.08), rgba(10, 18, 38, 0.7) 70%)`;
+      card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0, 242, 254, 0.08), rgba(10, 18, 38, 0.75) 70%)`;
     });
 
     card.addEventListener('mouseleave', () => {
@@ -178,7 +351,7 @@ function initLiveCyberTerminal() {
  * 4. IntersectionObserver Scroll Reveal Animations
  */
 function initScrollReveals() {
-  const revealElements = document.querySelectorAll('.bento-card, .service-pillar, .process-step, .package-card, .problem-card');
+  const revealElements = document.querySelectorAll('.bento-card, .service-pillar, .process-step, .package-card, .problem-card, .testimonial-card, .matrix-container');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -199,148 +372,7 @@ function initScrollReveals() {
 }
 
 /**
- * 5. Interactive 3D UAE Cyber Globe (Lightweight Canvas WebGL Simulation)
- */
-function init3DUAEGlobe() {
-  const canvas = document.getElementById('uae-globe-canvas');
-  if (!canvas) return;
-
-  const ctx = canvas.getContext('2d');
-  let width, height;
-  let radius;
-  let rotation = 0;
-  let isDragging = false;
-  let lastMouseX = 0;
-
-  function resize() {
-    width = canvas.width = canvas.offsetWidth;
-    height = canvas.height = canvas.offsetHeight;
-    radius = Math.min(width, height) * 0.42;
-  }
-
-  window.addEventListener('resize', resize);
-  resize();
-
-  // Generate sphere dots (Fibonacci sphere distribution)
-  const dotCount = 450;
-  const dots = [];
-  for (let i = 0; i < dotCount; i++) {
-    const phi = Math.acos(-1 + (2 * i) / dotCount);
-    const theta = Math.sqrt(dotCount * Math.PI) * phi;
-    dots.push({
-      x: Math.cos(theta) * Math.sin(phi),
-      y: Math.sin(theta) * Math.sin(phi),
-      z: Math.cos(phi),
-    });
-  }
-
-  // UAE Coordinates (Dubai ~ 25.2° N, 55.3° E)
-  const uaeLat = (25.2 * Math.PI) / 180;
-  const uaeLon = (55.3 * Math.PI) / 180;
-  const uaePoint = {
-    x: Math.cos(uaeLat) * Math.sin(uaeLon),
-    y: -Math.sin(uaeLat),
-    z: Math.cos(uaeLat) * Math.cos(uaeLon),
-  };
-
-  // Drag interaction
-  canvas.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    lastMouseX = e.clientX;
-  });
-
-  window.addEventListener('mouseup', () => (isDragging = false));
-
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    const deltaX = e.clientX - lastMouseX;
-    rotation += deltaX * 0.008;
-    lastMouseX = e.clientX;
-  });
-
-  let pingRadius = 0;
-
-  function render() {
-    ctx.clearRect(0, 0, width, height);
-
-    if (!isDragging) {
-      rotation += 0.005;
-    }
-
-    const cx = width / 2;
-    const cy = height / 2;
-
-    // Draw ambient atmosphere glow
-    const grad = ctx.createRadialGradient(cx, cy, radius * 0.6, cx, cy, radius * 1.25);
-    grad.addColorStop(0, 'rgba(0, 242, 254, 0.08)');
-    grad.addColorStop(0.7, 'rgba(157, 78, 221, 0.04)');
-    grad.addColorStop(1, 'transparent');
-    ctx.fillStyle = grad;
-    ctx.beginPath();
-    ctx.arc(cx, cy, radius * 1.2, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Draw 3D Dots
-    dots.forEach((dot) => {
-      // Rotate around Y axis
-      const cosR = Math.cos(rotation);
-      const sinR = Math.sin(rotation);
-      const rotX = dot.x * cosR - dot.z * sinR;
-      const rotZ = dot.x * sinR + dot.z * cosR;
-
-      if (rotZ > -0.2) { // Front hemisphere only
-        const screenX = cx + rotX * radius;
-        const screenY = cy + dot.y * radius;
-        const alpha = Math.max(0.1, (rotZ + 0.5) * 0.85);
-
-        ctx.beginPath();
-        ctx.arc(screenX, screenY, 1.4, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 242, 254, ${alpha})`;
-        ctx.fill();
-      }
-    });
-
-    // Draw UAE Node & Beacon
-    const cosR = Math.cos(rotation);
-    const sinR = Math.sin(rotation);
-    const uaeRotX = uaePoint.x * cosR - uaePoint.z * sinR;
-    const uaeRotZ = uaePoint.x * sinR + uaePoint.z * cosR;
-
-    if (uaeRotZ > 0) { // UAE is visible on front
-      const uaeScreenX = cx + uaeRotX * radius;
-      const uaeScreenY = cy + uaePoint.y * radius;
-
-      // Radar pulse ring
-      pingRadius = (pingRadius + 0.4) % 24;
-      ctx.beginPath();
-      ctx.arc(uaeScreenX, uaeScreenY, pingRadius, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(5, 255, 161, ${1 - pingRadius / 24})`;
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-
-      // Glowing Node Pin
-      ctx.beginPath();
-      ctx.arc(uaeScreenX, uaeScreenY, 4.5, 0, Math.PI * 2);
-      ctx.fillStyle = '#05ffa1';
-      ctx.shadowColor = '#05ffa1';
-      ctx.shadowBlur = 15;
-      ctx.fill();
-      ctx.shadowBlur = 0;
-
-      // Label
-      ctx.font = '600 11px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#00f2fe';
-      ctx.fillText('📍 DUBAI_HQ // UAE', uaeScreenX + 10, uaeScreenY - 6);
-    }
-
-    requestAnimationFrame(render);
-  }
-
-  render();
-}
-
-/**
- * 6. Magic UI-Style Animated Laser Beam Pipeline
+ * 5. Magic UI-Style Animated Laser Beam Pipeline
  */
 function initAnimatedBeamPipeline() {
   const beamContainers = document.querySelectorAll('.animated-beam-pipeline');
@@ -351,7 +383,7 @@ function initAnimatedBeamPipeline() {
     let progress = 0;
 
     function animateBeam() {
-      progress = (progress + 0.012) % 1;
+      progress = (progress + 0.01) % 1;
       pulseDots.forEach((dot, index) => {
         const offset = (progress + index * 0.33) % 1;
         dot.style.left = `${offset * 100}%`;
@@ -363,7 +395,7 @@ function initAnimatedBeamPipeline() {
 }
 
 /**
- * 7. Animated Number Ticker (Count-Up on Scroll)
+ * 6. Animated Number Ticker (Count-Up on Scroll)
  */
 function initNumberTicker() {
   const counters = document.querySelectorAll('.number-ticker');
@@ -382,7 +414,6 @@ function initNumberTicker() {
         function update(currentTime) {
           const elapsed = currentTime - startTime;
           const progress = Math.min(elapsed / duration, 1);
-          // Ease-out cubic
           const easeOut = 1 - Math.pow(1 - progress, 3);
           const currentVal = Math.round(targetVal * easeOut);
 
@@ -405,10 +436,9 @@ function initNumberTicker() {
 }
 
 /**
- * 8. Live Human Availability HUD & WhatsApp Concierge (Humanizer)
+ * 7. Live Human Availability HUD & WhatsApp Concierge (Humanizer)
  */
 function initHumanStatusHUD() {
-  // Update time dynamically in UAE Timezone (UTC+4)
   const timeElements = document.querySelectorAll('.live-uae-time');
   function updateTime() {
     const options = { timeZone: 'Asia/Dubai', hour: '2-digit', minute: '2-digit', hour12: true };
