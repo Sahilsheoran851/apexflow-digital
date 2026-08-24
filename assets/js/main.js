@@ -130,23 +130,36 @@ function initLeadForm() {
       storedLeads.push(formData);
       localStorage.setItem('apexflow_leads', JSON.stringify(storedLeads));
 
-      // 3. Dispatch to Webhook / Formspree / Make.com if configured
+      // 3. Dispatch to Google Sheets / Webhook / Formspree if configured
       const endpoint = form.getAttribute('action') || form.getAttribute('data-webhook-url');
       if (endpoint && endpoint.startsWith('http')) {
         try {
-          await fetch(endpoint, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(formData)
-          });
+          if (endpoint.includes('script.google.com')) {
+            // Google Apps Script Web App handler (no-cors mode prevents browser preflight blocks)
+            await fetch(endpoint, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            });
+          } else {
+            // Standard Webhook (Make.com, Zapier, n8n, Formspree)
+            await fetch(endpoint, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            });
+          }
         } catch (fetchErr) {
-          console.warn('Webhook dispatch warning (offline fallback active):', fetchErr);
+          console.warn('Endpoint dispatch warning (offline fallback active):', fetchErr);
         }
       } else {
-        // Simulated local network latency
+        // Simulated network latency
         await new Promise(resolve => setTimeout(resolve, 600));
       }
 
