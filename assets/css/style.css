@@ -1904,6 +1904,25 @@ button {
   display: block;
 }
 
+.ai-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-cyber);
+  border-radius: 20px;
+  padding: 0.25rem 0.65rem;
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition-fast);
+}
+
+.ai-chip:hover {
+  background: rgba(0, 242, 254, 0.15);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+
 .concierge-header {
   display: flex;
   align-items: center;
