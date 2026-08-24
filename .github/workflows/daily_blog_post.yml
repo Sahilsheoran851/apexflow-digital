@@ -1,0 +1,27 @@
+name: Automated Daily UAE Blog Publisher
+on:
+  schedule:
+    # Runs at 04:00 UTC (08:00 AM Dubai / UAE Time) every single day
+    - cron: '0 4 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions UI
+jobs:
+  publish-blog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run Daily Blog Publisher
+        run: |
+          python3 scripts/daily_blog_generator.py
+      - name: Commit and Push New Blog Post
+        run: |
+          git config --global user.name "ApexFlow Automated Engine"
+          git config --global user.email "bot@apexflowdigital.ae"
+          git add blog/ sitemap.xml sitemap.html blog.html
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Publish daily UAE digital growth blog post [skip ci]" && git push)
