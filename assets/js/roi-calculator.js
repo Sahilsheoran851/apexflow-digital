@@ -39,6 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hoursSavedDisplay) hoursSavedDisplay.textContent = Math.round(monthlyHoursSaved) + ' hrs/mo';
     if (moneySavedDisplay) moneySavedDisplay.textContent = 'AED ' + monthlyCostSaved.toLocaleString();
     if (annualSavingsDisplay) annualSavingsDisplay.textContent = 'AED ' + annualCostSaved.toLocaleString() + ' / year';
+
+    const whatsappCTA = document.getElementById('roi-whatsapp-cta');
+    if (whatsappCTA) {
+      const msg = encodeURIComponent(
+        `Hi Sahil! I used your ApexFlow ROI calculator for my team (${teamSize} people). It estimated we could save AED ${monthlyCostSaved.toLocaleString()}/mo (${Math.round(monthlyHoursSaved)} hrs/mo) with automated pipelines. Let's discuss!`
+      );
+      whatsappCTA.href = `https://wa.me/971507507963?text=${msg}`;
+    }
   }
 
   teamSizeSlider.addEventListener('input', calculateROI);

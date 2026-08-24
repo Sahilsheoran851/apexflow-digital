@@ -62,7 +62,28 @@ document.addEventListener('DOMContentLoaded', () => {
           overall_score: auditData.scores.overall
         });
       }
-    }, 1200);
+
+      // Automatically sync audited domain lead to Google Sheets
+      try {
+        fetch('https://script.google.com/macros/s/AKfycbxwnLG2b2DWalLeOcwt1FiN-oc0bpMsSN2Fca6s9HByubaQTTrZNk2WnGBNWHudrucp/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fullName: 'Website Audit Lead',
+            companyName: urlInput,
+            email: 'audit@apexflowdigital.ae',
+            whatsapp: 'N/A',
+            website: urlInput,
+            serviceRequired: `Audit Report: ${auditData.scores.overall}/100 Score`,
+            budget: 'Free Diagnostic Run',
+            challenge: `Industry: ${industryInput}. Priority: ${priorityInput}. Bottleneck: ${auditData.topBottleneck}`,
+            contactPref: 'Audit Tool',
+            source: 'Cyber Audit (/audit.html)'
+          })
+        });
+      } catch(e) {}
+    }, 1000);
   });
 });
 

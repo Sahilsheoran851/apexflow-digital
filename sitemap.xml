@@ -169,6 +169,24 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://apexflow-digital.vercel.app/locations/palm-jumeirah.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://apexflow-digital.vercel.app/locations/sharjah.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://apexflow-digital.vercel.app/locations/ras-al-khaimah.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://apexflow-digital.vercel.app/sitemap.html</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
