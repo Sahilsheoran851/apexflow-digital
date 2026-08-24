@@ -131,7 +131,8 @@ function initLeadForm() {
       localStorage.setItem('apexflow_leads', JSON.stringify(storedLeads));
 
       // 3. Dispatch to Google Sheets / Webhook / Formspree if configured
-      const endpoint = form.getAttribute('action') || form.getAttribute('data-webhook-url');
+      const defaultGoogleSheetEndpoint = 'https://script.google.com/macros/s/AKfycbxwnLG2b2DWalLeOcwt1FiN-oc0bpMsSN2Fca6s9HByubaQTTrZNk2WnGBNWHudrucp/exec';
+      const endpoint = form.getAttribute('action') || form.getAttribute('data-webhook-url') || defaultGoogleSheetEndpoint;
       if (endpoint && endpoint.startsWith('http')) {
         try {
           if (endpoint.includes('script.google.com')) {
