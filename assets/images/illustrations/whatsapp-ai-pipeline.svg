@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="waBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b1a" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="waGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#25D366"/>
+      <stop offset="100%" stop-color="#05ffa1"/>
+    </linearGradient>
+    <filter id="glowWa" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Card Frame -->
+  <rect x="10" y="10" width="480" height="300" rx="16" fill="url(#waBgGrad)" stroke="rgba(37, 211, 102, 0.25)" stroke-width="1.5"/>
+
+  <!-- Top Status Bar -->
+  <g transform="translate(30, 25)">
+    <circle cx="12" cy="12" r="12" fill="url(#waGreen)"/>
+    <path d="M7 12a5 5 0 0 0 7.8 4.2l1.6.4-.4-1.6A5 5 0 1 0 7 12z" fill="#030712"/>
+    <text x="32" y="16" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="12" font-weight="700">ApexFlow WhatsApp AI Lead Qualification Engine</text>
+    <rect x="360" y="0" width="80" height="24" rx="12" fill="rgba(37, 211, 102, 0.15)" stroke="#25D366" stroke-width="1"/>
+    <text x="400" y="16" fill="#25D366" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700" text-anchor="middle">ACTIVE &lt; 20s</text>
+  </g>
+
+  <!-- Chat Simulation Box -->
+  <g transform="translate(30, 65)">
+    <rect width="440" height="225" rx="12" fill="rgba(10, 18, 38, 0.7)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1"/>
+
+    <!-- User Inbound Bubble (Left) -->
+    <g transform="translate(15, 15)">
+      <rect width="270" height="46" rx="10" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+      <text x="12" y="20" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="11">"Hi, looking for villa marketing in Palm Jumeirah. Budget is AED 35k/mo."</text>
+      <text x="12" y="38" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9">02:14:02 PM · +971 50 *** 7963</text>
+    </g>
+
+    <!-- AI Bot Instant Reply (Right) -->
+    <g transform="translate(150, 72)">
+      <rect width="275" height="62" rx="10" fill="rgba(37, 211, 102, 0.12)" stroke="#25D366" stroke-width="1"/>
+      <text x="12" y="20" fill="#05ffa1" font-family="'Inter', sans-serif" font-size="11" font-weight="600">🤖 ApexFlow AI Concierge (Dubai)</text>
+      <text x="12" y="38" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="10.5">"Hello! Qualified for our Tier-1 GCC strategy. I've reserved Thursday 11:00 AM on Sahil's calendar."</text>
+      <text x="12" y="54" fill="#25D366" font-family="'JetBrains Mono', monospace" font-size="9">02:14:18 PM (16s response latency)</text>
+    </g>
+
+    <!-- Synced Outcome Badge (Bottom) -->
+    <g transform="translate(15, 150)">
+      <rect width="410" height="58" rx="8" fill="rgba(0, 242, 254, 0.06)" stroke="rgba(0, 242, 254, 0.3)" stroke-width="1"/>
+      <circle cx="28" cy="29" r="14" fill="rgba(5, 255, 161, 0.2)"/>
+      <path d="M22 29l4 4 8-8" stroke="#05ffa1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="52" y="26" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700">HubSpot CRM & Google Calendar Synced (0.34s)</text>
+      <text x="52" y="44" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">Lead status: QUALIFIED // Meeting Invite Dispatched to Sales Broker</text>
+    </g>
+  </g>
+</svg>

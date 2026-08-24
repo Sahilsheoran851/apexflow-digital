@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="seoBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b1a" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="seoCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+    <linearGradient id="seoGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#05ffa1"/>
+      <stop offset="100%" stop-color="#00f2fe"/>
+    </linearGradient>
+    <filter id="glowSeo" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Card Frame -->
+  <rect x="10" y="10" width="480" height="300" rx="16" fill="url(#seoBgGrad)" stroke="rgba(0, 242, 254, 0.2)" stroke-width="1.5"/>
+  
+  <!-- Cyber HUD Grid -->
+  <line x1="10" y1="65" x2="490" y2="65" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+  
+  <!-- Search Bar HUD -->
+  <rect x="30" y="24" width="340" height="28" rx="14" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(0, 242, 254, 0.3)" stroke-width="1"/>
+  <circle cx="48" cy="38" r="6" stroke="#00f2fe" stroke-width="1.5"/>
+  <line x1="53" y1="42" x2="59" y2="48" stroke="#00f2fe" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="68" y="42" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">"luxury real estate dubai" 🇦🇪</text>
+  
+  <!-- Status Badge -->
+  <rect x="385" y="24" width="85" height="28" rx="6" fill="rgba(5, 255, 161, 0.1)" stroke="#05ffa1" stroke-width="1"/>
+  <circle cx="398" cy="38" r="3.5" fill="#05ffa1" filter="url(#glowSeo)"/>
+  <text x="408" y="42" fill="#05ffa1" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">RANK #1</text>
+
+  <!-- Result 1 (Highlighted #1 Position) -->
+  <g transform="translate(30, 80)">
+    <rect width="440" height="70" rx="10" fill="rgba(0, 242, 254, 0.06)" stroke="rgba(0, 242, 254, 0.4)" stroke-width="1.5"/>
+    <rect x="12" y="14" width="22" height="22" rx="4" fill="url(#seoCyan)"/>
+    <text x="18" y="30" fill="#030712" font-family="sans-serif" font-size="12" font-weight="800">1</text>
+    
+    <text x="44" y="24" fill="#00f2fe" font-family="'Inter', sans-serif" font-size="13" font-weight="700">Your Company — Dubai Downtown & Marina Hub</text>
+    <text x="44" y="40" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10.5">https://yourcompany.ae/services/luxury-properties</text>
+    <text x="44" y="58" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="11">★ 4.9 (184 Verified UAE Reviews) · 100% Core Web Vitals</text>
+
+    <rect x="345" y="16" width="80" height="22" rx="4" fill="rgba(5, 255, 161, 0.15)" stroke="#05ffa1" stroke-width="1"/>
+    <text x="354" y="31" fill="#05ffa1" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700">+280% LEADS</text>
+  </g>
+
+  <!-- Growth Trajectory Graph -->
+  <g transform="translate(30, 165)">
+    <rect width="440" height="125" rx="10" fill="rgba(10, 18, 38, 0.6)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1"/>
+    
+    <text x="15" y="24" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">ORGANIC KEYWORD DOMINANCE // 90-DAY TRAJECTORY</text>
+
+    <!-- Grid lines -->
+    <line x1="15" y1="45" x2="425" y2="45" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 3"/>
+    <line x1="15" y1="75" x2="425" y2="75" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 3"/>
+    <line x1="15" y1="105" x2="425" y2="105" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 3"/>
+
+    <!-- Gradient Wave Line -->
+    <path d="M 20 100 Q 110 95, 180 70 T 320 40 T 420 20" fill="none" stroke="url(#seoGreen)" stroke-width="3" filter="url(#glowSeo)"/>
+    <path d="M 20 100 Q 110 95, 180 70 T 320 40 T 420 20 L 420 115 L 20 115 Z" fill="url(#seoCyan)" opacity="0.12"/>
+    
+    <!-- Node Dots -->
+    <circle cx="180" cy="70" r="4" fill="#00f2fe"/>
+    <circle cx="320" cy="40" r="4" fill="#00f2fe"/>
+    <circle cx="420" cy="20" r="5" fill="#05ffa1" stroke="#030712" stroke-width="2"/>
+    
+    <text x="350" y="16" fill="#05ffa1" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">TOP 3 (94%)</text>
+  </g>
+</svg>

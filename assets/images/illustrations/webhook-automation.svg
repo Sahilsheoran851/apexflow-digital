@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="hookBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b1a" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="purpleHook" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9d4edd"/>
+      <stop offset="100%" stop-color="#00f2fe"/>
+    </linearGradient>
+    <filter id="glowHook" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Card Frame -->
+  <rect x="10" y="10" width="480" height="300" rx="16" fill="url(#hookBgGrad)" stroke="rgba(157, 78, 221, 0.3)" stroke-width="1.5"/>
+
+  <text x="30" y="42" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="14" font-weight="700">Autonomous Webhook & CRM Data Pipeline</text>
+  <text x="30" y="60" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">REAL-TIME ZERO-TOUCH ARCHITECTURE</text>
+
+  <!-- Center Hub: ApexFlow Brain -->
+  <g transform="translate(190, 110)">
+    <rect width="120" height="70" rx="12" fill="rgba(157, 78, 221, 0.15)" stroke="#9d4edd" stroke-width="2" filter="url(#glowHook)"/>
+    <text x="60" y="32" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">⚡ APEXFLOW</text>
+    <text x="60" y="50" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle">AI Pipeline Router</text>
+  </g>
+
+  <!-- Node 1: Inbound Webhook (Left) -->
+  <g transform="translate(30, 115)">
+    <rect width="110" height="60" rx="10" fill="rgba(0, 242, 254, 0.08)" stroke="rgba(0, 242, 254, 0.3)" stroke-width="1"/>
+    <text x="55" y="28" fill="#00f2fe" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">01 // INBOUND</text>
+    <text x="55" y="46" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Web & Ads Form</text>
+  </g>
+
+  <!-- Node 2: WhatsApp Bot (Top Right) -->
+  <g transform="translate(350, 80)">
+    <rect width="120" height="55" rx="10" fill="rgba(37, 211, 102, 0.08)" stroke="rgba(37, 211, 102, 0.3)" stroke-width="1"/>
+    <text x="60" y="24" fill="#25D366" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">02 // WHATSAPP</text>
+    <text x="60" y="42" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Bilingual AI Triage</text>
+  </g>
+
+  <!-- Node 3: CRM & Sheets (Bottom Right) -->
+  <g transform="translate(350, 155)">
+    <rect width="120" height="55" rx="10" fill="rgba(247, 37, 133, 0.08)" stroke="rgba(247, 37, 133, 0.3)" stroke-width="1"/>
+    <text x="60" y="24" fill="#f72585" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">03 // CRM & SHEETS</text>
+    <text x="60" y="42" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="10" font-weight="600" text-anchor="middle">HubSpot & Zoho Sync</text>
+  </g>
+
+  <!-- Connecting Laser Lines -->
+  <!-- Left to Center -->
+  <line x1="140" y1="145" x2="190" y2="145" stroke="#00f2fe" stroke-width="2" stroke-dasharray="4 4"/>
+  <!-- Center to Top Right -->
+  <path d="M 310 135 Q 330 110, 350 107" fill="none" stroke="#25D366" stroke-width="2" stroke-dasharray="4 4"/>
+  <!-- Center to Bottom Right -->
+  <path d="M 310 155 Q 330 180, 350 182" fill="none" stroke="#f72585" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- Efficiency Footer -->
+  <g transform="translate(30, 240)">
+    <rect width="440" height="42" rx="8" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1"/>
+    <text x="20" y="26" fill="#05ffa1" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">✓ 20+ HOURS SAVED / WEEK</text>
+    <text x="420" y="26" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10.5" text-anchor="end">0% Human Copy-Paste Error Rate</text>
+  </g>
+</svg>

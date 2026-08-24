@@ -130,8 +130,25 @@ function initLeadForm() {
       storedLeads.push(formData);
       localStorage.setItem('apexflow_leads', JSON.stringify(storedLeads));
 
-      // Simulate webhook dispatch (Ready for Make.com / Zapier / n8n webhook URL)
-      await new Promise(resolve => setTimeout(resolve, 800));
+      // 3. Dispatch to Webhook / Formspree / Make.com if configured
+      const endpoint = form.getAttribute('action') || form.getAttribute('data-webhook-url');
+      if (endpoint && endpoint.startsWith('http')) {
+        try {
+          await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
+        } catch (fetchErr) {
+          console.warn('Webhook dispatch warning (offline fallback active):', fetchErr);
+        }
+      } else {
+        // Simulated local network latency
+        await new Promise(resolve => setTimeout(resolve, 600));
+      }
 
       // Success State
       showToast('Thank you! Your consultation request has been received. We will contact you within 4 hours.', 'success');
@@ -139,7 +156,7 @@ function initLeadForm() {
 
       // Offer direct WhatsApp follow-up link
       const encodedMsg = encodeURIComponent(
-        `Hi ApexFlow! I just submitted a consultation request for ${formData.companyName || formData.fullName} regarding ${formData.serviceRequired}. Looking forward to connecting!`
+        `Hi Sahil! I just submitted a consultation request for ${formData.companyName || formData.fullName} regarding ${formData.serviceRequired}. Looking forward to connecting!`
       );
       
       const whatsappCTA = document.getElementById('form-whatsapp-quickconnect');
