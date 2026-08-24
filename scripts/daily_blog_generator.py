@@ -287,7 +287,59 @@ def generate_new_post():
     
     print(f"✓ Created new blog post: {out_path}")
     update_sitemaps(chosen["slug"])
+    update_blog_html(chosen, date_formatted)
+    update_sitemap_html(chosen)
     return chosen
+
+def update_blog_html(chosen, date_formatted):
+    if not os.path.exists(BLOG_INDEX_FILE):
+        return
+    with open(BLOG_INDEX_FILE, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    new_article_card = f"""        <!-- Article: {chosen['title']} -->
+        <article class="bento-card bento-col-4" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <span class="preview-tag" style="margin-bottom: 0;">{chosen['category']}</span>
+              <span class="text-mono" style="font-size: 0.75rem; color: var(--text-muted);">{date_formatted}</span>
+            </div>
+            <h3 class="bento-title" style="font-size: 1.25rem; line-height: 1.4; margin-bottom: 0.75rem;">
+              <a href="blog/{chosen['slug']}.html" style="color: inherit; text-decoration: none;">{chosen['title']}</a>
+            </h3>
+            <p class="bento-text" style="font-size: 0.9rem; line-height: 1.6;">
+              {chosen['excerpt']}
+            </p>
+          </div>
+          <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.8rem; color: var(--neon-emerald);">{chosen['read_time']}</span>
+            <a href="blog/{chosen['slug']}.html" class="nav-link" style="font-weight: 600; color: var(--neon-cyan);">Read Article →</a>
+          </div>
+        </article>
+"""
+
+    if f"blog/{chosen['slug']}.html" not in content:
+        container_tag = '<div class="bento-grid" id="blog-posts-container">'
+        if container_tag in content:
+            content = content.replace(container_tag, f"{container_tag}\n{new_article_card}")
+            with open(BLOG_INDEX_FILE, "w", encoding="utf-8") as f:
+                f.write(content)
+            print("✓ Updated blog.html with new article card")
+
+def update_sitemap_html(chosen):
+    if not os.path.exists(SITEMAP_HTML_FILE):
+        return
+    with open(SITEMAP_HTML_FILE, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    new_link = f'<li><a href="blog/{chosen["slug"]}.html">{chosen["title"]}</a></li>'
+    if f'blog/{chosen["slug"]}.html' not in content:
+        target_marker = '<ul style="list-style: none; padding-left: 0;'
+        if target_marker in content:
+            content = content.replace(target_marker, f'{target_marker}\n                {new_link}')
+            with open(SITEMAP_HTML_FILE, "w", encoding="utf-8") as f:
+                f.write(content)
+            print("✓ Updated sitemap.html with new link")
 
 def update_sitemaps(new_slug):
     # Update sitemap.xml
@@ -310,3 +362,4 @@ def update_sitemaps(new_slug):
 
 if __name__ == "__main__":
     generate_new_post()
+
