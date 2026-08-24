@@ -145,6 +145,30 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://apexflow-digital.vercel.app/locations/difc.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://apexflow-digital.vercel.app/locations/jlt.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://apexflow-digital.vercel.app/locations/dubai-silicon-oasis.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://apexflow-digital.vercel.app/locations/dubai-marina.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://apexflow-digital.vercel.app/sitemap.html</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
