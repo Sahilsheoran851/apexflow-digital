@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initUTMTracking();
   initNavigation();
   initLeadForm();
   initFAQ();
@@ -12,6 +13,24 @@ document.addEventListener('DOMContentLoaded', () => {
   initServiceTabs();
   initWhatsAppConcierge();
 });
+
+/**
+ * Capture & Store Marketing Attribution Parameters
+ */
+function initUTMTracking() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid'].forEach(key => {
+      const val = params.get(key);
+      if (val) {
+        sessionStorage.setItem(`apexflow_${key}`, val);
+      }
+    });
+    if (!sessionStorage.getItem('apexflow_first_landing_page')) {
+      sessionStorage.setItem('apexflow_first_landing_page', window.location.pathname);
+    }
+  } catch (e) {}
+}
 
 /**
  * Navigation Bar & Mobile Drawer Controller
@@ -77,6 +96,13 @@ function initLeadForm() {
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.innerHTML;
 
+    // Extract & Persist UTM Attribution
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmSource = urlParams.get('utm_source') || sessionStorage.getItem('apexflow_utm_source') || 'organic';
+    const utmMedium = urlParams.get('utm_medium') || sessionStorage.getItem('apexflow_utm_medium') || 'direct';
+    const utmCampaign = urlParams.get('utm_campaign') || sessionStorage.getItem('apexflow_utm_campaign') || 'none';
+    const gclid = urlParams.get('gclid') || sessionStorage.getItem('apexflow_gclid') || '';
+
     // Collect Form Data
     const formData = {
       fullName: form.querySelector('#full-name')?.value.trim(),
@@ -89,7 +115,12 @@ function initLeadForm() {
       challenge: form.querySelector('#challenge')?.value.trim(),
       contactPref: form.querySelector('#contact-pref')?.value,
       timestamp: new Date().toISOString(),
-      source: window.location.pathname
+      source: window.location.pathname,
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+      gclid: gclid,
+      referrer: document.referrer || 'direct'
     };
 
     // Client-side Validation
