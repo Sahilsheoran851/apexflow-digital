@@ -137,6 +137,18 @@ a {
   color: inherit;
   text-decoration: none;
   transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+/* Accessibility Focus States (UI UX Pro Max Standards) */
+:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+button:focus-visible, a:focus-visible {
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
 }
 
 img, svg {
@@ -738,6 +750,15 @@ button {
   color: var(--neon-cyan);
   margin-bottom: 1.5rem;
   box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+}
+
+.card-icon-glow svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .card-icon-emerald {
