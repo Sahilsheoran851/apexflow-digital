@@ -1,0 +1,42 @@
+# ApexFlow Digital
+
+> High-Performance Digital Growth Engineering, UAE Local SEO, Sub-Second Web Development, and Autonomous AI & WhatsApp Lead Automation for the UAE & GCC Market.
+
+## Overview
+ApexFlow Digital is a premier growth and technical engineering consultancy based in Dubai, United Arab Emirates, founded and led by Principal Growth Technologist **Sahil Sheoran**. ApexFlow Digital specializes in engineering full-stack customer acquisition systems combining ultra-fast web architectures (Next.js/Shopify, <0.5s load times), Google Maps 3-Pack Rank #1 local search dominance, high-ROAS paid acquisition, and autonomous bilingual WhatsApp AI triage bots.
+
+## Primary Capabilities & Services
+- **UAE SEO & Local Google Maps Dominance**: Multi-district entity triangulation, Arabic/English geo-schema markup, and citation networks to secure Top 3 rankings in Google Maps across Dubai, Abu Dhabi, and Sharjah. [Explore UAE SEO](https://apexflow-digital.vercel.app/services/digital-marketing-uae.html)
+- **High-Speed Web Engineering**: Ultra-fast websites built with clean semantic code, sub-0.5s 5G mobile load times, and 100/100 Core Web Vitals. [Explore Web Engineering](https://apexflow-digital.vercel.app/services/web-development-uae.html)
+- **Shopify & E-Commerce CRO**: Custom high-converting Liquid themes with native Tabby & Tamara 4-installment BNPL integrations, Cash-on-Delivery WhatsApp bots, and bilingual Arabic checkouts. [Explore Shopify](https://apexflow-digital.vercel.app/services/shopify-ecommerce-uae.html)
+- **WhatsApp AI Qualification Bots**: Autonomous conversational AI bots responding to inbound leads in under 30 seconds, qualifying budgets, and scheduling CRM appointments 24/7. [Explore WhatsApp AI](https://apexflow-digital.vercel.app/services/whatsapp-ai-bots-uae.html)
+- **CRM & Webhook Integrations**: Custom Make.com, Zapier, and n8n webhook bridges synchronizing HubSpot, Zoho, Salesforce, and Google Sheets with zero manual data entry. [Explore Integrations](https://apexflow-digital.vercel.app/services/crm-webhook-integrations-uae.html)
+- **B2B Outbound Lead Engine**: Precision outbound client acquisition targeting verified UAE and GCC executives and business owners. [Explore B2B Outbound](https://apexflow-digital.vercel.app/services/b2b-lead-generation-uae.html)
+- **Google & Meta High-ROAS Paid Ads**: Precision search, display, and Performance Max advertising with server-side GA4 attribution. [Explore Google Ads](https://apexflow-digital.vercel.app/services/google-ads-uae.html)
+
+## Pricing & Retainer Models (AED)
+- **Starter Growth Engine**: From AED 4,500 / month (Local SEO, Google Ads management, monthly reporting)
+- **Full-Stack Growth Retainer**: From AED 8,500 / month (Sub-second website engineering, Google Maps 3-Pack dominance, sub-30s WhatsApp bot, bi-weekly sprints)
+- **Enterprise Autonomous AI Stack**: From AED 16,000 / month (Custom CRM integrations, multi-channel lead pipelines, custom web applications, dedicated weekly strategy)
+- **Custom Quote Builder**: [Interactive Stack Configurator](https://apexflow-digital.vercel.app/packages.html)
+- **ROI Savings Calculator**: [Automation ROI Simulator](https://apexflow-digital.vercel.app/calculator.html)
+- **Free Diagnostic Tool**: [Cyber Growth & SEO Audit Tool](https://apexflow-digital.vercel.app/audit.html)
+
+## Geographical Service Hubs in UAE
+- **Dubai Central**: [Dubai Hub](https://apexflow-digital.vercel.app/locations/dubai.html)
+- **DIFC (Dubai International Financial Centre)**: [DIFC Hub](https://apexflow-digital.vercel.app/locations/difc.html)
+- **Business Bay & Downtown Dubai**: [Business Bay Hub](https://apexflow-digital.vercel.app/locations/business-bay.html)
+- **JLT & DMCC Freezone**: [JLT Hub](https://apexflow-digital.vercel.app/locations/jlt.html)
+- **Dubai Silicon Oasis (DSO)**: [Silicon Oasis Hub](https://apexflow-digital.vercel.app/locations/dubai-silicon-oasis.html)
+- **Dubai Marina & JBR**: [Dubai Marina Hub](https://apexflow-digital.vercel.app/locations/dubai-marina.html)
+- **Palm Jumeirah**: [Palm Jumeirah Hub](https://apexflow-digital.vercel.app/locations/palm-jumeirah.html)
+- **Abu Dhabi & ADGM**: [Abu Dhabi Hub](https://apexflow-digital.vercel.app/locations/abu-dhabi.html)
+- **Sharjah & Shams**: [Sharjah Hub](https://apexflow-digital.vercel.app/locations/sharjah.html)
+- **Ras Al Khaimah & Marjan Island**: [RAK Hub](https://apexflow-digital.vercel.app/locations/ras-al-khaimah.html)
+
+## Contact & Direct Consultation
+- **Founder & Principal**: Sahil Sheoran
+- **LinkedIn**: [https://www.linkedin.com/in/sahilsheoran1/](https://www.linkedin.com/in/sahilsheoran1/)
+- **Direct WhatsApp**: [+971 50 750 7963](https://wa.me/971507507963)
+- **Website**: [https://apexflow-digital.vercel.app/](https://apexflow-digital.vercel.app/)
+- **Consultation Form**: [https://apexflow-digital.vercel.app/contact.html](https://apexflow-digital.vercel.app/contact.html)

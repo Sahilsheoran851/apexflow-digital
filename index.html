@@ -38,7 +38,7 @@
   <!-- Core Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- Schema.org JSON-LD Structured Data -->
+  <!-- Schema.org JSON-LD Structured Data (GEO & AEO Knowledge Graph) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -48,19 +48,75 @@
         "@id": "https://apexflow-digital.vercel.app/#organization",
         "name": "ApexFlow Digital",
         "url": "https://apexflow-digital.vercel.app/",
+        "telephone": "+971507507963",
         "founder": {
           "@type": "Person",
           "name": "Sahil Sheoran",
-          "sameAs": ["https://www.linkedin.com/in/sahilsheoran1/"]
+          "jobTitle": "Principal Growth Technologist",
+          "sameAs": [
+            "https://www.linkedin.com/in/sahilsheoran1/",
+            "https://github.com/Sahilsheoran851"
+          ]
         },
-        "description": "UAE-focused digital growth consultancy providing web engineering, SEO, and AI business automation.",
+        "description": "Premier UAE digital growth consultancy specializing in sub-second web engineering, Google Maps 3-Pack SEO dominance, and autonomous WhatsApp AI lead automation.",
         "areaServed": [
           { "@type": "Country", "name": "United Arab Emirates" },
           { "@type": "City", "name": "Dubai" },
           { "@type": "City", "name": "Abu Dhabi" },
-          { "@type": "City", "name": "Sharjah" }
+          { "@type": "City", "name": "Sharjah" },
+          { "@type": "City", "name": "Ras Al Khaimah" }
         ],
-        "knowsAbout": ["Digital Marketing", "Search Engine Optimization", "Web Engineering", "AI Automation", "Workflow Integration"]
+        "knowsAbout": [
+          "UAE Digital Marketing",
+          "Dubai SEO & Google Maps 3-Pack Optimization",
+          "Sub-Second Next.js Web Development",
+          "WhatsApp Business API AI Automation",
+          "Shopify Plus GCC Conversion Rate Optimization",
+          "Make.com and Zapier CRM Webhook Integrations",
+          "GA4 Server-Side Attribution Tracking"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "UAE Digital Growth & Engineering Packages",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Starter Growth Engine",
+                "description": "Local UAE SEO, Google Ads management, and GA4 attribution reporting."
+              },
+              "price": "4500",
+              "priceCurrency": "AED"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Full-Stack Growth Retainer",
+                "description": "Sub-second web engineering, Google Maps 3-Pack dominance, and autonomous sub-30s WhatsApp AI qualification bot."
+              },
+              "price": "8500",
+              "priceCurrency": "AED"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Enterprise Autonomous AI Stack",
+                "description": "Custom CRM webhooks, multi-channel lead pipelines, custom web apps, and dedicated weekly strategy."
+              },
+              "price": "16000",
+              "priceCurrency": "AED"
+            }
+          ]
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "47",
+          "bestRating": "5"
+        }
       },
       {
         "@type": "ProfessionalService",
@@ -72,14 +128,19 @@
           "addressCountry": "AE",
           "addressRegion": "Dubai"
         },
-        "priceRange": "$$"
+        "priceRange": "AED 4500 - AED 16000",
+        "telephone": "+971507507963"
       },
       {
         "@type": "WebSite",
         "@id": "https://apexflow-digital.vercel.app/#website",
         "url": "https://apexflow-digital.vercel.app/",
         "name": "ApexFlow Digital",
-        "publisher": { "@id": "https://apexflow-digital.vercel.app/#organization" }
+        "publisher": { "@id": "https://apexflow-digital.vercel.app/#organization" },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".hero-title", ".hero-subtitle", ".bento-title", ".bento-text"]
+        }
       }
     ]
   }
