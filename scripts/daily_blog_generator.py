@@ -709,11 +709,13 @@ def update_sitemap_html(chosen):
     with open(SITEMAP_HTML_FILE, "r", encoding="utf-8") as f:
         content = f.read()
 
-    new_link = f'<li><a href="blog/{chosen["slug"]}.html">{chosen["title"]}</a></li>'
-    if f'blog/{chosen["slug"]}.html' not in content:
-        target_marker = '<ul style="list-style: none; padding-left: 0;'
-        if target_marker in content:
-            content = content.replace(target_marker, f'{target_marker}\n                {new_link}')
+    new_link = f'''            <div>
+              <a href="blog/{chosen['slug']}.html" class="footer-link">{chosen['title']}</a>
+            </div>'''
+    if f"blog/{chosen['slug']}.html" not in content:
+        grid_start = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">'
+        if grid_start in content:
+            content = content.replace(grid_start, f"{grid_start}\n{new_link}")
             with open(SITEMAP_HTML_FILE, "w", encoding="utf-8") as f:
                 f.write(content)
             print("✓ Updated sitemap.html with new link")

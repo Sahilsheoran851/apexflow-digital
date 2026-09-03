@@ -1,4 +1,26 @@
 User-agent: *
 Allow: /
 
+# Direct AI Search Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Discovery Assets
 Sitemap: https://apexflow-digital.vercel.app/sitemap.xml
+# LLM Discovery: https://apexflow-digital.vercel.app/llms.txt
+# Comprehensive LLM Knowledge: https://apexflow-digital.vercel.app/llms-full.txt
