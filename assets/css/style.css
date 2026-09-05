@@ -2992,4 +2992,164 @@ button {
   line-height: 1.5;
 }
 
+/* ==========================================================================
+   Real Live Audit Metrics Strip & Itemized Findings
+   ========================================================================== */
+
+.live-audit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(5, 255, 161, 0.1);
+  border: 1px solid rgba(5, 255, 161, 0.35);
+  color: var(--neon-emerald);
+  font-family: var(--font-mono);
+  font-size: 0.775rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 15px rgba(5, 255, 161, 0.2);
+}
+
+.live-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.live-metric-chip {
+  background: rgba(10, 18, 38, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: all 0.2s ease;
+}
+
+.live-metric-chip:hover {
+  border-color: rgba(0, 242, 254, 0.35);
+  background: rgba(15, 27, 56, 0.95);
+}
+
+.live-metric-label {
+  font-size: 0.725rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.live-metric-val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.live-metric-sub {
+  font-size: 0.7rem;
+  color: var(--neon-cyan);
+}
+
+/* Real Itemized Findings Cards */
+.findings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.finding-card {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.finding-card.pass {
+  border-left: 3px solid var(--neon-emerald);
+}
+
+.finding-card.warn {
+  border-left: 3px solid #f59e0b;
+}
+
+.finding-card.fail {
+  border-left: 3px solid #f87171;
+}
+
+.finding-info {
+  flex: 1;
+}
+
+.finding-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.finding-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.finding-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.finding-meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.finding-val {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.finding-val.pass { color: var(--neon-emerald); }
+.finding-val.warn { color: #f59e0b; }
+.finding-val.fail { color: #f87171; }
+
+.finding-badge {
+  font-size: 0.675rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+.finding-badge.pass { background: rgba(5, 255, 161, 0.12); color: var(--neon-emerald); }
+.finding-badge.warn { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
+.finding-badge.fail { background: rgba(248, 113, 113, 0.12); color: #f87171; }
+
+@media (max-width: 640px) {
+  .finding-card {
+    flex-direction: column;
+  }
+  .finding-meta {
+    text-align: left;
+    margin-top: 0.25rem;
+  }
+}
+
 
