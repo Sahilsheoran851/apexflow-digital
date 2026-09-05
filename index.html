@@ -219,11 +219,11 @@
       </p>
 
       <div class="hero-cta-group">
-        <a href="contact.html" class="btn btn-primary btn-lg">
+        <a href="contact.html" class="btn btn-primary btn-lg" data-action="book-call">
           Book Free Strategy Consultation
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="audit.html" class="btn btn-secondary btn-lg">
+        <a href="#audit-section" class="btn btn-secondary btn-lg">
           Run Live Cyber Audit
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </a>
@@ -845,48 +845,62 @@
   </section>
 
   <!-- Interactive Growth Audit Teaser -->
-  <section class="section section-alt">
+  <section class="section section-alt" id="audit-section">
     <div class="container">
       <div class="section-header">
-        <span class="badge-tag">Cyber Diagnostic HUD</span>
-        <h2 class="section-title">Free Instant Website Audit</h2>
-        <p class="section-subtitle">Scan your website to test mobile performance, UAE search signals, and automation gaps.</p>
+        <div class="badge-tag badge-tag-uae" style="margin-bottom: 0.5rem;">
+          <div class="pulse-dot"></div>
+          <span>🔍 INSTANT CYBER DIAGNOSTIC SCANNER</span>
+        </div>
+        <h2 class="section-title">Free Instant Website & Growth Audit</h2>
+        <p class="section-subtitle">Deep-scan your business website in real-time. Uncover mobile 5G speed bottlenecks, Google Maps gaps, and WhatsApp conversion leaks across the UAE.</p>
       </div>
 
       <div class="audit-tool-wrapper">
         <form id="audit-tool-form">
-          <div class="audit-form-grid">
+          <div class="audit-form-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) 160px; gap: 1rem; align-items: flex-end;">
             <div>
+              <label for="audit-url" class="form-label" style="font-size: 0.85rem;">Website URL *</label>
               <input type="text" id="audit-url" class="input-field text-mono" placeholder="yourcompany.ae / yoursite.com" required>
             </div>
             <div>
+              <label for="audit-industry" class="form-label" style="font-size: 0.85rem;">Business Vertical *</label>
               <select id="audit-industry" class="select-field">
                 <option value="b2b">B2B & Corporate Services</option>
                 <option value="real-estate">Real Estate & Property</option>
                 <option value="ecommerce">E-Commerce & Retail</option>
-                <option value="clinic">Healthcare & Clinics</option>
+                <option value="clinic">Healthcare & Aesthetic Clinics</option>
                 <option value="other">Startups & Other SMEs</option>
               </select>
             </div>
             <div>
-              <select id="audit-priority" class="select-field">
-                <option value="leads">More Leads</option>
-                <option value="seo">Higher Google Rank</option>
-                <option value="automation">Automate Admin</option>
+              <label for="audit-report-type" class="form-label" style="font-size: 0.85rem;">Select Audit Report Type *</label>
+              <select id="audit-report-type" class="select-field" style="border-color: rgba(0, 242, 254, 0.35);">
+                <option value="full-stack" selected>⚡ All-in-One Full-Stack Growth Blueprint</option>
+                <option value="seo-maps">📍 UAE Local SEO & Google Maps 3-Pack</option>
+                <option value="speed-5g">🚀 Sub-Second 5G Speed & Web Vitals</option>
+                <option value="whatsapp-cro">💬 WhatsApp AI & Lead Conversion Leak</option>
+                <option value="shopify-cro">🛒 Shopify & GCC Checkout CRO</option>
               </select>
             </div>
             <div>
-              <button type="submit" class="btn btn-primary btn-full">Scan Now</button>
+              <button type="submit" class="btn btn-primary btn-full" id="audit-scan-btn" style="height: 48px; font-size: 0.9rem;">
+                Scan Website
+              </button>
             </div>
           </div>
         </form>
 
+        <!-- Animated High-Tech Scanner Progress HUD -->
+        <div id="audit-scanner-hud" class="scanner-hud-container" style="display: none;"></div>
+
+        <!-- Teaser Preview & Lead-Gated Results Container -->
         <div id="audit-results" class="audit-results-container">
           <!-- Populated by assets/js/audit-tool.js -->
         </div>
 
         <div style="text-align: center; margin-top: 2rem;">
-          <a href="audit.html" class="nav-link" style="color: var(--neon-cyan); font-weight: 600;">Open Full Audit Diagnostic Tool →</a>
+          <a href="audit.html" class="nav-link" style="color: var(--neon-cyan); font-weight: 600;">Explore Dedicated UAE Audit Hub, Benchmarks & Scorecard Guides →</a>
         </div>
       </div>
     </div>
@@ -1032,6 +1046,9 @@
       </div>
     </div>
   </section>
+
+  <!-- Hidden Container for Printable / Downloadable Executive PDF Report -->
+  <div id="executive-printable-report" class="executive-report-view"></div>
 
   <!-- Footer -->
   <footer class="footer">

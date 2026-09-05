@@ -158,86 +158,129 @@
           </div>
         </div>
 
-        <!-- Consultation Form -->
-        <div class="lead-card" style="margin: 0; padding: 2.5rem;">
-          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Request Growth Proposal</h3>
-          
-          <form id="consultation-form" action="https://script.google.com/macros/s/AKfycbxwnLG2b2DWalLeOcwt1FiN-oc0bpMsSN2Fca6s9HByubaQTTrZNk2WnGBNWHudrucp/exec" method="POST">
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label for="full-name" class="form-label">Your Full Name *</label>
-                <input type="text" id="full-name" class="input-field" placeholder="e.g. Rashid Al Mansoori" required>
-              </div>
-              <div class="form-group">
-                <label for="company-name" class="form-label">Company Name *</label>
-                <input type="text" id="company-name" class="input-field" placeholder="e.g. Al Mansoori Real Estate" required>
-              </div>
-            </div>
-
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label for="email" class="form-label">Work Email *</label>
-                <input type="email" id="email" class="input-field" placeholder="rashid@company.ae" required>
-              </div>
-              <div class="form-group">
-                <label for="whatsapp" class="form-label">UAE WhatsApp Number *</label>
-                <input type="tel" id="whatsapp" class="input-field" placeholder="+971 50 123 4567" required>
-              </div>
-            </div>
-
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label for="website" class="form-label">Current Website URL (if any)</label>
-                <input type="text" id="website" class="input-field" placeholder="https://yourcompany.ae">
-              </div>
-              <div class="form-group">
-                <label for="service-required" class="form-label">Service Required *</label>
-                <select id="service-required" class="select-field" required>
-                  <option value="All-in-One Growth Stack">All-in-One Growth Stack (Website + SEO + Automation)</option>
-                  <option value="Website Development">Website Engineering / Redesign</option>
-                  <option value="SEO & Digital Marketing">UAE SEO & Search Dominance</option>
-                  <option value="AI & Business Automation">AI & Workflow Automation</option>
-                  <option value="Audit & Consultation">Free Cyber Growth Audit Review</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label for="budget" class="form-label">Estimated Budget</label>
-                <select id="budget" class="select-field">
-                  <option value="AED 3,000 - 6,000">AED 3,000 - AED 6,000</option>
-                  <option value="AED 6,000 - 15,000" selected>AED 6,000 - AED 15,000</option>
-                  <option value="AED 15,000 - 30,000">AED 15,000 - AED 30,000</option>
-                  <option value="AED 30,000+">AED 30,000+</option>
-                  <option value="Not sure yet">Not sure yet / Need guidance</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="contact-pref" class="form-label">Preferred Contact Channel</label>
-                <select id="contact-pref" class="select-field">
-                  <option value="WhatsApp">WhatsApp (Fastest)</option>
-                  <option value="Email">Email</option>
-                  <option value="Phone Call">Direct Phone Call</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="challenge" class="form-label">What is the #1 problem you are looking to solve?</label>
-              <textarea id="challenge" class="input-field" rows="3" placeholder="Tell us about your current challenges, timeline, or goals..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: 1rem;">
-              Submit Free Consultation Request
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <!-- Consultation Card with Tabbed Switcher -->
+        <div class="lead-card" style="margin: 0; padding: 2.25rem;">
+          <!-- Dual Mode Switcher -->
+          <div class="consultation-tabs">
+            <button type="button" class="consultation-tab-btn active" id="tab-btn-quick-call">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span>15-Min Strategy Call</span>
             </button>
-          </form>
+            <button type="button" class="consultation-tab-btn" id="tab-btn-full-proposal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>Detailed Proposal Scope</span>
+            </button>
+          </div>
 
-          <div style="text-align: center; margin-top: 1.5rem;">
-            <a id="form-whatsapp-quickconnect" href="https://wa.me/971507507963?text=Hi%20Sahil!%20I'd%20like%20to%20chat%20about%20a%20project." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" style="display: none;">
-              <span>💬 Continue on WhatsApp Now</span>
-            </a>
+          <!-- PANE 1: 15-Min Strategy Call Inline Scheduler -->
+          <div id="pane-quick-call">
+            <div style="margin-bottom: 1.25rem;">
+              <h3 style="font-size: 1.45rem; font-weight: 800; margin-bottom: 0.35rem;">Lock In Your 15-Min Strategy Session</h3>
+              <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                Direct consultation with <strong>Sahil Sheoran</strong>. Select your topic and preferred slot in UAE Time (GST).
+              </p>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-full btn-lg" onclick="window.ApexFlowBooking ? window.ApexFlowBooking.openModal() : null;" style="height: 52px; font-size: 1rem; margin-bottom: 1rem;">
+              <span>Open 1-Click Interactive Slot Picker</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </button>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span class="pulse-dot" style="background: var(--neon-emerald); box-shadow: 0 0 8px var(--neon-emerald);"></span>
+                <span>What We Cover in 15 Minutes:</span>
+              </div>
+              <ul style="padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                <li>Live Mobile 5G Core Web Vitals & speed analysis of your site.</li>
+                <li>Your local district Google Maps 3-Pack search gap vs competitors.</li>
+                <li>Automated WhatsApp lead qualification workflow demo tailored to your niche.</li>
+                <li>No hard sales pitch; zero obligations.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- PANE 2: Detailed Proposal Scope Form -->
+          <div id="pane-full-proposal" style="display: none;">
+            <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem;">Request Custom Scope & Retainer</h3>
+            
+            <form id="consultation-form" action="https://script.google.com/macros/s/AKfycbxwnLG2b2DWalLeOcwt1FiN-oc0bpMsSN2Fca6s9HByubaQTTrZNk2WnGBNWHudrucp/exec" method="POST">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="full-name" class="form-label">Your Full Name *</label>
+                  <input type="text" id="full-name" class="input-field" placeholder="e.g. Rashid Al Mansoori" required>
+                </div>
+                <div class="form-group">
+                  <label for="company-name" class="form-label">Company Name *</label>
+                  <input type="text" id="company-name" class="input-field" placeholder="e.g. Al Mansoori Real Estate" required>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="email" class="form-label">Work Email *</label>
+                  <input type="email" id="email" class="input-field" placeholder="rashid@company.ae" required>
+                </div>
+                <div class="form-group">
+                  <label for="whatsapp" class="form-label">UAE WhatsApp Number *</label>
+                  <input type="tel" id="whatsapp" class="input-field" placeholder="+971 50 123 4567" required>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="website" class="form-label">Current Website URL (if any)</label>
+                  <input type="text" id="website" class="input-field" placeholder="https://yourcompany.ae">
+                </div>
+                <div class="form-group">
+                  <label for="service-required" class="form-label">Service Required *</label>
+                  <select id="service-required" class="select-field" required>
+                    <option value="All-in-One Growth Stack">All-in-One Growth Stack (Website + SEO + Automation)</option>
+                    <option value="Website Development">Website Engineering / Redesign</option>
+                    <option value="SEO & Digital Marketing">UAE SEO & Search Dominance</option>
+                    <option value="AI & Business Automation">AI & Workflow Automation</option>
+                    <option value="Audit & Consultation">Free Cyber Growth Audit Review</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="budget" class="form-label">Estimated Budget</label>
+                  <select id="budget" class="select-field">
+                    <option value="AED 3,000 - 6,000">AED 3,000 - AED 6,000</option>
+                    <option value="AED 6,000 - 15,000" selected>AED 6,000 - AED 15,000</option>
+                    <option value="AED 15,000 - 30,000">AED 15,000 - AED 30,000</option>
+                    <option value="AED 30,000+">AED 30,000+</option>
+                    <option value="Not sure yet">Not sure yet / Need guidance</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="contact-pref" class="form-label">Preferred Contact Channel</label>
+                  <select id="contact-pref" class="select-field">
+                    <option value="WhatsApp">WhatsApp (Fastest)</option>
+                    <option value="Email">Email</option>
+                    <option value="Phone Call">Direct Phone Call</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="challenge" class="form-label">What is the #1 problem you are looking to solve?</label>
+                <textarea id="challenge" class="input-field" rows="3" placeholder="Tell us about your current challenges, timeline, or goals..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: 1rem;">
+                Submit Full Proposal Request
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </form>
+
+            <div style="text-align: center; margin-top: 1.5rem;">
+              <a id="form-whatsapp-quickconnect" href="https://wa.me/971507507963?text=Hi%20Sahil!%20I'd%20like%20to%20chat%20about%20a%20project." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" style="display: none;">
+                <span>💬 Continue on WhatsApp Now</span>
+              </a>
+            </div>
           </div>
         </div>
 
