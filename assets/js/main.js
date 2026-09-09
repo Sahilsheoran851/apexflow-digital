@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileConversionBar();
   initStrategyCallModal();
   initConsultationTabs();
+  initInlineScheduler();
 });
 
 /**
@@ -91,46 +92,57 @@ function initNavigation() {
  * Lead Capture & Consultation Form
  */
 function initLeadForm() {
-  const form = document.getElementById('consultation-form');
-  if (!form) return;
+  const forms = document.querySelectorAll('#consultation-form, .service-lead-form');
+  if (!forms.length) return;
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.innerHTML;
+  forms.forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
 
-    // Extract & Persist UTM Attribution
-    const urlParams = new URLSearchParams(window.location.search);
-    const utmSource = urlParams.get('utm_source') || sessionStorage.getItem('apexflow_utm_source') || 'organic';
-    const utmMedium = urlParams.get('utm_medium') || sessionStorage.getItem('apexflow_utm_medium') || 'direct';
-    const utmCampaign = urlParams.get('utm_campaign') || sessionStorage.getItem('apexflow_utm_campaign') || 'none';
-    const gclid = urlParams.get('gclid') || sessionStorage.getItem('apexflow_gclid') || '';
+      // Extract & Persist UTM Attribution
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmSource = urlParams.get('utm_source') || sessionStorage.getItem('apexflow_utm_source') || 'organic';
+      const utmMedium = urlParams.get('utm_medium') || sessionStorage.getItem('apexflow_utm_medium') || 'direct';
+      const utmCampaign = urlParams.get('utm_campaign') || sessionStorage.getItem('apexflow_utm_campaign') || 'none';
+      const gclid = urlParams.get('gclid') || sessionStorage.getItem('apexflow_gclid') || '';
 
-    // Collect Form Data
-    const formData = {
-      fullName: form.querySelector('#full-name')?.value.trim(),
-      companyName: form.querySelector('#company-name')?.value.trim(),
-      email: form.querySelector('#email')?.value.trim(),
-      whatsapp: form.querySelector('#whatsapp')?.value.trim(),
-      website: form.querySelector('#website')?.value.trim() || 'N/A',
-      serviceRequired: form.querySelector('#service-required')?.value,
-      budget: form.querySelector('#budget')?.value,
-      challenge: form.querySelector('#challenge')?.value.trim(),
-      contactPref: form.querySelector('#contact-pref')?.value,
-      timestamp: new Date().toISOString(),
-      source: window.location.pathname,
-      utm_source: utmSource,
-      utm_medium: utmMedium,
-      utm_campaign: utmCampaign,
-      gclid: gclid,
-      referrer: document.referrer || 'direct'
-    };
+      // Collect Form Data (supports id or name attribute)
+      const fullName = (form.querySelector('#full-name') || form.querySelector('[name="fullName"]') || form.querySelector('[name="name"]'))?.value.trim();
+      const companyName = (form.querySelector('#company-name') || form.querySelector('[name="companyName"]') || form.querySelector('[name="company"]'))?.value.trim() || 'N/A';
+      const email = (form.querySelector('#email') || form.querySelector('[name="email"]'))?.value.trim();
+      const whatsapp = (form.querySelector('#whatsapp') || form.querySelector('[name="whatsapp"]'))?.value.trim();
+      const website = (form.querySelector('#website') || form.querySelector('[name="website"]'))?.value.trim() || 'N/A';
+      const serviceRequired = form.querySelector('#service-required')?.value || form.querySelector('[name="service_page"]')?.value || document.title;
+      const budget = form.querySelector('#budget')?.value || 'Standard Inquiry';
+      const challenge = (form.querySelector('#challenge') || form.querySelector('[name="message"]') || form.querySelector('[name="challenge"]'))?.value.trim() || '';
+      const contactPref = form.querySelector('#contact-pref')?.value || 'WhatsApp';
 
-    // Client-side Validation
-    if (!formData.fullName || !formData.email || !formData.whatsapp) {
-      showToast('Please fill in your name, email, and WhatsApp number.', 'error');
-      return;
-    }
+      const formData = {
+        fullName,
+        companyName,
+        email,
+        whatsapp,
+        website,
+        serviceRequired,
+        budget,
+        challenge,
+        contactPref,
+        timestamp: new Date().toISOString(),
+        source: window.location.pathname,
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign: utmCampaign,
+        gclid: gclid,
+        referrer: document.referrer || 'direct'
+      };
+
+      // Client-side Validation
+      if (!formData.fullName || !formData.email || !formData.whatsapp) {
+        showToast('Please fill in your name, email, and WhatsApp number.', 'error');
+        return;
+      }
 
     // UI Loading state
     submitBtn.disabled = true;
@@ -164,7 +176,29 @@ function initLeadForm() {
       storedLeads.push(formData);
       localStorage.setItem('apexflow_leads', JSON.stringify(storedLeads));
 
-      // 3. Dispatch to Google Sheets / Webhook / Formspree if configured
+      // 3. Dispatch to Serverless /api/schedule for automated email notifications to prospect and Sahil
+      try {
+        await fetch('/api/schedule', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'consultation',
+            fullName: formData.fullName,
+            companyName: formData.companyName,
+            email: formData.email,
+            whatsapp: formData.whatsapp,
+            website: formData.website || '',
+            serviceRequired: formData.serviceRequired || '',
+            budget: formData.budget || '',
+            challenge: formData.challenge || '',
+            contactPref: formData.contactPref || ''
+          })
+        });
+      } catch (scheduleApiErr) {
+        console.warn('Schedule API notification warning (fallback active):', scheduleApiErr);
+      }
+
+      // 4. Dispatch to Google Sheets / Webhook / Formspree if configured
       const defaultGoogleSheetEndpoint = 'https://script.google.com/macros/s/AKfycbxwnLG2b2DWalLeOcwt1FiN-oc0bpMsSN2Fca6s9HByubaQTTrZNk2WnGBNWHudrucp/exec';
       const endpoint = form.getAttribute('action') || form.getAttribute('data-webhook-url') || defaultGoogleSheetEndpoint;
       if (endpoint && endpoint.startsWith('http')) {
@@ -221,6 +255,7 @@ function initLeadForm() {
       submitBtn.innerHTML = originalBtnText;
     }
   });
+});
 }
 
 /**
@@ -536,20 +571,32 @@ function initStrategyCallModal() {
           <div class="booking-success-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h3 style="font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Strategy Call Requested!</h3>
+          <h3 style="font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Strategy Call Confirmed! 📅</h3>
           <p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.5; margin-bottom: 1.25rem;" id="success-slot-summary">
-            Your slot has been recorded. Sahil Sheoran will confirm your Google Meet link shortly.
+            Your 15-minute strategy call is confirmed. Google Meet invite dispatched to your email.
           </p>
 
+          <div style="background: rgba(0, 242, 254, 0.08); border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 1.25rem; text-align: center;">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--neon-cyan); font-weight: 700; letter-spacing: 0.5px; margin-bottom: 4px;">Direct Video Meeting Link</div>
+            <a href="https://meet.google.com/ksd-sids-trc" target="_blank" rel="noopener" id="modal-meet-link" style="color: #fff; font-weight: 600; text-decoration: underline; font-size: 0.9rem;">https://meet.google.com/ksd-sids-trc</a>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Calendar invite (.ics) also sent to your inbox</div>
+          </div>
+
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <a href="https://meet.google.com/ksd-sids-trc" target="_blank" rel="noopener" id="modal-join-meet-btn" class="btn btn-primary btn-full" style="background: #1a73e8; border-color: #1a73e8; font-size: 0.85rem;">
+              <span>🎥 Open Google Meet Room</span>
+            </a>
+            <a href="#" id="success-gcal-btn" target="_blank" rel="noopener" class="btn btn-secondary btn-full" style="font-size: 0.85rem;">
+              <span>📅 Add to Google Calendar</span>
+            </a>
+            <button type="button" id="success-ics-btn" class="btn btn-secondary btn-full" style="font-size: 0.85rem;">
+              📥 Download Calendar File (.ics)
+            </button>
             <a href="#" id="success-wa-btn" target="_blank" rel="noopener" class="btn btn-whatsapp btn-full">
               <span>📲 Confirm via WhatsApp with Sahil</span>
             </a>
-            <button type="button" id="success-ics-btn" class="btn btn-secondary btn-full" style="font-size: 0.85rem;">
-              📥 Download Calendar Invite (.ics)
-            </button>
             <button type="button" class="btn" style="background: none; border: none; color: var(--text-muted); font-size: 0.8rem; cursor: pointer;" data-action="close-modal">
-              Done & Close Window
+              Done &amp; Close Window
             </button>
           </div>
         </div>
@@ -695,7 +742,33 @@ function initStrategyCallModal() {
       source: window.location.pathname
     };
 
-    // 1. Google Sheets Webhook Dispatch
+    // 1. Dispatch to Serverless /api/schedule for Automated Calendar Invite & Email Notifications
+    let meetUrl = 'https://meet.google.com/ksd-sids-trc';
+    try {
+      const resp = await fetch('/api/schedule', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'meeting',
+          fullName,
+          companyName: company,
+          email,
+          whatsapp,
+          topic,
+          chosenDate,
+          chosenTime,
+          challenge: `Scheduled for: ${chosenDateLabel} at ${chosenTime} GST. Topic: ${topic}`
+        })
+      });
+      if (resp.ok) {
+        const data = await resp.json();
+        if (data.meetUrl) meetUrl = data.meetUrl;
+      }
+    } catch (apiErr) {
+      console.warn('/api/schedule dispatch notice (fallback active):', apiErr);
+    }
+
+    // 2. Google Sheets Webhook Dispatch (Backup Sync)
     const GOOGLE_SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxwnLG2b2DWalLeOcwt1FiN-oc0bpMsSN2Fca6s9HByubaQTTrZNk2WnGBNWHudrucp/exec';
     try {
       await fetch(GOOGLE_SHEETS_ENDPOINT, {
@@ -706,12 +779,12 @@ function initStrategyCallModal() {
       });
     } catch(err) {}
 
-    // 2. Local Storage Persistence
+    // 3. Local Storage Persistence
     const leads = JSON.parse(localStorage.getItem('apexflow_leads') || '[]');
     leads.push(bookingPayload);
     localStorage.setItem('apexflow_leads', JSON.stringify(leads));
 
-    // 3. Analytics Event
+    // 4. Analytics Event
     if (window.dataLayer) {
       window.dataLayer.push({
         event: 'strategy_call_booked',
@@ -728,7 +801,7 @@ function initStrategyCallModal() {
       });
     }
 
-    // 4. Generate .ics Calendar Invitation
+    // 5. Generate .ics Calendar Invitation
     const icsContent = buildICSContent(topic, chosenDate, chosenTime, fullName, company);
     const icsBlob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
     const icsUrl = URL.createObjectURL(icsBlob);
@@ -745,7 +818,25 @@ function initStrategyCallModal() {
       };
     }
 
-    // 5. WhatsApp Direct Confirmation
+    // 6. Google Calendar 1-Click Link
+    const gcalUrl = buildGoogleCalendarUrl(topic, chosenDate, chosenTime, fullName, company);
+    const gcalBtn = modalBackdrop.querySelector('#success-gcal-btn');
+    if (gcalBtn) {
+      gcalBtn.href = gcalUrl;
+    }
+
+    // 7. Update Direct Google Meet Video Links
+    const modalMeetLink = modalBackdrop.querySelector('#modal-meet-link');
+    if (modalMeetLink) {
+      modalMeetLink.href = meetUrl;
+      modalMeetLink.textContent = meetUrl;
+    }
+    const modalJoinBtn = modalBackdrop.querySelector('#modal-join-meet-btn');
+    if (modalJoinBtn) {
+      modalJoinBtn.href = meetUrl;
+    }
+
+    // 8. WhatsApp Direct Confirmation
     const waConfirmationText = encodeURIComponent(
       `Hi Sahil! I just booked a 15-minute Strategy Call on ApexFlow Digital.\n\n` +
       `👤 Name: ${fullName} (${company})\n` +
@@ -760,7 +851,7 @@ function initStrategyCallModal() {
 
     const summaryEl = modalBackdrop.querySelector('#success-slot-summary');
     if (summaryEl) {
-      summaryEl.innerHTML = `Confirmed for <strong>${chosenDateLabel} at ${chosenTime} GST</strong>.<br>Topic: <span style="color: var(--neon-cyan);">${topic}</span>. We also prepared your calendar file below.`;
+      summaryEl.innerHTML = `Confirmed for <strong>${chosenDateLabel} at ${chosenTime} GST</strong>.<br>Topic: <span style="color: var(--neon-cyan);">${topic}</span>.<br><span style="color:#10b981; font-weight:600;">Google Meet invitation and calendar file dispatched to <strong>${email}</strong>!</span>`;
     }
 
     submitBtn.disabled = false;
@@ -778,12 +869,58 @@ function initStrategyCallModal() {
   // Wire all navigation & CTA buttons to strategy modal
   document.querySelectorAll('.nav-btn-cta, [data-action="book-call"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      // If on contact page, let it scroll or open modal
-      if (window.location.pathname.includes('contact')) return;
+      // If on contact page, let it scroll to inline calendar
+      if (window.location.pathname.includes('contact')) {
+        const pane = document.getElementById('pane-quick-call');
+        if (pane) {
+          e.preventDefault();
+          pane.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+      }
       e.preventDefault();
-      openModal();
+      const topic = btn.dataset.topic || btn.dataset.service || '';
+      openModal({ topic });
     });
   });
+}
+
+/**
+ * Google Calendar 1-Click URL Generator (Gulf Standard Time / GST UTC+4)
+ */
+function buildGoogleCalendarUrl(topic, dateStr, timeStr, name, company) {
+  let hours = 10;
+  let minutes = 0;
+  if (timeStr && timeStr.includes(':')) {
+    const parts = timeStr.split(' ');
+    const timeParts = parts[0].split(':');
+    hours = parseInt(timeParts[0], 10);
+    minutes = parseInt(timeParts[1], 10);
+    if (parts[1] === 'PM' && hours < 12) hours += 12;
+    if (parts[1] === 'AM' && hours === 12) hours = 0;
+  }
+
+  const pad = (n) => String(n).padStart(2, '0');
+  
+  // Create start and end date objects in UTC+4 (Dubai)
+  const dStart = new Date(`${dateStr}T${pad(hours)}:${pad(minutes)}:00+04:00`);
+  const dEnd = new Date(dStart.getTime() + 15 * 60 * 1000);
+
+  const toUtcStr = (dateObj) => dateObj.toISOString().replace(/-|:|\.\d\d\d/g, '');
+  const datesParam = `${toUtcStr(dStart)}/${toUtcStr(dEnd)}`;
+  
+  const title = encodeURIComponent(`ApexFlow Strategy Session: ${topic} (${company || 'Client'})`);
+  const details = encodeURIComponent(
+    `15-minute 1-on-1 strategy call with Sahil Sheoran (Principal Growth Technologist at ApexFlow Digital).\n\n` +
+    `Attendee: ${name} (${company})\n` +
+    `Topic: ${topic}\n` +
+    `Time: ${timeStr} GST (Dubai / Gulf Time)\n` +
+    `Google Meet: https://meet.google.com/ksd-sids-trc\n` +
+    `WhatsApp Direct: +971 50 750 7963`
+  );
+  const location = encodeURIComponent('https://meet.google.com/ksd-sids-trc');
+
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${datesParam}&details=${details}&location=${location}&ctz=Asia/Dubai`;
 }
 
 /**
@@ -833,8 +970,8 @@ function buildICSContent(topic, dateStr, timeStr, name, company) {
     `DTSTART;TZID=Asia/Dubai:${cleanDate}T${startHour}${startMin}00`,
     `DTEND;TZID=Asia/Dubai:${cleanDate}T${endHour}${endMin}00`,
     `SUMMARY:ApexFlow Strategy Session: ${topic} (${company})`,
-    `DESCRIPTION:15-minute 1-on-1 strategy call with Sahil Sheoran (Principal Growth Technologist at ApexFlow Digital).\\n\\nAttendee: ${name} (${company})\\nTopic: ${topic}\\nLocation: Google Meet / WhatsApp Video (+971 50 750 7963)`,
-    'LOCATION:Google Meet / WhatsApp Video (+971 50 750 7963)',
+    `DESCRIPTION:15-minute 1-on-1 strategy call with Sahil Sheoran (Principal Growth Technologist at ApexFlow Digital).\\n\\nAttendee: ${name} (${company})\\nTopic: ${topic}\\nGoogle Meet: https://meet.google.com/ksd-sids-trc\\nWhatsApp: +971 50 750 7963`,
+    'LOCATION:https://meet.google.com/ksd-sids-trc',
     'STATUS:CONFIRMED',
     'BEGIN:VALARM',
     'TRIGGER:-PT15M',
@@ -844,6 +981,203 @@ function buildICSContent(topic, dateStr, timeStr, name, company) {
     'END:VEVENT',
     'END:VCALENDAR'
   ].join('\r\n');
+}
+
+/**
+ * 3. Interactive Inline Calendar Scheduler for contact.html
+ */
+function initInlineScheduler() {
+  const form = document.getElementById('inline-strategy-call-form');
+  if (!form) return;
+
+  const dayChipsContainer = document.getElementById('inline-day-chips');
+  if (dayChipsContainer) {
+    dayChipsContainer.innerHTML = '';
+    const dateObj = new Date();
+    if (dateObj.getHours() >= 18) {
+      dateObj.setDate(dateObj.getDate() + 1);
+    }
+
+    let count = 0;
+    while (count < 4) {
+      const label = count === 0 ? `Today (${dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })})` :
+                    count === 1 ? `Tomorrow (${dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })})` :
+                    dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+      
+      const isoDate = dateObj.toISOString().split('T')[0];
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `chip-btn ${count === 0 ? 'active' : ''}`;
+      btn.dataset.date = isoDate;
+      btn.dataset.label = label;
+      btn.innerText = label;
+      dayChipsContainer.appendChild(btn);
+
+      dateObj.setDate(dateObj.getDate() + 1);
+      count++;
+    }
+  }
+
+  // Chip selection helpers
+  function setupChips(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.addEventListener('click', (e) => {
+      const target = e.target.closest('.chip-btn');
+      if (!target) return;
+      container.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+      target.classList.add('active');
+    });
+  }
+
+  setupChips('inline-topic-chips');
+  setupChips('inline-day-chips');
+  setupChips('inline-time-chips');
+
+  // Submission handler
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = document.getElementById('inline-submit-btn');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<span>Reserving Slot...</span>`;
+
+    const topic = document.querySelector('#inline-topic-chips .chip-btn.active')?.dataset.topic || 'General Strategy';
+    const dayBtn = document.querySelector('#inline-day-chips .chip-btn.active');
+    const chosenDate = dayBtn?.dataset.date || new Date().toISOString().split('T')[0];
+    const chosenDateLabel = dayBtn?.dataset.label || chosenDate;
+    const chosenTime = document.querySelector('#inline-time-chips .chip-btn.active')?.dataset.time || '10:00 AM';
+
+    const fullName = document.getElementById('inline-name')?.value.trim();
+    const company = document.getElementById('inline-company')?.value.trim();
+    const email = document.getElementById('inline-email')?.value.trim();
+    const whatsapp = document.getElementById('inline-whatsapp')?.value.trim();
+
+    const bookingPayload = {
+      fullName,
+      companyName: company,
+      email,
+      whatsapp,
+      serviceRequired: `15-Min Strategy Call: ${topic}`,
+      budget: 'Strategy Call Booking',
+      challenge: `Scheduled for: ${chosenDateLabel} at ${chosenTime} GST. Topic: ${topic}`,
+      contactPref: 'Strategy Call (15-min)',
+      timestamp: new Date().toISOString(),
+      source: 'contact.html (Inline Scheduler)'
+    };
+
+    // 1. Dispatch to Serverless /api/schedule for Automated Calendar Invite & Email Notifications
+    let meetUrl = 'https://meet.google.com/ksd-sids-trc';
+    try {
+      const resp = await fetch('/api/schedule', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'meeting',
+          fullName,
+          companyName: company,
+          email,
+          whatsapp,
+          topic,
+          chosenDate,
+          chosenTime,
+          challenge: `Scheduled for: ${chosenDateLabel} at ${chosenTime} GST. Topic: ${topic}`
+        })
+      });
+      if (resp.ok) {
+        const data = await resp.json();
+        if (data.meetUrl) meetUrl = data.meetUrl;
+      }
+    } catch (apiErr) {
+      console.warn('/api/schedule inline dispatch notice (fallback active):', apiErr);
+    }
+
+    // 2. Google Sheets Dispatch (Backup Sync)
+    const GOOGLE_SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxwnLG2b2DWalLeOcwt1FiN-oc0bpMsSN2Fca6s9HByubaQTTrZNk2WnGBNWHudrucp/exec';
+    try {
+      await fetch(GOOGLE_SHEETS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bookingPayload)
+      });
+    } catch(err) {}
+
+    // 3. Local Storage
+    const leads = JSON.parse(localStorage.getItem('apexflow_leads') || '[]');
+    leads.push(bookingPayload);
+    localStorage.setItem('apexflow_leads', JSON.stringify(leads));
+
+    // 4. Analytics
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        event: 'strategy_call_booked',
+        booking_topic: topic,
+        booking_date: chosenDate,
+        booking_time: chosenTime
+      });
+    }
+
+    // 5. .ics file generator
+    const icsContent = buildICSContent(topic, chosenDate, chosenTime, fullName, company);
+    const icsBlob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const icsUrl = URL.createObjectURL(icsBlob);
+
+    const icsBtn = document.getElementById('inline-success-ics-btn');
+    if (icsBtn) {
+      icsBtn.onclick = () => {
+        const link = document.createElement('a');
+        link.href = icsUrl;
+        link.setAttribute('download', `ApexFlow-Strategy-Call-${chosenDate}.ics`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
+    }
+
+    // 6. Google Calendar 1-Click URL
+    const gcalUrl = buildGoogleCalendarUrl(topic, chosenDate, chosenTime, fullName, company);
+    const gcalBtn = document.getElementById('inline-success-gcal-btn');
+    if (gcalBtn) {
+      gcalBtn.href = gcalUrl;
+    }
+
+    // 7. Update Direct Google Meet Video Links
+    const inlineMeetLink = document.getElementById('inline-meet-link');
+    if (inlineMeetLink) {
+      inlineMeetLink.href = meetUrl;
+      inlineMeetLink.textContent = meetUrl;
+    }
+    const inlineJoinBtn = document.getElementById('inline-join-meet-btn');
+    if (inlineJoinBtn) {
+      inlineJoinBtn.href = meetUrl;
+    }
+
+    // 8. WhatsApp Link
+    const waConfirmationText = encodeURIComponent(
+      `Hi Sahil! I just reserved a 15-minute Strategy Call on ApexFlow Digital.\n\n` +
+      `👤 Name: ${fullName} (${company})\n` +
+      `📅 Slot: ${chosenDateLabel} at ${chosenTime} GST\n` +
+      `🎯 Topic: ${topic}\n\n` +
+      `Looking forward to connecting on Google Meet/WhatsApp!`
+    );
+    const waBtn = document.getElementById('inline-success-wa-btn');
+    if (waBtn) {
+      waBtn.href = `https://wa.me/971507507963?text=${waConfirmationText}`;
+    }
+
+    const summaryEl = document.getElementById('inline-success-summary');
+    if (summaryEl) {
+      summaryEl.innerHTML = `Confirmed for <strong>${chosenDateLabel} at ${chosenTime} GST</strong>.<br>Topic: <span style="color: var(--neon-cyan);">${topic}</span>.<br><span style="color:#10b981; font-weight:600;">Google Meet invitation and calendar file dispatched to <strong>${email}</strong>!</span>`;
+    }
+
+    form.style.display = 'none';
+    const successCard = document.getElementById('inline-booking-success');
+    if (successCard) {
+      successCard.style.display = 'block';
+    }
+  });
 }
 
 /**

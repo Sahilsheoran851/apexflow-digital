@@ -72,7 +72,55 @@
       </a>
 
       <nav class="nav-menu">
-        <a href="services.html" class="nav-link">Services</a>
+                <div class="nav-item-dropdown">
+          <a href="services.html" class="nav-link">
+            Services
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 4px; vertical-align: middle;"><path d="M1 1l4 4 4-4"/></svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <div class="nav-dropdown-col">
+              <div class="nav-dropdown-title">🔍 Search &amp; SEO</div>
+              <a href="services/seo-agency-dubai.html" class="nav-dropdown-link">
+                <strong>Dubai SEO Agency &amp; Backlinks</strong>
+                <span>#1 Google rankings &amp; high-DA link building</span>
+              </a>
+              <a href="services/digital-marketing-uae.html" class="nav-dropdown-link">
+                <strong>UAE Digital Marketing &amp; SEO</strong>
+                <span>Full-funnel search &amp; localized acquisition</span>
+              </a>
+              <a href="services/google-ads-uae.html" class="nav-dropdown-link">
+                <strong>Google &amp; Meta Paid Ads</strong>
+                <span>High-ROAS PMax &amp; search campaigns</span>
+              </a>
+              <a href="services/b2b-lead-generation-uae.html" class="nav-dropdown-link">
+                <strong>B2B Lead Generation UAE</strong>
+                <span>Outbound pipeline for GCC decision-makers</span>
+              </a>
+            </div>
+            <div class="nav-dropdown-col">
+              <div class="nav-dropdown-title">⚡ Web, E-Com &amp; AI</div>
+              <a href="services/shopify-ecommerce-uae.html" class="nav-dropdown-link">
+                <strong>Shopify E-Commerce UAE</strong>
+                <span>Tabby/Tamara BNPL &amp; custom Liquid speed</span>
+              </a>
+              <a href="services/web-development-uae.html" class="nav-dropdown-link">
+                <strong>Sub-Second Web Development</strong>
+                <span>Modern semantic HTML &amp; 100/100 Core Web Vitals</span>
+              </a>
+              <a href="services/ai-automation-uae.html" class="nav-dropdown-link">
+                <strong>AI Automation &amp; n8n Workflows</strong>
+                <span>Sovereign GCC workflows &amp; zero per-task fees</span>
+              </a>
+              <a href="services/whatsapp-ai-bots-uae.html" class="nav-dropdown-link">
+                <strong>WhatsApp AI Qualification Bots</strong>
+                <span>Sub-30s bilingual lead triage in Arabic &amp; English</span>
+              </a>
+            </div>
+            <div class="nav-dropdown-all">
+              <a href="services.html">View All 15 Specialized Services &rarr;</a>
+            </div>
+          </div>
+        </div>
         <a href="audit.html" class="nav-link">Cyber Audit</a>
         <a href="calculator.html" class="nav-link">ROI Calculator</a>
         <a href="packages.html" class="nav-link">Packages</a>
@@ -175,24 +223,111 @@
           <!-- PANE 1: 15-Min Strategy Call Inline Scheduler -->
           <div id="pane-quick-call">
             <div style="margin-bottom: 1.25rem;">
+              <div class="badge-tag" style="background: rgba(0, 242, 254, 0.1); border-color: var(--neon-cyan); color: #fff; margin-bottom: 0.65rem; display: inline-flex;">
+                ⚡ LIVE CALENDAR • GULF STANDARD TIME (GST)
+              </div>
               <h3 style="font-size: 1.45rem; font-weight: 800; margin-bottom: 0.35rem;">Lock In Your 15-Min Strategy Session</h3>
               <p style="font-size: 0.875rem; color: var(--text-secondary);">
-                Direct consultation with <strong>Sahil Sheoran</strong>. Select your topic and preferred slot in UAE Time (GST).
+                Direct 1-on-1 consultation with <strong>Sahil Sheoran</strong>. Select your consultation topic and preferred time slot in UAE Time (GST / UTC+4).
               </p>
             </div>
 
-            <button type="button" class="btn btn-primary btn-full btn-lg" onclick="window.ApexFlowBooking ? window.ApexFlowBooking.openModal() : null;" style="height: 52px; font-size: 1rem; margin-bottom: 1rem;">
-              <span>Open 1-Click Interactive Slot Picker</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </button>
+            <!-- Inline Scheduler Form -->
+            <form id="inline-strategy-call-form" class="inline-scheduler-form">
+              <!-- Topic Selection -->
+              <div class="scheduler-section-label">1. Focus Topic</div>
+              <div class="chips-grid" id="inline-topic-chips">
+                <button type="button" class="chip-btn active" data-topic="AI Automation & n8n Workflows">🤖 AI Automation &amp; n8n</button>
+                <button type="button" class="chip-btn" data-topic="Dubai & KSA SEO Dominance">🔍 SEO &amp; Backlinks</button>
+                <button type="button" class="chip-btn" data-topic="Shopify & E-Commerce Scale">🛒 Shopify &amp; E-Commerce</button>
+                <button type="button" class="chip-btn" data-topic="Sub-Second Web & Speed">⚡ Web Speed (100/100)</button>
+                <button type="button" class="chip-btn" data-topic="Full Growth Retainer">🚀 Full Retainer</button>
+              </div>
 
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              <!-- Day Selection -->
+              <div class="scheduler-section-label">2. Select Preferred Day (UAE Time)</div>
+              <div class="chips-grid" id="inline-day-chips">
+                <!-- Dynamically populated via JS -->
+              </div>
+
+              <!-- Time Slot Selection -->
+              <div class="scheduler-section-label" style="display: flex; justify-content: space-between; align-items: center;">
+                <span>3. Select Time Slot</span>
+                <span style="font-size: 0.72rem; color: var(--neon-emerald); font-family: var(--font-mono);">🇦🇪 GST (UTC+4)</span>
+              </div>
+              <div class="chips-grid" id="inline-time-chips">
+                <button type="button" class="chip-btn active" data-time="10:00 AM">10:00 AM GST</button>
+                <button type="button" class="chip-btn" data-time="11:30 AM">11:30 AM GST</button>
+                <button type="button" class="chip-btn" data-time="02:00 PM">02:00 PM GST</button>
+                <button type="button" class="chip-btn" data-time="04:00 PM">04:00 PM GST</button>
+                <button type="button" class="chip-btn" data-time="05:30 PM">05:30 PM GST</button>
+              </div>
+
+              <!-- Contact Information -->
+              <div class="scheduler-section-label">4. Your Details</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+                <div>
+                  <input type="text" id="inline-name" class="input-field" placeholder="Your Name *" required style="font-size: 0.85rem; padding: 0.65rem 0.85rem;">
+                </div>
+                <div>
+                  <input type="text" id="inline-company" class="input-field" placeholder="Company Name *" required style="font-size: 0.85rem; padding: 0.65rem 0.85rem;">
+                </div>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem;">
+                <div>
+                  <input type="email" id="inline-email" class="input-field" placeholder="Work Email *" required style="font-size: 0.85rem; padding: 0.65rem 0.85rem;">
+                </div>
+                <div>
+                  <input type="tel" id="inline-whatsapp" class="input-field text-mono" placeholder="WhatsApp Number *" required style="font-size: 0.85rem; padding: 0.65rem 0.85rem;">
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full btn-lg" id="inline-submit-btn" style="height: 50px; font-size: 1rem; margin-bottom: 1rem;">
+                <span>Confirm 15-Min Strategy Session 📅</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </button>
+            </form>
+
+            <!-- Inline Success Card -->
+            <div id="inline-booking-success" class="booking-success-card" style="display: none;">
+              <div class="booking-success-icon" style="margin: 0 auto 1rem;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3 style="font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Strategy Call Confirmed! 📅</h3>
+              <p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.5; margin-bottom: 1.25rem;" id="inline-success-summary">
+                Confirmed for your chosen slot. Google Meet invitation and calendar invite (.ics) dispatched to your email.
+              </p>
+
+              <div style="background: rgba(0, 242, 254, 0.08); border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 1.25rem; text-align: center;">
+                <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--neon-cyan); font-weight: 700; letter-spacing: 0.5px; margin-bottom: 4px;">Direct Video Meeting Link</div>
+                <a href="https://meet.google.com/ksd-sids-trc" target="_blank" rel="noopener" id="inline-meet-link" style="color: #fff; font-weight: 600; text-decoration: underline; font-size: 0.9rem;">https://meet.google.com/ksd-sids-trc</a>
+                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Calendar invite (.ics) also sent to your inbox</div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <a href="https://meet.google.com/ksd-sids-trc" target="_blank" rel="noopener" id="inline-join-meet-btn" class="btn btn-primary btn-full" style="background: #1a73e8; border-color: #1a73e8;">
+                  <span>🎥 Open Google Meet Room</span>
+                </a>
+                <a href="#" id="inline-success-gcal-btn" target="_blank" rel="noopener" class="btn btn-secondary btn-full" style="font-size: 0.85rem;">
+                  <span>📅 Add to Google Calendar (1-Click)</span>
+                </a>
+                <button type="button" id="inline-success-ics-btn" class="btn btn-secondary btn-full" style="font-size: 0.85rem;">
+                  📥 Download Calendar Invite (.ics for Outlook/Apple)
+                </button>
+                <a href="#" id="inline-success-wa-btn" target="_blank" rel="noopener" class="btn btn-whatsapp btn-full">
+                  <span>📲 Confirm on WhatsApp with Sahil</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Value Highlights Box -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-top: 1.25rem;">
               <div style="font-weight: 700; color: #fff; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
                 <span class="pulse-dot" style="background: var(--neon-emerald); box-shadow: 0 0 8px var(--neon-emerald);"></span>
                 <span>What We Cover in 15 Minutes:</span>
               </div>
               <ul style="padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem;">
-                <li>Live Mobile 5G Core Web Vitals & speed analysis of your site.</li>
+                <li>Live Mobile 5G Core Web Vitals &amp; speed analysis of your site.</li>
                 <li>Your local district Google Maps 3-Pack search gap vs competitors.</li>
                 <li>Automated WhatsApp lead qualification workflow demo tailored to your niche.</li>
                 <li>No hard sales pitch; zero obligations.</li>

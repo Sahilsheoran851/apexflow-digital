@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: apexflow-whatsapp-bot
+    env: node
+    plan: free
+    region: frankfurt # Low-latency for UAE / Gulf region
+    buildCommand: npm install
+    startCommand: node scripts/whatsapp_agent.js
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: GOOGLE_MEET_URL
+        value: https://meet.google.com/ksd-sids-trc
