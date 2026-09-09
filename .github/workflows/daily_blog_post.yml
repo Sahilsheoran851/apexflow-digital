@@ -21,7 +21,7 @@ jobs:
           python3 scripts/daily_blog_generator.py
       - name: Commit and Push New Blog Post
         run: |
-          git config --global user.name "ApexFlow Automated Engine"
-          git config --global user.email "bot@apexflowdigital.ae"
+          git config --global user.name "Sahil Sheoran"
+          git config --global user.email "sahilsheoran851@gmail.com"
           git add blog/ sitemap.xml sitemap.html blog.html
           git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Publish daily UAE digital growth blog post [skip ci]" && git push)
