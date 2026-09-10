@@ -6,8 +6,10 @@ services:
     region: frankfurt # Low-latency for UAE / Gulf region
     buildCommand: npm install
     startCommand: node scripts/whatsapp_agent.js
+    autoDeploy: false # Keeps the container running 24/7 without wiping WhatsApp session on routine commits
     envVars:
       - key: OPENROUTER_API_KEY
         sync: false
       - key: GOOGLE_MEET_URL
         value: https://meet.google.com/ksd-sids-trc
+
