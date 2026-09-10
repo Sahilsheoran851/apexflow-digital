@@ -492,6 +492,7 @@ button {
   position: relative;
   display: inline-flex;
   align-items: center;
+  height: 100%;
 }
 
 .nav-item-dropdown:hover .nav-dropdown-menu,
@@ -504,25 +505,36 @@ button {
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.6rem);
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  width: 620px;
-  background: rgba(5, 11, 26, 0.98);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--border-cyber);
+  top: calc(100% + 8px);
+  left: -20px;
+  width: 590px;
+  background: #050b1a;
+  border: 1px solid rgba(0, 242, 254, 0.25);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 242, 254, 0.15);
+  padding: 1.25rem 1.35rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 242, 254, 0.15);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(8px);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.2s;
   z-index: 1000;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+  gap: 1.15rem;
   pointer-events: none;
+}
+
+/* Invisible bridge prevents hover flickering between Services link and menu */
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: transparent;
 }
 
 .nav-dropdown-col {
