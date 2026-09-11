@@ -99,6 +99,7 @@ if (!fs.existsSync(LEADS_FILE)) {
 
 let latestQR = null;
 let isConnected = false;
+let activeSock = null;
 
 // Conversation memory: phone -> Array<{ role: 'user' | 'assistant', content: string }>
 const conversationHistories = new Map();
@@ -550,6 +551,10 @@ const server = http.createServer(async (req, res) => {
                 5. mistralai/mistral-small-24b-instruct-2501<br>
                 6. meta-llama/llama-3.1-8b-instruct
               </div>
+
+              <div style="margin-top:20px;">
+                <a href="/test" style="display:inline-block; padding:10px 20px; background:#059669; color:#ffffff; text-decoration:none; border-radius:8px; font-weight:600; font-size:14px;">📲 Send Test Message to Founder (+${SAHIL_PHONE})</a>
+              </div>
             </div>
           </body>
         </html>
@@ -591,6 +596,20 @@ const server = http.createServer(async (req, res) => {
       activeLeads: activeBusinessSenders.size,
       uptime: process.uptime()
     }));
+  } else if (req.url === '/test' || req.url === '/send-test') {
+    if (!isConnected || !activeSock) {
+      res.writeHead(503, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'WhatsApp bot is not connected yet. Please scan QR first.' }));
+    }
+    try {
+      const msg = `⚡ *ApexFlow Digital — Manual System Ping*\n\nHi Sahil! This is a manual test dispatch from your live ApexFlow WhatsApp Engine.\n\nStatus: Operational\nNode Uptime: ${Math.round(process.uptime())}s`;
+      await activeSock.sendMessage(SAHIL_JID, { text: msg });
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ success: true, recipient: SAHIL_JID, timestamp: new Date().toISOString() }));
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: err.message }));
+    }
   } else {
     res.writeHead(404);
     res.end('Not found');
@@ -613,7 +632,7 @@ async function startWhatsAppBot() {
 
   sock.ev.on('creds.update', saveCreds);
 
-  sock.ev.on('connection.update', (update) => {
+  sock.ev.on('connection.update', async (update) => {
     const { connection, lastDisconnect, qr } = update;
 
     if (qr) {
@@ -626,6 +645,7 @@ async function startWhatsAppBot() {
 
     if (connection === 'close') {
       isConnected = false;
+      activeSock = null;
       const shouldReconnect = (lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut);
       console.log(`[WhatsApp] Connection closed. Reason: ${lastDisconnect?.error?.message}. Reconnecting: ${shouldReconnect}`);
       if (shouldReconnect) {
@@ -634,9 +654,20 @@ async function startWhatsAppBot() {
     } else if (connection === 'open') {
       isConnected = true;
       latestQR = null;
+      activeSock = sock;
       console.log('\n🚀 [WhatsApp] CONNECTED SUCCESSFULLY TO YOUR WHATSAPP NUMBER!');
       console.log('🤖 Autonomous OpenRouter AI qualification engine is live with 6-model fallback.\n');
       initFollowUpScheduler(sock);
+
+      // Auto-dispatch test notification to Sahil on connect
+      try {
+        await sock.sendMessage(SAHIL_JID, {
+          text: `🚀 *ApexFlow AI WhatsApp Engine Connected!*\n\nHi Sahil! Your WhatsApp AI assistant is now online and active.\n\n✅ *Live Capabilities:*\n• Sub-second In-Chat Website Speed Diagnostic\n• Prospect Voice Note Audio Transcription\n• Native Gulf Arabic & English Auto-Switching\n• Real-Time Hot Lead Alerts & Founder Handoff\n• Dubai Business Hours Follow-Up Automation\n• Real-Time Google Sheets Webhook Sync\n\nSend any website URL or message to test live!`
+        });
+        console.log(`[WhatsApp] Sent connection confirmation to Sahil (${SAHIL_JID})`);
+      } catch (err) {
+        console.error(`[WhatsApp] Failed to send connection confirmation to Sahil:`, err.message);
+      }
     }
   });
 
