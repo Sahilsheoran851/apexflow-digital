@@ -10,6 +10,12 @@ services:
     envVars:
       - key: OPENROUTER_API_KEY
         sync: false
+      - key: SAHIL_PHONE
+        value: "918076541146"
       - key: GOOGLE_MEET_URL
         value: https://meet.google.com/ksd-sids-trc
+      - key: GROQ_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
 
