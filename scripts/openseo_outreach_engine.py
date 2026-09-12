@@ -481,159 +481,241 @@ Website: https://apexflow-digital.vercel.app
 """
 
     html_text = f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Executive Speed Audit</title>
+<meta name="x-apple-disable-message-reformatting">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Executive Speed Audit: {company_name}</title>
+<style type="text/css">
+  /* Universal Client Resets */
+  body, table, td, a {{ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }}
+  table, td {{ mso-table-lspace: 0pt; mso-table-rspace: 0pt; }}
+  img {{ -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }}
+  table {{ border-collapse: collapse !important; }}
+  body {{ height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }}
+
+  /* Mobile Responsive Breakpoints */
+  @media only screen and (max-width: 600px) {{
+    .email-container {{
+      width: 100% !important;
+      max-width: 100% !important;
+      border-radius: 0 !important;
+      border-left: none !important;
+      border-right: none !important;
+    }}
+    .email-body {{
+      padding: 20px 14px !important;
+    }}
+    .email-header {{
+      padding: 14px 16px !important;
+    }}
+    .email-footer {{
+      padding: 16px 14px !important;
+    }}
+    .mobile-img {{
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+    }}
+    .stack-col {{
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }}
+    .bench-card-left {{
+      border-radius: 8px 8px 0 0 !important;
+      border-right: 1px solid #fee2e2 !important;
+      border-bottom: none !important;
+    }}
+    .bench-card-right {{
+      border-radius: 0 0 8px 8px !important;
+      border-top: 1px dashed #cbd5e1 !important;
+    }}
+    .btn-mobile-full {{
+      display: block !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      text-align: center !important;
+      padding: 14px 16px !important;
+      font-size: 15px !important;
+    }}
+    .btn-table {{
+      width: 100% !important;
+    }}
+    .btn-td {{
+      display: block !important;
+      width: 100% !important;
+      padding: 0 0 10px 0 !important;
+      box-sizing: border-box !important;
+    }}
+    .mobile-text {{
+      font-size: 15px !important;
+      line-height: 1.6 !important;
+    }}
+  }}
+</style>
 </head>
-<body style="margin:0; padding:24px 12px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color:#f1f5f9; color:#0f172a; line-height:1.65; -webkit-font-smoothing:antialiased;">
+<body style="margin:0; padding:12px 0; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color:#f1f5f9; color:#0f172a; line-height:1.65; -webkit-font-smoothing:antialiased;">
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:620px; margin:0 auto; background-color:#ffffff; border-radius:16px; border:1px solid #e2e8f0; box-shadow:0 8px 30px rgba(15,23,42,0.06); overflow:hidden;">
-    
-    <!-- Top Executive Header Bar -->
+  <!-- Outer Centering Table -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f1f5f9;">
     <tr>
-      <td style="padding:20px 28px; background-color:#ffffff; border-bottom:1px solid #f1f5f9;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-          <tr>
-            <td align="left" style="vertical-align:middle;">
-              <span style="font-size:14px; font-weight:700; letter-spacing:0.5px; color:#0f172a; text-transform:uppercase;">APEXFLOW DIGITAL</span>
-              <span style="display:inline-block; margin:0 8px; color:#cbd5e1;">|</span>
-              <span style="font-size:13px; color:#64748b; font-weight:500;">Performance Engineering</span>
-            </td>
-            <td align="right" style="vertical-align:middle;">
-              <span style="display:inline-block; padding:4px 10px; background-color:#ecfdf5; border:1px solid #a7f3d0; border-radius:12px; font-size:12px; font-weight:600; color:#059669;">
-                ● Live Audit
-              </span>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-
-    <!-- Main Content Area -->
-    <tr>
-      <td style="padding:28px 28px 20px 28px;">
+      <td align="center" style="padding:0 6px;">
         
-        <p style="margin:0 0 16px 0; font-size:15px; color:#334155;">
-          Hi {company_name} team,
-        </p>
-
-        <p style="margin:0 0 18px 0; font-size:15px; color:#334155; line-height:1.65;">
-          I was reviewing leading brands in Dubai this morning and ran an official Google Mobile Speed audit on <strong>{company_name}</strong> (<code>{clean_domain}</code>).
-        </p>
-
-        <p style="margin:0 0 16px 0; font-size:15px; color:#334155; line-height:1.65;">
-          I captured the official Google PageSpeed diagnostic and loading progression below:
-        </p>
-
-        <!-- Visual Audit Card (Retina Image) -->
-        <div style="margin:20px 0 24px 0; text-align:center;">
-          <img src="cid:pagespeed_diagnostic_card" alt="Official Google PageSpeed Diagnostic" style="width:100%; max-width:564px; height:auto; border-radius:12px; border:1px solid #e2e8f0; display:block; box-shadow:0 4px 16px rgba(15,23,42,0.06);" />
-        </div>
-
-        <p style="margin:0 0 20px 0; font-size:15px; color:#334155; line-height:1.65;">
-          Notice in the visual timeline: <strong>the mobile screen stays blank for the initial {probe_data['est_fcp']}</strong>, and the hero device banner doesn't finish loading until <strong>{probe_data['est_lcp']}</strong> on UAE 5G.
-        </p>
-
-        <!-- Competitor Benchmark UI Matrix -->
-        <div style="margin:24px 0; background-color:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px 20px;">
-          <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#475569; margin-bottom:12px;">
-            ⚔️ UAE Competitor Speed Benchmark
-          </div>
+        <table role="presentation" class="email-container" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px; margin:0 auto; background-color:#ffffff; border-radius:16px; border:1px solid #e2e8f0; box-shadow:0 6px 24px rgba(15,23,42,0.06); overflow:hidden;">
           
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:14px;">
-            <tr>
-              <td width="50%" style="padding:10px 12px; background:#ffffff; border-radius:8px 0 0 8px; border:1px solid #fee2e2; border-right:none; vertical-align:top;">
-                <div style="font-size:12px; font-weight:600; color:#dc2626; text-transform:uppercase; margin-bottom:4px;">{company_name}</div>
-                <div style="font-size:18px; font-weight:700; color:#0f172a;">{probe_data['est_lcp']} <span style="font-size:13px; color:#64748b; font-weight:400;">load</span></div>
-                <div style="font-size:12px; color:#dc2626; margin-top:2px;">Score: {probe_data['est_score']}/100 • ~38% drop-off</div>
-              </td>
-              <td width="50%" style="padding:10px 12px; background:#ffffff; border-radius:0 8px 8px 0; border:1px solid #dcfce7; vertical-align:top;">
-                <div style="font-size:12px; font-weight:600; color:#16a34a; text-transform:uppercase; margin-bottom:4px;">Top Regional Competitor</div>
-                <div style="font-size:18px; font-weight:700; color:#0f172a;">1.2s <span style="font-size:13px; color:#64748b; font-weight:400;">load</span></div>
-                <div style="font-size:12px; color:#16a34a; margin-top:2px;">Score: 94/100 • &lt; 10% drop-off</div>
-              </td>
-            </tr>
-          </table>
-        </div>
-
-        <!-- Hosted OpenSEO Full Report Link Callout -->
-        <div style="margin:24px 0; padding:16px 20px; background-color:#eff6ff; border:1px solid #bfdbfe; border-radius:12px; text-align:center;">
-          <div style="font-size:14px; font-weight:700; color:#1e40af; margin-bottom:6px;">
-            📄 Complete One-Page Technical Audit Report Available
-          </div>
-          <p style="margin:0 0 12px 0; font-size:13px; color:#3b82f6; line-height:1.5;">
-            We have compiled the full actionable findings, small fixes, and keyword strategy according to the OpenSEO framework:
-          </p>
-          <a href="{report_url}" style="display:inline-block; padding:10px 20px; background-color:#2563eb; color:#ffffff; font-size:14px; font-weight:600; text-decoration:none; border-radius:8px;">
-            View Your Full 1-Page Audit Report &rarr;
-          </a>
-        </div>
-
-        <!-- 3 Quick Wins -->
-        <div style="margin:24px 0;">
-          <div style="font-size:14px; font-weight:700; color:#0f172a; margin-bottom:10px;">
-            3 Quick Fixes Your Developers Can Implement This Week:
-          </div>
-          <div style="font-size:14px; color:#475569; line-height:1.6;">
-            1. <strong>Hero Asset Modernization:</strong> Re-encode collection sliders to WebP (saves ~2.2MB).<br>
-            2. <strong>App Script Deferral:</strong> Defer non-critical tracking widgets until after First Contentful Paint.<br>
-            3. <strong>1-Tap Checkout Flow:</strong> Enable direct Apple Pay buttons on product pages.
-          </div>
-        </div>
-
-        <!-- Value-First Working Agreement -->
-        <div style="margin:24px 0; padding:16px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px;">
-          <div style="font-size:13px; font-weight:700; color:#166534; margin-bottom:4px;">
-            🤝 Our Value-First Working Agreement:
-          </div>
-          <p style="margin:0; font-size:13px; color:#15803d; line-height:1.5;">
-            I will do the technical speed optimization first. Once you see the before-and-after Google PageSpeed score improve to 85+, you pay whatever amount you feel is fair. If you don't love the speed increase, you owe nothing.
-          </p>
-        </div>
-
-        <!-- CTA Buttons -->
-        <div style="margin:28px 0; text-align:center;">
-          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
-            <tr>
-              <td style="padding:0 6px;">
-                <a href="https://wa.me/971507507963?text=Hi%20Sahil!%20I%20saw%20the%20speed%20audit%20for%20{clean_domain}" style="display:inline-block; padding:12px 22px; background-color:#25d366; color:#ffffff; font-size:14px; font-weight:600; text-decoration:none; border-radius:8px;">
-                  💬 Chat on WhatsApp (+971 50 750 7963)
-                </a>
-              </td>
-              <td style="padding:0 6px;">
-                <a href="https://apexflow-digital.vercel.app/contact.html" style="display:inline-block; padding:12px 22px; background-color:#0f172a; color:#ffffff; font-size:14px; font-weight:600; text-decoration:none; border-radius:8px;">
-                  📅 Book 10-Min Walkthrough
-                </a>
-              </td>
-            </tr>
-          </table>
-        </div>
-
-        <p style="margin:0 0 4px 0; font-size:14px; color:#64748b;">Best regards,</p>
-        <p style="margin:0 0 18px 0; font-size:15px; font-weight:700; color:#0f172a;">Sahil Sheoran</p>
-
-      </td>
-    </tr>
-
-    <!-- Modern Executive Footer -->
-    <tr>
-      <td style="padding:20px 28px; background-color:#f8fafc; border-top:1px solid #e2e8f0;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <!-- Top Executive Header Bar -->
           <tr>
-            <td align="left" style="vertical-align:middle;">
-              <div style="font-size:14px; font-weight:700; color:#0f172a;">Sahil Sheoran</div>
-              <div style="font-size:12px; color:#64748b; margin-top:2px;">Founder &amp; Principal Technologist • ApexFlow Digital</div>
-              <div style="font-size:12px; color:#64748b; margin-top:2px;">
-                Dubai, UAE &bull; <a href="tel:+971507507963" style="color:#2563eb; text-decoration:none;">+971 50 750 7963</a> &bull; <a href="https://apexflow-digital.vercel.app" style="color:#2563eb; text-decoration:none;">apexflow-digital.vercel.app</a>
-              </div>
+            <td class="email-header" style="padding:18px 24px; background-color:#ffffff; border-bottom:1px solid #f1f5f9;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="left" style="vertical-align:middle;">
+                    <span style="font-size:13px; font-weight:800; letter-spacing:0.5px; color:#0f172a; text-transform:uppercase;">APEXFLOW DIGITAL</span>
+                    <span style="display:inline-block; margin:0 6px; color:#cbd5e1;">|</span>
+                    <span style="font-size:12px; color:#64748b; font-weight:500;">Performance Engineering</span>
+                  </td>
+                  <td align="right" style="vertical-align:middle;">
+                    <span style="display:inline-block; padding:3px 8px; background-color:#ecfdf5; border:1px solid #a7f3d0; border-radius:10px; font-size:11px; font-weight:700; color:#059669; text-transform:uppercase;">
+                      ● Live Audit
+                    </span>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
+
+          <!-- Main Content Area -->
+          <tr>
+            <td class="email-body" style="padding:26px 24px 20px 24px;">
+              
+              <p class="mobile-text" style="margin:0 0 14px 0; font-size:15px; color:#334155;">
+                Hi {company_name} team,
+              </p>
+
+              <p class="mobile-text" style="margin:0 0 16px 0; font-size:15px; color:#334155; line-height:1.65;">
+                I was reviewing leading commercial brands in the UAE this morning and ran an official Google Mobile Speed audit on <strong>{company_name}</strong> (<code>{clean_domain}</code>).
+              </p>
+
+              <p class="mobile-text" style="margin:0 0 16px 0; font-size:15px; color:#334155; line-height:1.65;">
+                Below is the official Google PageSpeed diagnostic and loading progression captured:
+              </p>
+
+              <!-- Visual Audit Card (Retina Image Fluidly Sized) -->
+              <div style="margin:16px 0 20px 0; text-align:center;">
+                <img src="cid:pagespeed_diagnostic_card" alt="Official Google PageSpeed Diagnostic" class="mobile-img" style="width:100%; max-width:552px; height:auto; border-radius:10px; border:1px solid #e2e8f0; display:block; margin:0 auto; box-shadow:0 4px 16px rgba(15,23,42,0.05);" />
+              </div>
+
+              <p class="mobile-text" style="margin:0 0 18px 0; font-size:15px; color:#334155; line-height:1.65;">
+                Notice in the visual progression: <strong>the mobile screen stays blank for the initial {probe_data['est_fcp']}</strong>, and the hero device banner doesn't finish loading until <strong>{probe_data['est_lcp']}</strong> on UAE 5G.
+              </p>
+
+              <!-- Competitor Benchmark UI Matrix (Stacks cleanly on mobile) -->
+              <div style="margin:20px 0; background-color:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px;">
+                <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#475569; margin-bottom:10px;">
+                  ⚔️ UAE Competitor Speed Benchmark
+                </div>
+                
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:14px;">
+                  <tr>
+                    <td class="stack-col bench-card-left" width="50%" style="padding:12px; background:#ffffff; border-radius:8px 0 0 8px; border:1px solid #fee2e2; border-right:none; vertical-align:top;">
+                      <div style="font-size:11px; font-weight:700; color:#dc2626; text-transform:uppercase; margin-bottom:4px;">{company_name}</div>
+                      <div style="font-size:20px; font-weight:800; color:#0f172a; line-height:1.2;">{probe_data['est_lcp']} <span style="font-size:13px; color:#64748b; font-weight:400;">load</span></div>
+                      <div style="font-size:12px; color:#dc2626; margin-top:3px; font-weight:500;">Score: {probe_data['est_score']}/100 • ~35% drop-off</div>
+                    </td>
+                    <td class="stack-col bench-card-right" width="50%" style="padding:12px; background:#ffffff; border-radius:0 8px 8px 0; border:1px solid #dcfce7; vertical-align:top;">
+                      <div style="font-size:11px; font-weight:700; color:#16a34a; text-transform:uppercase; margin-bottom:4px;">Top Regional Competitor</div>
+                      <div style="font-size:20px; font-weight:800; color:#0f172a; line-height:1.2;">1.2s <span style="font-size:13px; color:#64748b; font-weight:400;">load</span></div>
+                      <div style="font-size:12px; color:#16a34a; margin-top:3px; font-weight:500;">Score: 94/100 • &lt; 10% drop-off</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- Hosted OpenSEO Full Report Link Callout -->
+              <div style="margin:22px 0; padding:18px 16px; background-color:#eff6ff; border:1px solid #bfdbfe; border-radius:12px; text-align:center;">
+                <div style="font-size:14px; font-weight:700; color:#1e40af; margin-bottom:6px;">
+                  📄 Complete 1-Page Technical Audit Report Available
+                </div>
+                <p class="mobile-text" style="margin:0 0 14px 0; font-size:13px; color:#3b82f6; line-height:1.5;">
+                  We have compiled full actionable findings, small fixes, and commercial GCC keywords according to the OpenSEO framework:
+                </p>
+                <a href="{report_url}" class="btn-mobile-full" style="display:inline-block; padding:12px 22px; background-color:#2563eb; color:#ffffff; font-size:14px; font-weight:700; text-decoration:none; border-radius:8px; box-shadow:0 3px 10px rgba(37,99,235,0.25);">
+                  View Your Full 1-Page Audit Report &rarr;
+                </a>
+              </div>
+
+              <!-- 3 Quick Wins -->
+              <div style="margin:22px 0;">
+                <div style="font-size:14px; font-weight:700; color:#0f172a; margin-bottom:8px;">
+                  3 Quick Fixes Your Developers Can Implement This Week:
+                </div>
+                <div class="mobile-text" style="font-size:14px; color:#475569; line-height:1.65;">
+                  1. <strong>Hero Asset Modernization:</strong> Re-encode collection sliders to WebP (saves ~2.2MB).<br>
+                  2. <strong>App Script Deferral:</strong> Defer non-critical tracking widgets until after First Paint.<br>
+                  3. <strong>1-Tap Checkout Flow:</strong> Enable direct Apple Pay buttons on product pages.
+                </div>
+              </div>
+
+              <!-- Value-First Working Agreement -->
+              <div style="margin:22px 0; padding:15px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px;">
+                <div style="font-size:13px; font-weight:700; color:#166534; margin-bottom:4px;">
+                  🤝 Value-First Working Agreement:
+                </div>
+                <p class="mobile-text" style="margin:0; font-size:13px; color:#15803d; line-height:1.5;">
+                  I will do the technical speed optimization first. Once you see the before-and-after Google PageSpeed score improve to 85+, you pay whatever amount you feel is fair. If you don't love the speed increase, you owe nothing.
+                </p>
+              </div>
+
+              <!-- CTA Buttons (Responsive Table Stacks on Mobile) -->
+              <div style="margin:26px 0 16px 0; text-align:center;">
+                <table role="presentation" class="btn-table" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto; width:100%; max-width:520px;">
+                  <tr>
+                    <td class="btn-td" width="50%" align="center" style="padding:0 6px 8px 6px;">
+                      <a href="https://wa.me/971507507963?text=Hi%20Sahil!%20I%20saw%20the%20speed%20audit%20for%20{clean_domain}" class="btn-mobile-full" style="display:block; padding:13px 18px; background-color:#25d366; color:#ffffff; font-size:14px; font-weight:700; text-decoration:none; border-radius:8px; text-align:center;">
+                        💬 Chat on WhatsApp
+                      </a>
+                    </td>
+                    <td class="btn-td" width="50%" align="center" style="padding:0 6px 8px 6px;">
+                      <a href="https://apexflow-digital.vercel.app/contact.html" class="btn-mobile-full" style="display:block; padding:13px 18px; background-color:#0f172a; color:#ffffff; font-size:14px; font-weight:700; text-decoration:none; border-radius:8px; text-align:center;">
+                        📅 Book 15-Min Call
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <p style="margin:0 0 4px 0; font-size:14px; color:#64748b;">Best regards,</p>
+              <p style="margin:0 0 18px 0; font-size:15px; font-weight:700; color:#0f172a;">Sahil Sheoran</p>
+
+            </td>
+          </tr>
+
+          <!-- Modern Executive Footer -->
+          <tr>
+            <td class="email-footer" style="padding:18px 24px; background-color:#f8fafc; border-top:1px solid #e2e8f0;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="left" style="vertical-align:middle;">
+                    <div style="font-size:14px; font-weight:800; color:#0f172a;">Sahil Sheoran</div>
+                    <div style="font-size:12px; color:#64748b; margin-top:2px;">Founder &amp; Principal Technologist • ApexFlow Digital</div>
+                    <div style="font-size:12px; color:#64748b; margin-top:4px;">
+                      Dubai, UAE &bull; <a href="tel:+971507507963" style="color:#2563eb; text-decoration:none; font-weight:600;">+971 50 750 7963</a> &bull; <a href="https://apexflow-digital.vercel.app" style="color:#2563eb; text-decoration:none; font-weight:600;">apexflow-digital.vercel.app</a>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
         </table>
+
       </td>
     </tr>
-
   </table>
 
 </body>
