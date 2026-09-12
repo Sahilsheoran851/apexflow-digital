@@ -626,6 +626,18 @@ def log_dispatch(email, company, website, score, lcp, status="Delivered"):
             "Status": status
         })
 
+def sync_reports_to_vercel(company_name):
+    try:
+        import subprocess
+        subprocess.run(["git", "add", "reports/"], check=False)
+        res = subprocess.run(["git", "status", "--porcelain", "reports/"], capture_output=True, text=True)
+        if res.stdout.strip():
+            subprocess.run(["git", "commit", "-m", f"feat(report): add live OpenSEO audit for {company_name}"], check=False)
+            subprocess.run(["git", "push", "origin", "main"], check=False)
+            print(f"  🚀 Synced report to GitHub & Vercel for live hosting.")
+    except Exception as e:
+        print(f"  ⚠️ Could not auto-push report to git: {e}")
+
 # ----------------------------------------------------------------------
 # 6. Main Orchestrator
 # ----------------------------------------------------------------------
@@ -637,7 +649,9 @@ def audit_and_dispatch_lead(company_name, website, recipient_email, dry_run=Fals
 
     # 1. Generate OpenSEO HTML report
     report_file = generate_openseo_html_report(probe_data, company_name)
-    hosted_report_url = f"https://apexflow-digital.vercel.app/reports/{slug}_seo_review.html"
+    hosted_report_url = f"https://apexflow-digital.vercel.app/reports/{slug}_seo_review"
+    if not dry_run:
+        sync_reports_to_vercel(company_name)
 
     # 2. Generate 1200x740 PageSpeed card
     card_path = os.path.join(SCREENSHOTS_DIR, f"{slug}_card.jpg")
