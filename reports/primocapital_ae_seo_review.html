@@ -1,0 +1,146 @@
+<!-- SEO audit report template.
+     Replace ALL-CAPS placeholders and the example rows/items. Keep the CSS and structure.
+     If your agent publishes HTML through a pipeline that adds its own document wrapper
+     (for example an artifact viewer), strip this comment and the doctype/head/body tags;
+     as a standalone file opened in a browser, keep everything. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Primo Capital Real Estate — Technical SEO & Speed Audit | ApexFlow Digital</title>
+<style>
+  :root {
+    --bg: #e2e9f3;
+    --ink: #122650;
+    --muted: #4f5f79;
+    --rule: #c2cddd;
+    --rule-strong: #122650;
+  }
+  html { background: var(--bg); color-scheme: light; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: Charter, Georgia, "Times New Roman", serif;
+    line-height: 1.55; margin: 0; padding: 3.5rem 1.5rem 5rem;
+  }
+  .page { max-width: 860px; margin: 0 auto; }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  }
+  h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700; font-size: 1.6rem; letter-spacing: -0.01em;
+    margin: 0.75rem 0 0.25rem; text-wrap: balance;
+  }
+  .subtitle { color: var(--muted); margin: 0 0 2.5rem; font-size: 1.02rem; max-width: 46rem; }
+  .dateline { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.1rem; }
+  h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700; font-size: 1.25rem; margin: 3rem 0 0.75rem;
+  }
+  .lede { font-size: 1.05rem; max-width: 46rem; }
+  section > p { max-width: 46rem; }
+  hr.heavy { border: 0; border-top: 2px solid var(--rule-strong); margin: 3rem 0 0; }
+  section .cols:first-of-type { border-top: 1px solid var(--rule); }
+  .cols {
+    display: grid; grid-template-columns: minmax(180px, 5fr) 8fr;
+    gap: 1.25rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule);
+  }
+  .row-title { font-size: 1.12rem; margin: 0; }
+  .row-title .tag { display: block; margin-top: 0.35rem; }
+  .cols > div p { margin: 0 0 0.6rem; color: var(--muted); font-size: 0.95rem; }
+  .cols > div p:last-child { margin-bottom: 0; }
+  .cols > div p.fix { color: var(--ink); }
+  .fix b { font-weight: 600; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.85em; word-break: break-word;
+  }
+  ol { padding-left: 1.3rem; max-width: 44rem; }
+  ol li { margin-bottom: 0.5rem; }
+  ul.plain { list-style: none; padding: 0; max-width: 46rem; }
+  ul.plain li { padding: 0.5rem 0; border-bottom: 1px solid var(--rule); font-size: 0.98rem; }
+  ul.plain li:first-child { border-top: 1px solid var(--rule); }
+  ul.plain .why { color: var(--muted); }
+  footer { margin-top: 4rem; color: var(--muted); font-size: 0.88rem; max-width: 46rem; }
+  @media (max-width: 620px) {
+    .cols { grid-template-columns: 1fr; gap: 0.4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>Primo Capital Real Estate (primocapital.ae)</h1>
+    <p class="dateline">September 12, 2026 • Audited by ApexFlow Digital (OpenSEO Framework)</p>
+    <p class="subtitle">Primo Capital Real Estate maintains a strong product catalog and brand reputation in the UAE. However, mobile Largest Contentful Paint is taking 5.6s on local 5G, primarily caused by unoptimized Custom Modern Web banner assets and third-party scripts. This report isolates the single highest-leverage action to take this week.</p>
+  </header>
+
+  <section>
+    <h2>Where the site stands</h2>
+    <p class="lede">The storefront features clean brand styling, verified catalog offerings, and strong commercial intent for GCC buyers seeking Retail & D2C.</p>
+    <p class="lede">The primary friction is mobile Core Web Vitals: mobile score is 34/100 and screen stays blank for 3.1s on local 5G, causing ~35% of mobile shoppers to bounce.</p>
+  </section>
+
+  <hr class="heavy">
+
+  <section>
+    <h2>If you only do one thing</h2>
+    <p class="lede">Re-encode collection hero banners to modern WebP/AVIF format and defer non-critical Custom Modern Web app scripts.</p>
+    <p>Over 80% of regional GCC purchases occur on mobile devices. Cutting load time under 1.5 seconds immediately lifts completed checkouts and elevates Google Maps 3-Pack placement.</p>
+    <ol>
+      <li><b>Batch Compress Media:</b> Convert top banner sliders from PNG/JPEG to WebP, capping initial payload under 500KB.</li>
+      <li><b>Defer Third-Party Scripts:</b> Move tracking tags and non-critical widgets to load after First Contentful Paint.</li>
+      <li><b>Verify Core Web Vitals:</b> Run Google PageSpeed Insights to verify performance score climbs above 85/100.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Small fixes, in order</h2>
+    <!-- one .cols block per finding; 5-10 max; tag = severity word only where literally true -->
+    <div class="cols">
+      <div><p class="row-title">Uncompressed Collection Media <span class="mono tag">high</span></p></div>
+      <div>
+        <p>Homepage and product banners download multiple megabytes of unoptimized images over cellular 5G.</p>
+        <p class="fix"><b>Fix:</b> Implement responsive <code>srcset</code> with WebP assets to cap initial payload under 500KB.</p>
+      </div>
+    </div>
+    <div class="cols">
+      <div><p class="row-title">Missing Local Entity Schema <span class="mono tag">medium</span></p></div>
+      <div>
+        <p>Site lacks complete LocalBusiness and GeoCoordinates structured JSON-LD data.</p>
+        <p class="fix"><b>Fix:</b> Inject schema linking UAE corporate registration, AED currency, and geographic district coordinates.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>Where to focus first</h2>
+    <!-- healthy sites only: omit this whole section when the site is down -->
+    <p>High-intent commercial keywords for Primo Capital Real Estate across the UAE and GCC:</p>
+    <div class="cols">
+      <div><p class="row-title">buy retail & d2c online dubai <span class="mono tag">1,600 searches/mo</span></p></div>
+      <div>
+        <p>High-converting commercial search traffic from residents looking for same-day Dubai delivery.</p>
+        <p class="fix"><b>Make:</b> Optimized category landing page with 1-click Apple Pay checkout.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>Already working</h2>
+    <ul class="plain">
+      <li>Clean Brand Identity &amp; Positioning. <span class="why">Strong consumer recognition across the UAE.</span></li>
+      <li>Active HTTPS Security &amp; SSL. <span class="why">Protects customer data during checkout.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Prepared on September 12, 2026 by ApexFlow Digital. Founder contact: Sahil Sheoran (<a href="https://wa.me/971507507963">+971 50 750 7963</a>). Powered by OpenSEO Framework.</p>
+  </footer>
+</div>
+</body>
+</html>
