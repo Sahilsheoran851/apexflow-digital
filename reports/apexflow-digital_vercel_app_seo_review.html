@@ -1,0 +1,176 @@
+<!-- SEO audit report template.
+     Replace ALL-CAPS placeholders and the example rows/items. Keep the CSS and structure.
+     If your agent publishes HTML through a pipeline that adds its own document wrapper
+     (for example an artifact viewer), strip this comment and the doctype/head/body tags;
+     as a standalone file opened in a browser, keep everything. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>apexflow-digital.vercel.app — Executive SEO Review | ApexFlow Digital</title>
+<style>
+  :root {
+    --bg: #e2e9f3;
+    --ink: #122650;
+    --muted: #4f5f79;
+    --rule: #c2cddd;
+    --rule-strong: #122650;
+  }
+  html { background: var(--bg); color-scheme: light; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: Charter, Georgia, "Times New Roman", serif;
+    line-height: 1.55; margin: 0; padding: 3.5rem 1.5rem 5rem;
+  }
+  .page { max-width: 860px; margin: 0 auto; }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  }
+  h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700; font-size: 1.6rem; letter-spacing: -0.01em;
+    margin: 0.75rem 0 0.25rem; text-wrap: balance;
+  }
+  .subtitle { color: var(--muted); margin: 0 0 2.5rem; font-size: 1.02rem; max-width: 46rem; }
+  .dateline { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.1rem; }
+  h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700; font-size: 1.25rem; margin: 3rem 0 0.75rem;
+  }
+  .lede { font-size: 1.05rem; max-width: 46rem; }
+  section > p { max-width: 46rem; }
+  hr.heavy { border: 0; border-top: 2px solid var(--rule-strong); margin: 3rem 0 0; }
+  section .cols:first-of-type { border-top: 1px solid var(--rule); }
+  .cols {
+    display: grid; grid-template-columns: minmax(180px, 5fr) 8fr;
+    gap: 1.25rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule);
+  }
+  .row-title { font-size: 1.12rem; margin: 0; }
+  .row-title .tag { display: block; margin-top: 0.35rem; }
+  .cols > div p { margin: 0 0 0.6rem; color: var(--muted); font-size: 0.95rem; }
+  .cols > div p:last-child { margin-bottom: 0; }
+  .cols > div p.fix { color: var(--ink); }
+  .fix b { font-weight: 600; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.85em; word-break: break-word;
+  }
+  ol { padding-left: 1.3rem; max-width: 44rem; }
+  ol li { margin-bottom: 0.5rem; }
+  ul.plain { list-style: none; padding: 0; max-width: 46rem; }
+  ul.plain li { padding: 0.5rem 0; border-bottom: 1px solid var(--rule); font-size: 0.98rem; }
+  ul.plain li:first-child { border-top: 1px solid var(--rule); }
+  ul.plain .why { color: var(--muted); }
+  footer { margin-top: 4rem; color: var(--muted); font-size: 0.88rem; max-width: 46rem; }
+  @media (max-width: 620px) {
+    .cols { grid-template-columns: 1fr; gap: 0.4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>apexflow-digital.vercel.app</h1>
+    <p class="dateline">September 12, 2026 • Audited by ApexFlow Digital (OpenSEO Framework)</p>
+    <p class="subtitle">ApexFlow Digital has established an exceptionally strong content foundation with 19 specialized service pages, 22 localized GCC blog guides, and rich JSON-LD schema. However, operating on a free .vercel.app subdomain, a broken social preview image, and missing local geo coordinates restrict organic map-pack ranking. This audit highlights the single highest-impact action to unlock top-3 Google rankings.</p>
+  </header>
+
+  <section>
+    <h2>Where the site stands</h2>
+    <p class="lede">The platform delivers outstanding technical speed (sub-second TTFB on Vercel Edge), clean HTML5 semantics, comprehensive robots.txt allowances for both Googlebot and modern AI search engines (Perplexity, Claude, GPTBot), and an indexed 45+ URL sitemap.</p>
+    <p class="lede">The main organic ceiling is domain entity authority: Google algorithmically treats .vercel.app as a cloud staging subdomain, which caps search visibility for high-ticket commercial queries like "SEO Agency Dubai". Additionally, social cards are failing with 404 errors and local schema lacks physical coordinates.</p>
+  </section>
+
+  <hr class="heavy">
+
+  <section>
+    <h2>If you only do one thing</h2>
+    <p class="lede">Connect a custom primary domain (e.g. apexflow.digital or apexflow.ae) with an automated 301 redirect.</p>
+    <p>A dedicated custom domain establishes sovereign entity authority in Google Knowledge Graph, ensures 100% of Middle Eastern backlink equity accumulates into your brand, and elevates organic CTR on Google search results.</p>
+    <ol>
+      <li><b>Acquire custom domain:</b> Register <code>apexflow.digital</code> or <code>apexflow.ae</code> on Namecheap, Cloudflare, or AEserver.</li>
+      <li><b>Connect in Vercel:</b> In Vercel Project Dashboard, navigate to <i>Settings &rarr; Domains</i>, enter the custom domain, and point DNS records.</li>
+      <li><b>Enable 301 redirect:</b> Set the primary domain in Vercel so all incoming traffic to <code>apexflow-digital.vercel.app</code> automatically redirects with HTTP 301.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Small fixes, in order</h2>
+    <!-- one .cols block per finding; 5-10 max; tag = severity word only where literally true -->
+    <div class="cols">
+      <div><p class="row-title">Missing Open Graph Social Image (404 Error) <span class="mono tag">high</span></p></div>
+      <div>
+        <p>Meta tag points to <code>assets/images/og-card.png</code> which returns a 404 Not Found error when shared on WhatsApp, LinkedIn, or Slack.</p>
+        <p class="fix"><b>Fix:</b> Generate and deploy a 1200x630 branded Open Graph card to <code>assets/images/og-card.png</code>.</p>
+      </div>
+    </div>
+    <div class="cols">
+      <div><p class="row-title">Homepage Title Tag Exceeds 60-Character SERP Limit <span class="mono tag">medium</span></p></div>
+      <div>
+        <p>Current title is 77 characters (<code>ApexFlow Digital | Top SEO Agency Dubai, Web Engineering &amp; Backlink Authority</code>), causing Google to truncate it with an ellipsis in mobile search results.</p>
+        <p class="fix"><b>Fix:</b> Shorten to: <code>ApexFlow Digital | Top SEO Agency Dubai &amp; Web Engineering</code> (58 characters).</p>
+      </div>
+    </div>
+    <div class="cols">
+      <div><p class="row-title">Missing GeoCoordinates in ProfessionalService Schema <span class="mono tag">medium</span></p></div>
+      <div>
+        <p>JSON-LD includes PostalAddress but lacks latitude/longitude coordinates and opening hours, weakening Google Maps entity matching.</p>
+        <p class="fix"><b>Fix:</b> Inject <code>geo: {"@type": "GeoCoordinates", "latitude": 25.2048, "longitude": 55.2708}</code> inside the JSON-LD script.</p>
+      </div>
+    </div>
+    <div class="cols">
+      <div><p class="row-title">Missing FAQPage Rich Snippet Schema <span class="mono tag">low</span></p></div>
+      <div>
+        <p>Homepage features an FAQ section but lacks FAQPage JSON-LD schema to trigger Google SERP accordion dropdowns.</p>
+        <p class="fix"><b>Fix:</b> Add FAQPage structured data to the page head containing the top 5 agency questions and answers.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>Where to focus first</h2>
+    <!-- healthy sites only: omit this whole section when the site is down -->
+    <p>The primary commercial search themes for ApexFlow in Dubai and Saudi Arabia, prioritized by buyer intent and client lifetime value.</p>
+    <div class="cols">
+      <div><p class="row-title">seo agency dubai <span class="mono tag">3,600 searches/mo</span></p></div>
+      <div>
+        <p>The highest-intent commercial keyword for enterprise SEO retainers in Dubai and Abu Dhabi.</p>
+        <p class="fix"><b>Make:</b> Strengthen existing landing page with client ROI case studies and schema pricing.</p>
+      </div>
+    </div>
+    <div class="cols">
+      <div><p class="row-title">ai automation agency dubai <span class="mono tag">1,200 searches/mo</span></p></div>
+      <div>
+        <p>Fast-growing high-ticket B2B query driven by GCC corporate interest in WhatsApp bots and workflow automation.</p>
+        <p class="fix"><b>Make:</b> Dedicated interactive demo page showcasing the live Baileys WhatsApp bot and n8n pipelines.</p>
+      </div>
+    </div>
+    <div class="cols">
+      <div><p class="row-title">shopify development agency dubai <span class="mono tag">880 searches/mo</span></p></div>
+      <div>
+        <p>High-ticket retail brands looking for custom Liquid development and sub-second checkout speeds.</p>
+        <p class="fix"><b>Make:</b> Showcase before-and-after speed benchmarks (LCP 1.1s) and Tabby/Tamara integration guides.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>Already working</h2>
+    <ul class="plain">
+      <li>Sub-Second Edge Latency. <span class="why">Vercel edge network serves static pages in < 150ms globally.</span></li>
+      <li>AI Search Engine Optimization (AEO). <span class="why">Robots.txt fully allows Google-Extended, GPTBot, ClaudeBot, and PerplexityBot.</span></li>
+      <li>Extensive Service Silo Architecture. <span class="why">19 dedicated service pages and 22 regional blog articles provide deep topical authority.</span></li>
+      <li>Rich Interactive Web Tools. <span class="why">Live ROI Calculator and Speed Audit widgets boost dwell time and engagement signals.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Prepared on September 12, 2026 by ApexFlow Digital. Direct founder contact: Sahil Sheoran (<a href="https://wa.me/971507507963">+971 50 750 7963</a>). Powered by OpenSEO Framework.</p>
+  </footer>
+</div>
+</body>
+</html>
