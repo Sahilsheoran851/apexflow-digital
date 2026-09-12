@@ -31,7 +31,7 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { background-color: var(--bg-page); color-scheme: light; }
+  html { background-color: var(--bg-page); color-scheme: light; overflow-x: hidden; }
   body {
     background-color: var(--bg-page);
     color: var(--text-primary);
@@ -39,6 +39,7 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     padding-bottom: 4rem;
+    overflow-x: hidden;
   }
 
   /* Executive Top Navigation Bar */
@@ -179,6 +180,8 @@
     text-decoration: none;
     font-weight: 500;
     margin-top: 0.35rem;
+    word-break: break-all;
+    max-width: 100%;
   }
   .target-url:hover { text-decoration: underline; }
   .dateline {
@@ -639,13 +642,210 @@
   .report-footer a { color: var(--accent-blue); text-decoration: none; }
   .report-footer a:hover { text-decoration: underline; }
 
-  @media (max-width: 768px) {
-    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-    .contact-grid { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    .cols { grid-template-columns: 1fr; gap: 0.5rem; }
-    .report-card { padding: 1.5rem; }
-    .top-navbar { padding: 0.75rem 1rem; }
+  /* Tablet Responsive Breakpoint */
+  @media only screen and (min-width: 641px) and (max-width: 860px) {
+    .page { padding: 0 1rem; margin: 1.5rem auto; }
+    .report-card { padding: 2rem 1.5rem; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+
+  /* Mobile Responsive Breakpoint */
+  @media only screen and (max-width: 640px) {
+    body {
+      padding-bottom: 2rem;
+    }
+    .top-navbar {
+      padding: 0.65rem 0.85rem;
+    }
+    .nav-inner {
+      gap: 0.5rem;
+    }
+    .brand-logo {
+      font-size: 1.02rem;
+      gap: 0.5rem;
+    }
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+    }
+    .audit-badge {
+      display: none; /* Hide trust badge on narrow mobile to keep header clean */
+    }
+    .nav-link-home {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.65rem;
+    }
+
+    .page {
+      margin: 0.65rem auto;
+      padding: 0 0.5rem;
+    }
+    .report-card {
+      padding: 1.25rem 0.9rem;
+      border-radius: 12px;
+    }
+    .report-header {
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .report-title {
+      font-size: 1.35rem;
+      line-height: 1.25;
+      word-break: break-word;
+    }
+    .target-url {
+      font-size: 0.82rem;
+    }
+    .dateline {
+      font-size: 0.78rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.65rem;
+    }
+    .subtitle {
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* Scorecard */
+    .scorecard-section {
+      padding: 1rem 0.85rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+    }
+    .scorecard-title {
+      font-size: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .metric-box {
+      padding: 0.75rem 0.5rem;
+    }
+    .metric-val {
+      font-size: 1.35rem;
+    }
+    .metric-label {
+      font-size: 0.7rem;
+    }
+    .metric-sub {
+      font-size: 0.68rem;
+    }
+    .tech-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      padding-top: 0.75rem;
+    }
+    .tech-item {
+      display: block;
+      font-size: 0.74rem;
+      line-height: 1.3;
+    }
+
+    /* The One Thing */
+    .one-thing-card {
+      padding: 1.15rem 0.9rem;
+      border-radius: 10px;
+      margin-bottom: 1.75rem;
+    }
+    .one-thing-headline {
+      font-size: 1.02rem;
+    }
+    .one-thing-desc {
+      font-size: 0.88rem;
+    }
+    .steps-list li {
+      font-size: 0.86rem;
+      gap: 0.5rem;
+    }
+    .step-num {
+      width: 20px;
+      height: 20px;
+      font-size: 0.7rem;
+    }
+
+    /* Tables */
+    .cols-table {
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+    .cols {
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+      padding: 0.95rem 0.85rem;
+    }
+    .cols > div:first-child {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .row-title {
+      font-size: 0.92rem;
+    }
+    .tag {
+      margin-top: 0;
+    }
+    .cols p {
+      font-size: 0.86rem;
+    }
+
+    /* Already Working */
+    .plain-list li {
+      padding: 0.75rem 0.85rem;
+      font-size: 0.86rem;
+    }
+    .plain-list .why {
+      font-size: 0.82rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+      border-radius: 12px;
+    }
+    .contact-title {
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+    .contact-subtitle {
+      font-size: 0.88rem;
+      margin-bottom: 1.25rem;
+    }
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    /* Prevent iOS Safari 16px auto-zoom on input focus */
+    .form-input, .form-select, .form-textarea {
+      font-size: 16px !important;
+      padding: 0.75rem 0.85rem;
+    }
+    .btn-submit {
+      width: 100%;
+      font-size: 0.92rem;
+      padding: 0.85rem 1rem;
+    }
+    .contact-sidebar {
+      padding: 1.15rem 1rem;
+    }
+    .btn-wa-direct, .btn-cal-direct {
+      font-size: 0.85rem;
+      padding: 0.75rem 0.85rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
   }
 </style>
 </head>
@@ -717,7 +917,7 @@
             <div class="metric-sub">Blank Screen Duration</div>
           </div>
           <div class="metric-box">
-            <div class="metric-val red">1038ms</div>
+            <div class="metric-val red">1092ms</div>
             <div class="metric-label">Server Latency</div>
             <div class="metric-sub">UAE 5G Cellular</div>
           </div>
