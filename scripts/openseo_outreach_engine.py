@@ -783,14 +783,14 @@ def sync_reports_to_vercel(company_name):
 # ----------------------------------------------------------------------
 # 6. Main Orchestrator
 # ----------------------------------------------------------------------
-def audit_and_dispatch_lead(company_name, website, recipient_email, dry_run=False):
+def audit_and_dispatch_lead(company_name, website, recipient_email, dry_run=False, niche="Real Estate & Development"):
     print(f"\n⚡ Auditing {company_name} ({website})...")
     probe_data = probe_website(website)
     clean_domain = probe_data["clean_domain"]
     slug = clean_domain.replace(".", "_")
 
     # 1. Generate OpenSEO HTML report
-    report_file = generate_openseo_html_report(probe_data, company_name)
+    report_file = generate_openseo_html_report(probe_data, company_name, niche=niche)
     hosted_report_url = f"https://apexflow-digital.vercel.app/reports/{slug}_seo_review"
     if not dry_run:
         sync_reports_to_vercel(company_name)
@@ -842,21 +842,46 @@ def process_batch(csv_path, limit=20, delay=300, dry_run=False):
             email = row.get("Email Address", "").strip() or row.get("Email", "").strip()
             company = row.get("Company Name", "").strip() or row.get("Company", "").strip()
             website = row.get("Website", "").strip()
+            niche = row.get("Industry / Niche", "").strip() or "Real Estate & Commercial"
             if email and "@" in email and email.lower() not in already_sent:
-                targets.append({"email": email, "company": company, "website": website})
+                targets.append({"email": email, "company": company, "website": website, "niche": niche})
 
-    print(f"Discovered {len(targets)} new pending targets. Processing top {min(limit, len(targets))}...\n")
+    batch_targets = targets[:limit]
+    print(f"Discovered {len(targets)} new pending targets. Processing top {len(batch_targets)}...\n")
 
-    for idx, target in enumerate(targets[:limit], 1):
+    # Upfront: Pre-generate all OpenSEO reports & diagnostic cards and push once to Vercel
+    if not dry_run and batch_targets:
+        print("⚡ [Phase 1] Pre-generating OpenSEO reports & diagnostic cards for batch...")
+        for t in batch_targets:
+            try:
+                p = probe_website(t["website"])
+                generate_openseo_html_report(p, t["company"], niche=t["niche"])
+                c_slug = p["clean_domain"].replace(".", "_")
+                generate_diagnostic_card(p, os.path.join(SCREENSHOTS_DIR, f"{c_slug}_card.jpg"))
+            except Exception as pe:
+                print(f"  ⚠️ Warning generating report for {t['company']}: {pe}")
+
+        import subprocess
+        subprocess.run(["git", "add", "reports/"], check=False)
+        res = subprocess.run(["git", "status", "--porcelain", "reports/"], capture_output=True, text=True)
+        if res.stdout.strip():
+            print("🚀 Committing and publishing all batch reports to GitHub & Vercel...")
+            subprocess.run(["git", "commit", "-m", "feat(reports): publish live OpenSEO audits for batch outreach"], check=False)
+            subprocess.run(["git", "push", "origin", "main"], check=False)
+            print("✅ All batch reports are now live on Vercel!\n")
+
+    print("📤 [Phase 2] Starting timed dispatches (1 email every 5 minutes)...\n")
+    for idx, target in enumerate(batch_targets, 1):
         c_name = target["company"]
         c_url = target["website"]
         c_email = target["email"]
+        c_niche = target["niche"]
         ts = datetime.datetime.now().strftime("%H:%M:%S")
-        print(f"[{ts}] ({idx}/{min(limit, len(targets))}) Starting OpenSEO audit & dispatch for: {c_name} <{c_email}>")
+        print(f"[{ts}] ({idx}/{len(batch_targets)}) Dispatching OpenSEO audit email for: {c_name} <{c_email}>")
 
-        audit_and_dispatch_lead(c_name, c_url, c_email, dry_run=dry_run)
+        audit_and_dispatch_lead(c_name, c_url, c_email, dry_run=dry_run, niche=c_niche)
 
-        if idx < min(limit, len(targets)) and not dry_run:
+        if idx < len(batch_targets) and not dry_run:
             next_t = (datetime.datetime.now() + datetime.timedelta(seconds=delay)).strftime("%H:%M:%S")
             print(f"  ⏳ Waiting {delay}s ({delay//60} mins) to protect domain reputation... Next send at {next_t}\n")
             time.sleep(delay)
