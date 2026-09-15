@@ -6,9 +6,14 @@ const fs = require('fs');
 const path = require('path');
 const pino = require('pino');
 
-const AUTH_DIR = path.join(__dirname, '../cache/wa_auth');
-const LEADS_FILE = path.join(__dirname, '../whatsapp_inbound_leads.csv');
-const FOLLOWUP_FILE = path.join(__dirname, '../cache/lead_followups.json');
+const defaultAuthDir = fs.existsSync('/var/data')
+  ? '/var/data/wa_auth'
+  : path.join(__dirname, '../cache/wa_auth');
+const AUTH_DIR = process.env.WA_AUTH_DIR || defaultAuthDir;
+
+const DATA_DIR = process.env.DATA_DIR || (fs.existsSync('/var/data') ? '/var/data' : path.join(__dirname, '..'));
+const LEADS_FILE = process.env.LEADS_FILE || path.join(DATA_DIR, 'whatsapp_inbound_leads.csv');
+const FOLLOWUP_FILE = process.env.FOLLOWUP_FILE || path.join(DATA_DIR, 'cache/lead_followups.json');
 const PORT = process.env.PORT || 3000;
 
 // Sahil personal phone number for instant hot lead alerts
@@ -616,8 +621,8 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`[HTTP] WhatsApp server running at: http://localhost:${PORT}`);
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`[HTTP] WhatsApp server running at: http://0.0.0.0:${PORT}`);
 });
 
 async function startWhatsAppBot() {

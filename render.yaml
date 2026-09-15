@@ -1,21 +1,17 @@
 services:
   - type: web
-    name: apexflow-whatsapp-bot
-    env: node
+    name: apexflow-whatsapp-agent
+    runtime: node
     plan: free
-    region: frankfurt # Low-latency for UAE / Gulf region
+    region: frankfurt
     buildCommand: npm install
-    startCommand: node scripts/whatsapp_agent.js
-    autoDeploy: false # Keeps the container running 24/7 without wiping WhatsApp session on routine commits
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
     envVars:
+      - key: NODE_VERSION
+        value: 20
       - key: OPENROUTER_API_KEY
         sync: false
       - key: SAHIL_PHONE
         value: "918076541146"
-      - key: GOOGLE_MEET_URL
-        value: https://meet.google.com/ksd-sids-trc
-      - key: GROQ_API_KEY
-        sync: false
-      - key: OPENAI_API_KEY
-        sync: false
-
